@@ -1,0 +1,45 @@
+{
+    "promalyV5App": {
+        "building": {
+            "home": {
+                "title": "Buildings",
+                "createLabel": "创建新 Building",
+                "createOrEditLabel": "创建或编辑 Building",
+                "search": "查找 Building"
+            },
+            "created": "Building {{ param }} 创建成功",
+            "updated": "Building {{ param }} 更新成功",
+            "deleted": "Building {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Building {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Building"
+            },
+            "name": "Name",
+            "yearBuilt": "Year Built",
+            "noOfloors": "No Ofloors",
+            "buildingSize": "Building Size",
+            "coveredArea": "Covered Area",
+            "landArea": "Land Area",
+            "noOfRentalUnit": "No Of Rental Unit",
+            "parkingSpaces": "Parking Spaces",
+            "totalSpaceAvaliable": "Total Space Avaliable",
+            "totalUnitLevel": "Total Unit Level",
+            "currentRentPerSqft": "Current Rent Per Sqft",
+            "description": "Description",
+            "version": "Version",
+            "property": "Property",
+            "assetType": "Asset Type",
+            "projectedIncomes": "Projected Incomes",
+            "propertyUnits": "Property Units",
+            "amenities": "Amenities",
+            "expenses": "Expenses",
+            "mortgages": "Mortgages",
+            "rentRoll": "Rent Roll",
+            "owner": "Owner",
+            "company": "Company",
+            "lease": "Lease"
+        }
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "promalyV5App": {
+        "lease": {
+            "home": {
+                "title": "Leases",
+                "createLabel": "Create a new Lease",
+                "createOrEditLabel": "Create or edit a Lease",
+                "search": "Search for Lease"
+            },
+            "created": "A new Lease is created with identifier {{ param }}",
+            "updated": "A Lease is updated with identifier {{ param }}",
+            "deleted": "A Lease is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Lease {{ id }}?"
+            },
+            "detail": {
+                "title": "Lease"
+            },
+            "leaseSignedDate": "Lease Signed Date",
+            "landlordsId": "Landlords Id",
+            "landlordAgent": "Landlord Agent",
+            "tenantsId": "Tenants Id",
+            "addressId": "Address Id",
+            "numOccupants": "Num Occupants",
+            "leaseTerm": "Lease Term",
+            "leaseStartDate": "Lease Start Date",
+            "leaseEndDate": "Lease End Date",
+            "rentAmount": "Rent Amount",
+            "rentPeriod": "Rent Period",
+            "totalTermRent": "Total Term Rent",
+            "rentEscalationPerc": "Rent Escalation Perc",
+            "proRataStartDate": "Pro Rata Start Date",
+            "proRataRentAmount": "Pro Rata Rent Amount",
+            "proRataEndDate": "Pro Rata End Date",
+            "additionalCharges": "Additional Charges",
+            "securityDeposit": "Security Deposit",
+            "petsAllowed": "Pets Allowed",
+            "petType": "Pet Type",
+            "petDescription": "Pet Description",
+            "water": "Water",
+            "gas": "Gas",
+            "electric": "Electric",
+            "otherUtilities": "Other Utilities",
+            "terminationNoticePeriod": "Termination Notice Period",
+            "agencyCompany": "Agency Company",
+            "managementCompany": "Management Company",
+            "propertyId": "Property Id",
+            "additionalNotes": "Additional Notes",
+            "type": "Type",
+            "propertyUnit": "Property Unit",
+            "building": "Building"
+        }
+    }
+}

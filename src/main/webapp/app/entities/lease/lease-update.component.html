@@ -1,0 +1,201 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-lease-heading" jhiTranslate="promalyV5App.lease.home.createOrEditLabel">Create or edit a Lease</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!lease.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="lease.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.leaseSignedDate" for="field_leaseSignedDate">Lease Signed Date</label>
+                    <div class="input-group">
+                        <input id="field_leaseSignedDate" type="text" class="form-control" name="leaseSignedDate" ngbDatepicker  #leaseSignedDateDp="ngbDatepicker" [(ngModel)]="lease.leaseSignedDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="leaseSignedDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.landlordsId" for="field_landlordsId">Landlords Id</label>
+                    <input type="number" class="form-control" name="landlordsId" id="field_landlordsId"
+                        [(ngModel)]="lease.landlordsId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.landlordAgent" for="field_landlordAgent">Landlord Agent</label>
+                    <input type="number" class="form-control" name="landlordAgent" id="field_landlordAgent"
+                        [(ngModel)]="lease.landlordAgent" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.tenantsId" for="field_tenantsId">Tenants Id</label>
+                    <input type="number" class="form-control" name="tenantsId" id="field_tenantsId"
+                        [(ngModel)]="lease.tenantsId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.addressId" for="field_addressId">Address Id</label>
+                    <input type="number" class="form-control" name="addressId" id="field_addressId"
+                        [(ngModel)]="lease.addressId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.numOccupants" for="field_numOccupants">Num Occupants</label>
+                    <input type="number" class="form-control" name="numOccupants" id="field_numOccupants"
+                        [(ngModel)]="lease.numOccupants" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.leaseTerm" for="field_leaseTerm">Lease Term</label>
+                    <input type="number" class="form-control" name="leaseTerm" id="field_leaseTerm"
+                        [(ngModel)]="lease.leaseTerm" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.leaseStartDate" for="field_leaseStartDate">Lease Start Date</label>
+                    <div class="input-group">
+                        <input id="field_leaseStartDate" type="text" class="form-control" name="leaseStartDate" ngbDatepicker  #leaseStartDateDp="ngbDatepicker" [(ngModel)]="lease.leaseStartDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="leaseStartDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.leaseEndDate" for="field_leaseEndDate">Lease End Date</label>
+                    <div class="input-group">
+                        <input id="field_leaseEndDate" type="text" class="form-control" name="leaseEndDate" ngbDatepicker  #leaseEndDateDp="ngbDatepicker" [(ngModel)]="lease.leaseEndDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="leaseEndDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.rentAmount" for="field_rentAmount">Rent Amount</label>
+                    <input type="number" class="form-control" name="rentAmount" id="field_rentAmount"
+                        [(ngModel)]="lease.rentAmount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.rentPeriod" for="field_rentPeriod">Rent Period</label>
+                    <input type="number" class="form-control" name="rentPeriod" id="field_rentPeriod"
+                        [(ngModel)]="lease.rentPeriod" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.totalTermRent" for="field_totalTermRent">Total Term Rent</label>
+                    <input type="number" class="form-control" name="totalTermRent" id="field_totalTermRent"
+                        [(ngModel)]="lease.totalTermRent" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.rentEscalationPerc" for="field_rentEscalationPerc">Rent Escalation Perc</label>
+                    <input type="number" class="form-control" name="rentEscalationPerc" id="field_rentEscalationPerc"
+                        [(ngModel)]="lease.rentEscalationPerc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.proRataStartDate" for="field_proRataStartDate">Pro Rata Start Date</label>
+                    <input type="number" class="form-control" name="proRataStartDate" id="field_proRataStartDate"
+                        [(ngModel)]="lease.proRataStartDate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.proRataRentAmount" for="field_proRataRentAmount">Pro Rata Rent Amount</label>
+                    <input type="number" class="form-control" name="proRataRentAmount" id="field_proRataRentAmount"
+                        [(ngModel)]="lease.proRataRentAmount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.proRataEndDate" for="field_proRataEndDate">Pro Rata End Date</label>
+                    <div class="input-group">
+                        <input id="field_proRataEndDate" type="text" class="form-control" name="proRataEndDate" ngbDatepicker  #proRataEndDateDp="ngbDatepicker" [(ngModel)]="lease.proRataEndDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="proRataEndDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.additionalCharges" for="field_additionalCharges">Additional Charges</label>
+                    <input type="number" class="form-control" name="additionalCharges" id="field_additionalCharges"
+                        [(ngModel)]="lease.additionalCharges" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.securityDeposit" for="field_securityDeposit">Security Deposit</label>
+                    <input type="number" class="form-control" name="securityDeposit" id="field_securityDeposit"
+                        [(ngModel)]="lease.securityDeposit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.petsAllowed" for="field_petsAllowed">Pets Allowed</label>
+                    <input type="checkbox" class="form-control" name="petsAllowed" id="field_petsAllowed"
+                        [(ngModel)]="lease.petsAllowed" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.petType" for="field_petType">Pet Type</label>
+                    <input type="number" class="form-control" name="petType" id="field_petType"
+                        [(ngModel)]="lease.petType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.petDescription" for="field_petDescription">Pet Description</label>
+                    <input type="text" class="form-control" name="petDescription" id="field_petDescription"
+                        [(ngModel)]="lease.petDescription" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.water" for="field_water">Water</label>
+                    <input type="checkbox" class="form-control" name="water" id="field_water"
+                        [(ngModel)]="lease.water" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.gas" for="field_gas">Gas</label>
+                    <input type="checkbox" class="form-control" name="gas" id="field_gas"
+                        [(ngModel)]="lease.gas" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.electric" for="field_electric">Electric</label>
+                    <input type="checkbox" class="form-control" name="electric" id="field_electric"
+                        [(ngModel)]="lease.electric" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.otherUtilities" for="field_otherUtilities">Other Utilities</label>
+                    <input type="text" class="form-control" name="otherUtilities" id="field_otherUtilities"
+                        [(ngModel)]="lease.otherUtilities" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.terminationNoticePeriod" for="field_terminationNoticePeriod">Termination Notice Period</label>
+                    <input type="number" class="form-control" name="terminationNoticePeriod" id="field_terminationNoticePeriod"
+                        [(ngModel)]="lease.terminationNoticePeriod" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.agencyCompany" for="field_agencyCompany">Agency Company</label>
+                    <input type="number" class="form-control" name="agencyCompany" id="field_agencyCompany"
+                        [(ngModel)]="lease.agencyCompany" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.managementCompany" for="field_managementCompany">Management Company</label>
+                    <input type="number" class="form-control" name="managementCompany" id="field_managementCompany"
+                        [(ngModel)]="lease.managementCompany" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.propertyId" for="field_propertyId">Property Id</label>
+                    <input type="number" class="form-control" name="propertyId" id="field_propertyId"
+                        [(ngModel)]="lease.propertyId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.additionalNotes" for="field_additionalNotes">Additional Notes</label>
+                    <input type="text" class="form-control" name="additionalNotes" id="field_additionalNotes"
+                        [(ngModel)]="lease.additionalNotes" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lease.type" for="field_type">Type</label>
+                    <select class="form-control" id="field_type" name="type" [(ngModel)]="lease.typeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lookupOption.id" *ngFor="let lookupOption of types; trackBy: trackLookupById">{{lookupOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

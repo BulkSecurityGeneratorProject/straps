@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="landLord">
+            <h2><span jhiTranslate="promalyV5App.landLord.detail.title">Land Lord</span> {{landLord.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.landLord.contactId">Contact Id</span></dt>
+                <dd>
+                    <span>{{landLord.contactId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.landLord.percentageOwnership">Percentage Ownership</span></dt>
+                <dd>
+                    <span>{{landLord.percentageOwnership}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.landLord.ownershipType">Ownership Type</span></dt>
+                <dd>
+                    <span>{{landLord.ownershipType}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/land-lord', landLord.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

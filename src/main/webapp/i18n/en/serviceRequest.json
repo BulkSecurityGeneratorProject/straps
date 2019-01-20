@@ -1,0 +1,34 @@
+{
+    "promalyV5App": {
+        "serviceRequest": {
+            "home": {
+                "title": "Service Requests",
+                "createLabel": "Create a new Service Request",
+                "createOrEditLabel": "Create or edit a Service Request",
+                "search": "Search for Service Request"
+            },
+            "created": "A new Service Request is created with identifier {{ param }}",
+            "updated": "A Service Request is updated with identifier {{ param }}",
+            "deleted": "A Service Request is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Service Request {{ id }}?"
+            },
+            "detail": {
+                "title": "Service Request"
+            },
+            "companyId": "Company Id",
+            "propertyUnitsId": "Property Units Id",
+            "propertiesId": "Properties Id",
+            "propertyVendorsId": "Property Vendors Id",
+            "category": "Category",
+            "subCategory": "Sub Category",
+            "urgency": "Urgency",
+            "unitId": "Unit Id",
+            "propertyId": "Property Id",
+            "requestDateTime": "Request Date Time",
+            "description": "Description",
+            "assignmentStatus": "Assignment Status",
+            "version": "Version"
+        }
+    }
+}

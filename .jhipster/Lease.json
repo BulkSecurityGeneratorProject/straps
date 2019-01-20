@@ -1,0 +1,159 @@
+{
+    "name": "Lease",
+    "fields": [
+        {
+            "fieldName": "leaseSignedDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "landlordsId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "landlordAgent",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "tenantsId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "addressId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "numOccupants",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "leaseTerm",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "leaseStartDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "leaseEndDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "rentAmount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "rentPeriod",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "totalTermRent",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "rentEscalationPerc",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "proRataStartDate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "proRataRentAmount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "proRataEndDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "additionalCharges",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "securityDeposit",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "petsAllowed",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "petType",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "petDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "water",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "gas",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "electric",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "otherUtilities",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "terminationNoticePeriod",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "agencyCompany",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "managementCompany",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "propertyId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "additionalNotes",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "type",
+            "otherEntityName": "lookup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "lease"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "propertyUnit",
+            "otherEntityName": "propertyUnit",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "lease"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "building",
+            "otherEntityName": "building",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "lease"
+        }
+    ],
+    "changelogDate": "20181221193946",
+    "entityTableName": "lease",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

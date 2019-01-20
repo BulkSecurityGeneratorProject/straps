@@ -1,0 +1,68 @@
+{
+    "name": "ServiceRequest",
+    "fields": [
+        {
+            "fieldName": "companyId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "propertyUnitsId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "propertiesId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "propertyVendorsId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "subCategory",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "urgency",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "unitId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "propertyId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "requestDateTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "assignmentStatus",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181221193951",
+    "entityTableName": "service_request",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

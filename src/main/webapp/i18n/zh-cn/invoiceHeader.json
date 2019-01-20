@@ -1,0 +1,46 @@
+{
+    "promalyV5App": {
+        "invoiceHeader": {
+            "home": {
+                "title": "Invoice Headers",
+                "createLabel": "创建新 Invoice Header",
+                "createOrEditLabel": "创建或编辑 Invoice Header",
+                "search": "查找 Invoice Header"
+            },
+            "created": "Invoice Header {{ param }} 创建成功",
+            "updated": "Invoice Header {{ param }} 更新成功",
+            "deleted": "Invoice Header {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Invoice Header {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Invoice Header"
+            },
+            "planId": "Plan Id",
+            "serviceproviderId": "Serviceprovider Id",
+            "invoiceNum": "Invoice Num",
+            "invoiceDate": "Invoice Date",
+            "invoiceStatus": "Invoice Status",
+            "fromDate": "From Date",
+            "toDate": "To Date",
+            "amount": "Amount",
+            "fees": "Fees",
+            "currency": "Currency",
+            "paymentTerms": "Payment Terms",
+            "paymentStatus": "Payment Status",
+            "paymentMethod": "Payment Method",
+            "paymentDate": "Payment Date",
+            "paymentAmount": "Payment Amount",
+            "paymentRef": "Payment Ref",
+            "comments": "Comments",
+            "adhoc": "Adhoc",
+            "billToCompany": "Bill To Company",
+            "legacy": "Legacy",
+            "payor": "Payor",
+            "paymentComments": "Payment Comments",
+            "emailDate": "Email Date",
+            "emailAddress": "Email Address",
+            "keyHash": "Key Hash"
+        }
+    }
+}

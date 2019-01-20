@@ -1,0 +1,28 @@
+{
+    "promalyV5App": {
+        "incomeProjection": {
+            "home": {
+                "title": "Income Projections",
+                "createLabel": "Create a new Income Projection",
+                "createOrEditLabel": "Create or edit a Income Projection",
+                "search": "Search for Income Projection"
+            },
+            "created": "A new Income Projection is created with identifier {{ param }}",
+            "updated": "A Income Projection is updated with identifier {{ param }}",
+            "deleted": "A Income Projection is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Income Projection {{ id }}?"
+            },
+            "detail": {
+                "title": "Income Projection"
+            },
+            "period": "Period",
+            "projectedValue": "Projected Value",
+            "portfolio": "Portfolio",
+            "property": "Property",
+            "building": "Building",
+            "propertyUnit": "Property Unit",
+            "assetLevelType": "Asset Level Type"
+        }
+    }
+}

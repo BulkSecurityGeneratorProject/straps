@@ -1,0 +1,28 @@
+{
+    "promalyV5App": {
+        "incomeProjection": {
+            "home": {
+                "title": "Income Projections",
+                "createLabel": "创建新 Income Projection",
+                "createOrEditLabel": "创建或编辑 Income Projection",
+                "search": "查找 Income Projection"
+            },
+            "created": "Income Projection {{ param }} 创建成功",
+            "updated": "Income Projection {{ param }} 更新成功",
+            "deleted": "Income Projection {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Income Projection {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Income Projection"
+            },
+            "period": "Period",
+            "projectedValue": "Projected Value",
+            "portfolio": "Portfolio",
+            "property": "Property",
+            "building": "Building",
+            "propertyUnit": "Property Unit",
+            "assetLevelType": "Asset Level Type"
+        }
+    }
+}

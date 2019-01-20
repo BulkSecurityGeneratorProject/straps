@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Building.
+    -->
+    <changeSet id="20181221193932-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="property_id"
+                                 baseTableName="building"
+                                 constraintName="fk_building_property_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="property"/>
+
+        <addForeignKeyConstraint baseColumnNames="asset_type_id"
+                                 baseTableName="building"
+                                 constraintName="fk_building_asset_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lookup"/>
+
+        <addForeignKeyConstraint baseColumnNames="buildings_id"
+                                 baseTableName="building_owner"
+                                 constraintName="fk_building_owner_buildings_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="building"/>
+        <addForeignKeyConstraint baseColumnNames="owners_id"
+                                 baseTableName="building_owner"
+                                 constraintName="fk_building_owner_owners_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="land_lord"/>
+        
+        <addForeignKeyConstraint baseColumnNames="buildings_id"
+                                 baseTableName="building_company"
+                                 constraintName="fk_building_company_buildings_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="building"/>
+        <addForeignKeyConstraint baseColumnNames="companies_id"
+                                 baseTableName="building_company"
+                                 constraintName="fk_building_company_companies_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+        
+        <addForeignKeyConstraint baseColumnNames="buildings_id"
+                                 baseTableName="building_lease"
+                                 constraintName="fk_building_lease_buildings_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="building"/>
+        <addForeignKeyConstraint baseColumnNames="leases_id"
+                                 baseTableName="building_lease"
+                                 constraintName="fk_building_lease_leases_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lease"/>
+        
+    </changeSet>
+</databaseChangeLog>

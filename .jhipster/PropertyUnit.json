@@ -1,0 +1,206 @@
+{
+    "name": "PropertyUnit",
+    "fields": [
+        {
+            "fieldName": "unitNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "floors",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "netArea",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "grossArea",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "residential",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "totalRooms",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "noOfBrs",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "noOfFb",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "noOfHb",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "propertyMailboxNum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "propertyParkingLotNum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gasHeating",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "whoPaysHeating",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "electric",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "whoPaysElectric",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "water",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "whoPaysWater",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lastRenovated",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "currentRentPerSqft",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "building",
+            "otherEntityName": "building",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "address",
+            "otherEntityName": "address",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "usageType",
+            "otherEntityName": "lookup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "status",
+            "otherEntityName": "lookup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "mortgage",
+            "otherEntityName": "mortgage",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "rentRoll",
+            "otherEntityName": "rentRoll",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "projectedIncomes",
+            "otherEntityName": "incomeProjection",
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tenants",
+            "otherEntityName": "tenant",
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "amenities",
+            "otherEntityName": "amenity",
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "expenses",
+            "otherEntityName": "expense",
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mortgages",
+            "otherEntityName": "mortgage",
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "appliances",
+            "otherEntityName": "appliance",
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "rentRoll",
+            "otherEntityName": "rentRoll",
+            "otherEntityRelationshipName": "propertyUnit"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "propertyUnit",
+            "relationshipName": "lease",
+            "otherEntityName": "lease",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "propertyUnit",
+            "relationshipName": "owner",
+            "otherEntityName": "landLord",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20181221193933",
+    "javadoc": "Relationships:\npropertyUnit <-> landlord (many to many)\npropertyUnit <-> address (one to one)\npropertyUnit <-> property unit (many to many)\npropertyUnit <-> usage_type (one to one)\npropertyUnit <-> status (one to one)\npropertyUnit <-> tenants (one to many)\npropertyUnit <-> amenities (one to many)\npropertyUnit <-> lease (one to one)\npropertyUnit <-> mortgage (one to many)",
+    "entityTableName": "property_unit",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

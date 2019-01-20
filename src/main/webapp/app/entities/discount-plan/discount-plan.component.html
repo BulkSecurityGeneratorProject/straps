@@ -1,0 +1,94 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="promalyV5App.discountPlan.home.title">Discount Plans</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-discount-plan" [routerLink]="['/discount-plan/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="promalyV5App.discountPlan.home.createLabel">
+            Create new Discount Plan
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'promalyV5App.discountPlan.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="discountPlans">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="planId"><span jhiTranslate="promalyV5App.discountPlan.planId">Plan Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="planName"><span jhiTranslate="promalyV5App.discountPlan.planName">Plan Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="appliedToPlan"><span jhiTranslate="promalyV5App.discountPlan.appliedToPlan">Applied To Plan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="appliedWithPlan"><span jhiTranslate="promalyV5App.discountPlan.appliedWithPlan">Applied With Plan</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="discountRate"><span jhiTranslate="promalyV5App.discountPlan.discountRate">Discount Rate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="discountUnit"><span jhiTranslate="promalyV5App.discountPlan.discountUnit">Discount Unit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maxDiscountAmt"><span jhiTranslate="promalyV5App.discountPlan.maxDiscountAmt">Max Discount Amt</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span jhiTranslate="promalyV5App.discountPlan.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="conditional"><span jhiTranslate="promalyV5App.discountPlan.conditional">Conditional</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let discountPlan of discountPlans ;trackBy: trackId">
+                <td><a [routerLink]="['/discount-plan', discountPlan.id, 'view' ]">{{discountPlan.id}}</a></td>
+                <td>{{discountPlan.planId}}</td>
+                <td>{{discountPlan.planName}}</td>
+                <td>{{discountPlan.appliedToPlan}}</td>
+                <td>{{discountPlan.appliedWithPlan}}</td>
+                <td>{{discountPlan.discountRate}}</td>
+                <td>{{discountPlan.discountUnit}}</td>
+                <td>{{discountPlan.maxDiscountAmt}}</td>
+                <td>{{discountPlan.description}}</td>
+                <td>{{discountPlan.conditional}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/discount-plan', discountPlan.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/discount-plan', discountPlan.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'discount-plan/'+ discountPlan.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="discountPlans && discountPlans.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

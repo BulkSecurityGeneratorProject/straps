@@ -1,0 +1,116 @@
+{
+    "name": "InvoiceHeader",
+    "fields": [
+        {
+            "fieldName": "planId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "serviceproviderId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "invoiceNum",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "invoiceDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "invoiceStatus",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "fromDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "toDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "fees",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "paymentTerms",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "paymentStatus",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "paymentMethod",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "paymentDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "paymentAmount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "paymentRef",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comments",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adhoc",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "billToCompany",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "legacy",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "payor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paymentComments",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "keyHash",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181221193941",
+    "entityTableName": "invoice_header",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

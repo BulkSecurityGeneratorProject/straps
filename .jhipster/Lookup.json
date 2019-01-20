@@ -1,0 +1,59 @@
+{
+    "name": "Lookup",
+    "fields": [
+        {
+            "fieldName": "companyId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lookupTypesId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lookupCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lookupValue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flex1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flex2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flex3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flex4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "contract",
+            "otherEntityName": "contract",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181221193947",
+    "entityTableName": "lookup",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

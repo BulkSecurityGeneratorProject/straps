@@ -1,0 +1,112 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="promalyV5App.billingPlan.home.title">Billing Plans</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-billing-plan" [routerLink]="['/billing-plan/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="promalyV5App.billingPlan.home.createLabel">
+            Create new Billing Plan
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'promalyV5App.billingPlan.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="billingPlans">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="planName"><span jhiTranslate="promalyV5App.billingPlan.planName">Plan Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="category"><span jhiTranslate="promalyV5App.billingPlan.category">Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="memberType"><span jhiTranslate="promalyV5App.billingPlan.memberType">Member Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span jhiTranslate="promalyV5App.billingPlan.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prorationDesc"><span jhiTranslate="promalyV5App.billingPlan.prorationDesc">Proration Desc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="effectiveDate"><span jhiTranslate="promalyV5App.billingPlan.effectiveDate">Effective Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="effectiveStatus"><span jhiTranslate="promalyV5App.billingPlan.effectiveStatus">Effective Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="association"><span jhiTranslate="promalyV5App.billingPlan.association">Association</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="orderType"><span jhiTranslate="promalyV5App.billingPlan.orderType">Order Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="accountingBook"><span jhiTranslate="promalyV5App.billingPlan.accountingBook">Accounting Book</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rates"><span jhiTranslate="promalyV5App.billingPlan.rates">Rates</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="currency"><span jhiTranslate="promalyV5App.billingPlan.currency">Currency</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="basis"><span jhiTranslate="promalyV5App.billingPlan.basis">Basis</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="initiationFees"><span jhiTranslate="promalyV5App.billingPlan.initiationFees">Initiation Fees</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="coupons"><span jhiTranslate="promalyV5App.billingPlan.coupons">Coupons</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prorated"><span jhiTranslate="promalyV5App.billingPlan.prorated">Prorated</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="glcode"><span jhiTranslate="promalyV5App.billingPlan.glcode">Glcode</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="active"><span jhiTranslate="promalyV5App.billingPlan.active">Active</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let billingPlan of billingPlans ;trackBy: trackId">
+                <td><a [routerLink]="['/billing-plan', billingPlan.id, 'view' ]">{{billingPlan.id}}</a></td>
+                <td>{{billingPlan.planName}}</td>
+                <td>{{billingPlan.category}}</td>
+                <td>{{billingPlan.memberType}}</td>
+                <td>{{billingPlan.description}}</td>
+                <td>{{billingPlan.prorationDesc}}</td>
+                <td>{{billingPlan.effectiveDate | date:'mediumDate'}}</td>
+                <td>{{billingPlan.effectiveStatus}}</td>
+                <td>{{billingPlan.association}}</td>
+                <td>{{billingPlan.orderType}}</td>
+                <td>{{billingPlan.accountingBook}}</td>
+                <td>{{billingPlan.rates}}</td>
+                <td>{{billingPlan.currency}}</td>
+                <td>{{billingPlan.basis}}</td>
+                <td>{{billingPlan.initiationFees}}</td>
+                <td>{{billingPlan.coupons}}</td>
+                <td>{{billingPlan.prorated}}</td>
+                <td>{{billingPlan.glcode}}</td>
+                <td>{{billingPlan.active}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/billing-plan', billingPlan.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/billing-plan', billingPlan.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'billing-plan/'+ billingPlan.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="billingPlans && billingPlans.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

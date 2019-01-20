@@ -1,0 +1,88 @@
+{
+    "name": "BillingPlan",
+    "fields": [
+        {
+            "fieldName": "planName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "memberType",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prorationDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "effectiveDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "effectiveStatus",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "association",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "orderType",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "accountingBook",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "rates",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "basis",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "initiationFees",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "coupons",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prorated",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "glcode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181221193943",
+    "entityTableName": "billing_plan",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

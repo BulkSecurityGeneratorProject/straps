@@ -1,0 +1,103 @@
+{
+    "name": "Address",
+    "fields": [
+        {
+            "fieldName": "locationId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "locationTypeId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "addressTypeId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "addressline1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "addressline2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "addressline3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "postalCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "countryCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tollFreeNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "afterHoursNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "faxNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phonePrefix",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "geocode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181221193934",
+    "entityTableName": "address",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

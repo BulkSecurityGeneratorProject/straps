@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contact">
+            <h2><span jhiTranslate="promalyV5App.contact.detail.title">Contact</span> {{contact.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.contact.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{contact.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.contact.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{contact.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.contact.email">Email</span></dt>
+                <dd>
+                    <span>{{contact.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.contact.phonePrimary">Phone Primary</span></dt>
+                <dd>
+                    <span>{{contact.phonePrimary}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.contact.phoneSecondary">Phone Secondary</span></dt>
+                <dd>
+                    <span>{{contact.phoneSecondary}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.contact.contactType">Contact Type</span></dt>
+                <dd>
+                    <span>{{contact.contactType}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.contact.version">Version</span></dt>
+                <dd>
+                    <span>{{contact.version}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.contact.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="contact.companyId">
+                        <a [routerLink]="['/company', contact.companyId, 'view']">{{contact.companyId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contact', contact.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

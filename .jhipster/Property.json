@@ -1,0 +1,119 @@
+{
+    "name": "Property",
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grossArea",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "netArea",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "portfolio",
+            "otherEntityName": "portfolio",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "address",
+            "otherEntityName": "address",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "usageType",
+            "otherEntityName": "lookup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "status",
+            "otherEntityName": "lookup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "lease",
+            "otherEntityName": "lease",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "projectedIncomes",
+            "otherEntityName": "incomeProjection",
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "amenities",
+            "otherEntityName": "amenity",
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "expenses",
+            "otherEntityName": "expense",
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "buildings",
+            "otherEntityName": "building",
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mortgages",
+            "otherEntityName": "mortgage",
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "rentRoll",
+            "otherEntityName": "rentRoll",
+            "otherEntityRelationshipName": "property"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "property",
+            "relationshipName": "owner",
+            "otherEntityName": "landLord",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "property",
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20181221193931",
+    "entityTableName": "property",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

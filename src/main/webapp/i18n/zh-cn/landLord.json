@@ -1,0 +1,27 @@
+{
+    "promalyV5App": {
+        "landLord": {
+            "home": {
+                "title": "Land Lords",
+                "createLabel": "创建新 Land Lord",
+                "createOrEditLabel": "创建或编辑 Land Lord",
+                "search": "查找 Land Lord"
+            },
+            "created": "Land Lord {{ param }} 创建成功",
+            "updated": "Land Lord {{ param }} 更新成功",
+            "deleted": "Land Lord {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Land Lord {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Land Lord"
+            },
+            "contactId": "Contact Id",
+            "percentageOwnership": "Percentage Ownership",
+            "ownershipType": "Ownership Type",
+            "property": "Property",
+            "building": "Building",
+            "propertyUnit": "Property Unit"
+        }
+    }
+}

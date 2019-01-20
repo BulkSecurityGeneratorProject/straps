@@ -1,0 +1,25 @@
+{
+    "promalyV5App": {
+        "amenity": {
+            "home": {
+                "title": "Amenities",
+                "createLabel": "创建新 Amenity",
+                "createOrEditLabel": "创建或编辑 Amenity",
+                "search": "查找 Amenity"
+            },
+            "created": "Amenity {{ param }} 创建成功",
+            "updated": "Amenity {{ param }} 更新成功",
+            "deleted": "Amenity {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Amenity {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Amenity"
+            },
+            "description": "Description",
+            "property": "Property",
+            "building": "Building",
+            "propertyUnit": "Property Unit"
+        }
+    }
+}

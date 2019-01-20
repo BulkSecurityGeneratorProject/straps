@@ -1,0 +1,57 @@
+{
+    "name": "IncomeProjection",
+    "fields": [
+        {
+            "fieldName": "period",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "projectedValue",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "portfolio",
+            "otherEntityName": "portfolio",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "property",
+            "otherEntityName": "property",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "building",
+            "otherEntityName": "building",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "propertyUnit",
+            "otherEntityName": "propertyUnit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "assetLevelType",
+            "otherEntityName": "lookup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "incomeProjection"
+        }
+    ],
+    "changelogDate": "20181221193958",
+    "entityTableName": "income_projection",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

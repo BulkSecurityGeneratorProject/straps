@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mortgage">
+            <h2><span jhiTranslate="promalyV5App.mortgage.detail.title">Mortgage</span> {{mortgage.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.mortgage.companyId">Company Id</span></dt>
+                <dd>
+                    <span>{{mortgage.companyId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.propertyUnitsId">Property Units Id</span></dt>
+                <dd>
+                    <span>{{mortgage.propertyUnitsId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.borrower">Borrower</span></dt>
+                <dd>
+                    <span>{{mortgage.borrower}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.lender">Lender</span></dt>
+                <dd>
+                    <span>{{mortgage.lender}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{mortgage.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{mortgage.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.amount">Amount</span></dt>
+                <dd>
+                    <span>{{mortgage.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.interestRate">Interest Rate</span></dt>
+                <dd>
+                    <span>{{mortgage.interestRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.balloonPayment">Balloon Payment</span></dt>
+                <dd>
+                    <span>{{mortgage.balloonPayment}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.refinanceOption">Refinance Option</span></dt>
+                <dd>
+                    <span>{{mortgage.refinanceOption}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.amortizationLengthYrs">Amortization Length Yrs</span></dt>
+                <dd>
+                    <span>{{mortgage.amortizationLengthYrs}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.version">Version</span></dt>
+                <dd>
+                    <span>{{mortgage.version}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.property">Property</span></dt>
+                <dd>
+                    <div *ngIf="mortgage.propertyId">
+                        <a [routerLink]="['/property', mortgage.propertyId, 'view']">{{mortgage.propertyId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.building">Building</span></dt>
+                <dd>
+                    <div *ngIf="mortgage.buildingId">
+                        <a [routerLink]="['/building', mortgage.buildingId, 'view']">{{mortgage.buildingId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.mortgage.propertyUnit">Property Unit</span></dt>
+                <dd>
+                    <div *ngIf="mortgage.propertyUnitId">
+                        <a [routerLink]="['/property-unit', mortgage.propertyUnitId, 'view']">{{mortgage.propertyUnitId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mortgage', mortgage.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

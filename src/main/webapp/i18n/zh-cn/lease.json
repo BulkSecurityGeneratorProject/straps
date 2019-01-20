@@ -1,0 +1,54 @@
+{
+    "promalyV5App": {
+        "lease": {
+            "home": {
+                "title": "Leases",
+                "createLabel": "创建新 Lease",
+                "createOrEditLabel": "创建或编辑 Lease",
+                "search": "查找 Lease"
+            },
+            "created": "Lease {{ param }} 创建成功",
+            "updated": "Lease {{ param }} 更新成功",
+            "deleted": "Lease {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Lease {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Lease"
+            },
+            "leaseSignedDate": "Lease Signed Date",
+            "landlordsId": "Landlords Id",
+            "landlordAgent": "Landlord Agent",
+            "tenantsId": "Tenants Id",
+            "addressId": "Address Id",
+            "numOccupants": "Num Occupants",
+            "leaseTerm": "Lease Term",
+            "leaseStartDate": "Lease Start Date",
+            "leaseEndDate": "Lease End Date",
+            "rentAmount": "Rent Amount",
+            "rentPeriod": "Rent Period",
+            "totalTermRent": "Total Term Rent",
+            "rentEscalationPerc": "Rent Escalation Perc",
+            "proRataStartDate": "Pro Rata Start Date",
+            "proRataRentAmount": "Pro Rata Rent Amount",
+            "proRataEndDate": "Pro Rata End Date",
+            "additionalCharges": "Additional Charges",
+            "securityDeposit": "Security Deposit",
+            "petsAllowed": "Pets Allowed",
+            "petType": "Pet Type",
+            "petDescription": "Pet Description",
+            "water": "Water",
+            "gas": "Gas",
+            "electric": "Electric",
+            "otherUtilities": "Other Utilities",
+            "terminationNoticePeriod": "Termination Notice Period",
+            "agencyCompany": "Agency Company",
+            "managementCompany": "Management Company",
+            "propertyId": "Property Id",
+            "additionalNotes": "Additional Notes",
+            "type": "Type",
+            "propertyUnit": "Property Unit",
+            "building": "Building"
+        }
+    }
+}

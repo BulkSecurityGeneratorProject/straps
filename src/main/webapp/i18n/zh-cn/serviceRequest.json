@@ -1,0 +1,34 @@
+{
+    "promalyV5App": {
+        "serviceRequest": {
+            "home": {
+                "title": "Service Requests",
+                "createLabel": "创建新 Service Request",
+                "createOrEditLabel": "创建或编辑 Service Request",
+                "search": "查找 Service Request"
+            },
+            "created": "Service Request {{ param }} 创建成功",
+            "updated": "Service Request {{ param }} 更新成功",
+            "deleted": "Service Request {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Service Request {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Service Request"
+            },
+            "companyId": "Company Id",
+            "propertyUnitsId": "Property Units Id",
+            "propertiesId": "Properties Id",
+            "propertyVendorsId": "Property Vendors Id",
+            "category": "Category",
+            "subCategory": "Sub Category",
+            "urgency": "Urgency",
+            "unitId": "Unit Id",
+            "propertyId": "Property Id",
+            "requestDateTime": "Request Date Time",
+            "description": "Description",
+            "assignmentStatus": "Assignment Status",
+            "version": "Version"
+        }
+    }
+}

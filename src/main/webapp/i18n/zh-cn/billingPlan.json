@@ -1,0 +1,39 @@
+{
+    "promalyV5App": {
+        "billingPlan": {
+            "home": {
+                "title": "Billing Plans",
+                "createLabel": "创建新 Billing Plan",
+                "createOrEditLabel": "创建或编辑 Billing Plan",
+                "search": "查找 Billing Plan"
+            },
+            "created": "Billing Plan {{ param }} 创建成功",
+            "updated": "Billing Plan {{ param }} 更新成功",
+            "deleted": "Billing Plan {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Billing Plan {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Billing Plan"
+            },
+            "planName": "Plan Name",
+            "category": "Category",
+            "memberType": "Member Type",
+            "description": "Description",
+            "prorationDesc": "Proration Desc",
+            "effectiveDate": "Effective Date",
+            "effectiveStatus": "Effective Status",
+            "association": "Association",
+            "orderType": "Order Type",
+            "accountingBook": "Accounting Book",
+            "rates": "Rates",
+            "currency": "Currency",
+            "basis": "Basis",
+            "initiationFees": "Initiation Fees",
+            "coupons": "Coupons",
+            "prorated": "Prorated",
+            "glcode": "Glcode",
+            "active": "Active"
+        }
+    }
+}

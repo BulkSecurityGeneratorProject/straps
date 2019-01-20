@@ -1,0 +1,25 @@
+{
+    "promalyV5App": {
+        "warranty": {
+            "home": {
+                "title": "Warranties",
+                "createLabel": "创建新 Warranty",
+                "createOrEditLabel": "创建或编辑 Warranty",
+                "search": "查找 Warranty"
+            },
+            "created": "Warranty {{ param }} 创建成功",
+            "updated": "Warranty {{ param }} 更新成功",
+            "deleted": "Warranty {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Warranty {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Warranty"
+            },
+            "description": "Description",
+            "serialNum": "Serial Num",
+            "warrantyStartDate": "Warranty Start Date",
+            "warrantyEndDate": "Warranty End Date"
+        }
+    }
+}

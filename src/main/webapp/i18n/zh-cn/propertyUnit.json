@@ -1,0 +1,57 @@
+{
+    "promalyV5App": {
+        "propertyUnit": {
+            "home": {
+                "title": "Property Units",
+                "createLabel": "创建新 Property Unit",
+                "createOrEditLabel": "创建或编辑 Property Unit",
+                "search": "查找 Property Unit"
+            },
+            "created": "Property Unit {{ param }} 创建成功",
+            "updated": "Property Unit {{ param }} 更新成功",
+            "deleted": "Property Unit {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Property Unit {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Property Unit"
+            },
+            "unitNo": "Unit No",
+            "description": "Description",
+            "floors": "Floors",
+            "netArea": "Net Area",
+            "grossArea": "Gross Area",
+            "residential": "Residential",
+            "totalRooms": "Total Rooms",
+            "noOfBrs": "No Of Brs",
+            "noOfFb": "No Of Fb",
+            "noOfHb": "No Of Hb",
+            "propertyMailboxNum": "Property Mailbox Num",
+            "propertyParkingLotNum": "Property Parking Lot Num",
+            "gasHeating": "Gas Heating",
+            "whoPaysHeating": "Who Pays Heating",
+            "electric": "Electric",
+            "whoPaysElectric": "Who Pays Electric",
+            "water": "Water",
+            "whoPaysWater": "Who Pays Water",
+            "lastRenovated": "Last Renovated",
+            "currentRentPerSqft": "Current Rent Per Sqft",
+            "version": "Version",
+            "building": "Building",
+            "address": "Address",
+            "usageType": "Usage Type",
+            "status": "Status",
+            "mortgage": "Mortgage",
+            "rentRoll": "Rent Roll",
+            "projectedIncomes": "Projected Incomes",
+            "tenants": "Tenants",
+            "amenities": "Amenities",
+            "expenses": "Expenses",
+            "mortgages": "Mortgages",
+            "appliances": "Appliances",
+            "rentRoll": "Rent Roll",
+            "lease": "Lease",
+            "owner": "Owner"
+        }
+    }
+}

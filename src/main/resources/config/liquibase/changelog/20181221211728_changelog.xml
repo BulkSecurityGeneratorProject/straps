@@ -1,0 +1,931 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="sandeepde (generated)" id="1545427059511-1">
+        <createTable tableName="address">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="addressPK"/>
+            </column>
+            <column name="address_type_id" type="BIGINT"/>
+            <column name="addressline_1" type="VARCHAR(255)"/>
+            <column name="addressline_2" type="VARCHAR(255)"/>
+            <column name="addressline_3" type="VARCHAR(255)"/>
+            <column name="after_hours_number" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="country" type="VARCHAR(255)"/>
+            <column name="country_code" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="email_address" type="VARCHAR(255)"/>
+            <column name="fax_number" type="VARCHAR(255)"/>
+            <column name="geocode" type="VARCHAR(255)"/>
+            <column name="location_id" type="BIGINT"/>
+            <column name="location_type_id" type="BIGINT"/>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="phone_prefix" type="VARCHAR(255)"/>
+            <column name="postal_code" type="VARCHAR(255)"/>
+            <column name="state" type="VARCHAR(255)"/>
+            <column name="toll_free_number" type="VARCHAR(255)"/>
+            <column name="version" type="VARCHAR(255)"/>
+            <column name="company_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-2">
+        <createTable tableName="amenity">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="amenityPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="building_id" type="BIGINT"/>
+            <column name="property_id" type="BIGINT"/>
+            <column name="property_unit_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-3">
+        <createTable tableName="appliance">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="appliancePK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="serial_num" type="VARCHAR(255)"/>
+            <column name="warranty_end_date" type="TINYBLOB"/>
+            <column name="warranty_start_date" type="TINYBLOB"/>
+            <column name="property_unit_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-4">
+        <createTable tableName="billing_plan">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="billing_planPK"/>
+            </column>
+            <column name="accounting_book" type="BIGINT"/>
+            <column name="active" type="BIT"/>
+            <column name="association" type="VARCHAR(255)"/>
+            <column name="basis" type="BIGINT"/>
+            <column name="category" type="BIGINT"/>
+            <column name="coupons" type="VARCHAR(255)"/>
+            <column name="currency" type="BIGINT"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="effective_date" type="TINYBLOB"/>
+            <column name="effective_status" type="BIGINT"/>
+            <column name="glcode" type="VARCHAR(255)"/>
+            <column name="initiation_fees" type="DOUBLE"/>
+            <column name="member_type" type="BIGINT"/>
+            <column name="order_type" type="BIGINT"/>
+            <column name="plan_name" type="VARCHAR(255)"/>
+            <column name="prorated" type="BIT"/>
+            <column name="proration_desc" type="VARCHAR(255)"/>
+            <column name="rates" type="DOUBLE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-5">
+        <createTable tableName="building">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="buildingPK"/>
+            </column>
+            <column name="building_size" type="DOUBLE"/>
+            <column name="covered_area" type="DOUBLE"/>
+            <column name="current_rent_per_sqft" type="DOUBLE"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="land_area" type="DOUBLE"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="no_of_rental_unit" type="BIGINT"/>
+            <column name="no_ofloors" type="BIGINT"/>
+            <column name="parking_spaces" type="BIGINT"/>
+            <column name="total_space_avaliable" type="DOUBLE"/>
+            <column name="total_unit_level" type="BIGINT"/>
+            <column name="version" type="VARCHAR(255)"/>
+            <column name="year_built" type="TINYBLOB"/>
+            <column name="asset_type_id" type="BIGINT"/>
+            <column name="property_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-6">
+        <createTable tableName="building_company">
+            <column name="buildings_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="companies_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-7">
+        <createTable tableName="building_lease">
+            <column name="buildings_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="leases_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-8">
+        <createTable tableName="building_owner">
+            <column name="buildings_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owners_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-9">
+        <createTable tableName="company">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="companyPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="version" type="VARCHAR(255)"/>
+            <column name="type_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-10">
+        <createTable tableName="company_capability">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="company_capabilityPK"/>
+            </column>
+            <column name="capability_id" type="BIGINT"/>
+            <column name="certfication" type="BIGINT"/>
+            <column name="license" type="BIGINT"/>
+            <column name="company_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-11">
+        <createTable tableName="contact">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="contactPK"/>
+            </column>
+            <column name="contact_type" type="BIGINT"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="phone_primary" type="VARCHAR(255)"/>
+            <column name="phone_secondary" type="VARCHAR(255)"/>
+            <column name="version" type="VARCHAR(255)"/>
+            <column name="company_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-12">
+        <createTable tableName="contract">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="contractPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="end_date" type="TINYBLOB"/>
+            <column name="start_date" type="TINYBLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-13">
+        <createTable tableName="contract_company">
+            <column name="contracts_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="companies_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-14">
+        <createTable tableName="contract_management_company">
+            <column name="contracts_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="management_companies_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-15">
+        <createTable tableName="discount_plan">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="discount_planPK"/>
+            </column>
+            <column name="applied_to_plan" type="BIGINT"/>
+            <column name="applied_with_plan" type="BIGINT"/>
+            <column name="conditional" type="BIT"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="discount_rate" type="DOUBLE"/>
+            <column name="discount_unit" type="BIGINT"/>
+            <column name="max_discount_amt" type="DOUBLE"/>
+            <column name="plan_id" type="BIGINT"/>
+            <column name="plan_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-16">
+        <createTable tableName="document_store">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="document_storePK"/>
+            </column>
+            <column name="category" type="BIGINT"/>
+            <column name="entity_id" type="BIGINT"/>
+            <column name="entity_name" type="VARCHAR(255)"/>
+            <column name="path" type="VARCHAR(255)"/>
+            <column name="sub_category" type="BIGINT"/>
+            <column name="version" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-17">
+        <createTable tableName="expense">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="expensePK"/>
+            </column>
+            <column name="amount" type="DOUBLE"/>
+            <column name="currency" type="BIGINT"/>
+            <column name="building_id" type="BIGINT"/>
+            <column name="property_id" type="BIGINT"/>
+            <column name="property_unit_id" type="BIGINT"/>
+            <column name="type_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-18">
+        <createTable tableName="feature">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="featurePK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="type_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-19">
+        <createTable tableName="income_projection">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="income_projectionPK"/>
+            </column>
+            <column name="period" type="INT"/>
+            <column name="projected_value" type="DOUBLE"/>
+            <column name="asset_level_type_id" type="BIGINT"/>
+            <column name="building_id" type="BIGINT"/>
+            <column name="portfolio_id" type="BIGINT"/>
+            <column name="property_id" type="BIGINT"/>
+            <column name="property_unit_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-20">
+        <createTable tableName="invoice_header">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="invoice_headerPK"/>
+            </column>
+            <column name="adhoc" type="BIT"/>
+            <column name="amount" type="DOUBLE"/>
+            <column name="bill_to_company" type="BIGINT"/>
+            <column name="comments" type="VARCHAR(255)"/>
+            <column name="currency" type="BIGINT"/>
+            <column name="email_address" type="VARCHAR(255)"/>
+            <column name="email_date" type="VARCHAR(255)"/>
+            <column name="fees" type="DOUBLE"/>
+            <column name="from_date" type="TINYBLOB"/>
+            <column name="invoice_date" type="TINYBLOB"/>
+            <column name="invoice_num" type="BIGINT"/>
+            <column name="invoice_status" type="BIGINT"/>
+            <column name="key_hash" type="VARCHAR(255)"/>
+            <column name="legacy" type="BIT"/>
+            <column name="payment_amount" type="DOUBLE"/>
+            <column name="payment_comments" type="VARCHAR(255)"/>
+            <column name="payment_date" type="TINYBLOB"/>
+            <column name="payment_method" type="BIGINT"/>
+            <column name="payment_ref" type="VARCHAR(255)"/>
+            <column name="payment_status" type="BIGINT"/>
+            <column name="payment_terms" type="BIGINT"/>
+            <column name="payor" type="VARCHAR(255)"/>
+            <column name="plan_id" type="BIGINT"/>
+            <column name="serviceprovider_id" type="BIGINT"/>
+            <column name="to_date" type="TINYBLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-21">
+        <createTable tableName="invoice_line">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="invoice_linePK"/>
+            </column>
+            <column name="amount" type="DOUBLE"/>
+            <column name="category_id" type="BIGINT"/>
+            <column name="currency" type="BIGINT"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="invoice_id" type="BIGINT"/>
+            <column name="line_num" type="BIGINT"/>
+            <column name="plan_id" type="BIGINT"/>
+            <column name="quantity" type="DOUBLE"/>
+            <column name="rate" type="DOUBLE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-22">
+        <createTable tableName="jhi_authority">
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-23">
+        <createTable tableName="jhi_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+            </column>
+            <column name="event_date" type="TINYBLOB"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+            <column name="principal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-24">
+        <createTable tableName="jhi_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-25">
+        <createTable tableName="jhi_user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_userPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="activated" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(254)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="image_url" type="VARCHAR(256)"/>
+            <column name="lang_key" type="VARCHAR(6)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_hash" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reset_date" type="TINYBLOB"/>
+            <column name="reset_key" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-26">
+        <createTable tableName="jhi_user_authority">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-27">
+        <createTable tableName="land_lord">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="land_lordPK"/>
+            </column>
+            <column name="contact_id" type="BIGINT"/>
+            <column name="ownership_type" type="BIGINT"/>
+            <column name="percentage_ownership" type="DOUBLE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-28">
+        <createTable tableName="lease">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="leasePK"/>
+            </column>
+            <column name="additional_charges" type="DOUBLE"/>
+            <column name="additional_notes" type="VARCHAR(255)"/>
+            <column name="address_id" type="BIGINT"/>
+            <column name="agency_company" type="BIGINT"/>
+            <column name="electric" type="BIT"/>
+            <column name="gas" type="BIT"/>
+            <column name="landlord_agent" type="BIGINT"/>
+            <column name="landlords_id" type="BIGINT"/>
+            <column name="lease_end_date" type="TINYBLOB"/>
+            <column name="lease_signed_date" type="TINYBLOB"/>
+            <column name="lease_start_date" type="TINYBLOB"/>
+            <column name="lease_term" type="BIGINT"/>
+            <column name="management_company" type="BIGINT"/>
+            <column name="num_occupants" type="BIGINT"/>
+            <column name="other_utilities" type="VARCHAR(255)"/>
+            <column name="pet_description" type="VARCHAR(255)"/>
+            <column name="pet_type" type="BIGINT"/>
+            <column name="pets_allowed" type="BIT"/>
+            <column name="pro_rata_end_date" type="TINYBLOB"/>
+            <column name="pro_rata_rent_amount" type="DOUBLE"/>
+            <column name="pro_rata_start_date" type="DOUBLE"/>
+            <column name="property_id" type="BIGINT"/>
+            <column name="rent_amount" type="DOUBLE"/>
+            <column name="rent_escalation_perc" type="DOUBLE"/>
+            <column name="rent_period" type="BIGINT"/>
+            <column name="security_deposit" type="DOUBLE"/>
+            <column name="tenants_id" type="BIGINT"/>
+            <column name="termination_notice_period" type="BIGINT"/>
+            <column name="total_term_rent" type="DOUBLE"/>
+            <column name="water" type="BIT"/>
+            <column name="type_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-29">
+        <createTable tableName="lookup">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="lookupPK"/>
+            </column>
+            <column name="company_id" type="BIGINT"/>
+            <column name="flex_1" type="VARCHAR(255)"/>
+            <column name="flex_2" type="VARCHAR(255)"/>
+            <column name="flex_3" type="VARCHAR(255)"/>
+            <column name="flex_4" type="VARCHAR(255)"/>
+            <column name="lookup_code" type="VARCHAR(255)"/>
+            <column name="lookup_types_id" type="BIGINT"/>
+            <column name="lookup_value" type="VARCHAR(255)"/>
+            <column name="version" type="VARCHAR(255)"/>
+            <column name="contract_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-30">
+        <createTable tableName="lookup_type">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="lookup_typePK"/>
+            </column>
+            <column name="company_id" type="BIGINT"/>
+            <column name="flex_1_descr" type="VARCHAR(255)"/>
+            <column name="flex_2_descr" type="VARCHAR(255)"/>
+            <column name="flex_3_descr" type="VARCHAR(255)"/>
+            <column name="flex_4_descr" type="VARCHAR(255)"/>
+            <column name="lookup_type_code" type="VARCHAR(255)"/>
+            <column name="lookup_type_value" type="VARCHAR(255)"/>
+            <column name="version" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-31">
+        <createTable tableName="mortgage">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="mortgagePK"/>
+            </column>
+            <column name="amortization_length_yrs" type="INT"/>
+            <column name="amount" type="DOUBLE"/>
+            <column name="balloon_payment" type="DOUBLE"/>
+            <column name="borrower" type="BIGINT"/>
+            <column name="company_id" type="BIGINT"/>
+            <column name="end_date" type="TINYBLOB"/>
+            <column name="interest_rate" type="DOUBLE"/>
+            <column name="lender" type="BIGINT"/>
+            <column name="property_units_id" type="BIGINT"/>
+            <column name="refinance_option" type="BIT"/>
+            <column name="start_date" type="TINYBLOB"/>
+            <column name="version" type="VARCHAR(255)"/>
+            <column name="building_id" type="BIGINT"/>
+            <column name="property_id" type="BIGINT"/>
+            <column name="property_unit_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-32">
+        <createTable tableName="notes">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="notesPK"/>
+            </column>
+            <column name="note" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-33">
+        <createTable tableName="portfolio">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="portfolioPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-34">
+        <createTable tableName="property">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="propertyPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="gross_area" type="DOUBLE"/>
+            <column name="net_area" type="DOUBLE"/>
+            <column name="address_id" type="BIGINT"/>
+            <column name="lease_id" type="BIGINT"/>
+            <column name="portfolio_id" type="BIGINT"/>
+            <column name="status_id" type="BIGINT"/>
+            <column name="usage_type_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-35">
+        <createTable tableName="property_company">
+            <column name="properties_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="companies_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-36">
+        <createTable tableName="property_owner">
+            <column name="properties_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owners_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-37">
+        <createTable tableName="property_unit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="property_unitPK"/>
+            </column>
+            <column name="current_rent_per_sqft" type="DOUBLE"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="electric" type="BIT"/>
+            <column name="floors" type="BIGINT"/>
+            <column name="gas_heating" type="BIT"/>
+            <column name="gross_area" type="DOUBLE"/>
+            <column name="last_renovated" type="TINYBLOB"/>
+            <column name="net_area" type="DOUBLE"/>
+            <column name="no_of_brs" type="INT"/>
+            <column name="no_of_fb" type="INT"/>
+            <column name="no_of_hb" type="INT"/>
+            <column name="property_mailbox_num" type="VARCHAR(255)"/>
+            <column name="property_parking_lot_num" type="VARCHAR(255)"/>
+            <column name="residential" type="BIT"/>
+            <column name="total_rooms" type="INT"/>
+            <column name="unit_no" type="VARCHAR(255)"/>
+            <column name="version" type="BIGINT"/>
+            <column name="water" type="BIT"/>
+            <column name="who_pays_electric" type="BIGINT"/>
+            <column name="who_pays_heating" type="BIGINT"/>
+            <column name="who_pays_water" type="BIGINT"/>
+            <column name="address_id" type="BIGINT"/>
+            <column name="building_id" type="BIGINT"/>
+            <column name="mortgage_id" type="BIGINT"/>
+            <column name="rent_roll_id" type="BIGINT"/>
+            <column name="status_id" type="BIGINT"/>
+            <column name="usage_type_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-38">
+        <createTable tableName="property_unit_lease">
+            <column name="property_units_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="leases_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-39">
+        <createTable tableName="property_unit_owner">
+            <column name="property_units_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owners_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-40">
+        <createTable tableName="property_vendor">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="property_vendorPK"/>
+            </column>
+            <column name="company_id" type="BIGINT"/>
+            <column name="end_date" type="TINYBLOB"/>
+            <column name="ranking" type="BIGINT"/>
+            <column name="start_date" type="TINYBLOB"/>
+            <column name="version" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-41">
+        <createTable tableName="rent_roll">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="rent_rollPK"/>
+            </column>
+            <column name="bank_guarantee" type="DOUBLE"/>
+            <column name="lease_recovery_timing" type="DOUBLE"/>
+            <column name="security_deposit" type="DOUBLE"/>
+            <column name="building_id" type="BIGINT"/>
+            <column name="inflation_type_id" type="BIGINT"/>
+            <column name="property_id" type="BIGINT"/>
+            <column name="property_unit_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-42">
+        <createTable tableName="service_request">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="service_requestPK"/>
+            </column>
+            <column name="assignment_status" type="BIGINT"/>
+            <column name="category" type="BIGINT"/>
+            <column name="company_id" type="BIGINT"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="properties_id" type="BIGINT"/>
+            <column name="property_id" type="BIGINT"/>
+            <column name="property_units_id" type="BIGINT"/>
+            <column name="property_vendors_id" type="BIGINT"/>
+            <column name="request_date_time" type="TINYBLOB"/>
+            <column name="sub_category" type="BIGINT"/>
+            <column name="unit_id" type="BIGINT"/>
+            <column name="urgency" type="BIGINT"/>
+            <column name="version" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-43">
+        <createTable tableName="tenant">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="tenantPK"/>
+            </column>
+            <column name="contact" type="BIGINT"/>
+            <column name="lease_id" type="BIGINT"/>
+            <column name="property_unit_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-44">
+        <createTable tableName="warranty">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="warrantyPK"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="serial_num" type="VARCHAR(255)"/>
+            <column name="warranty_end_date" type="TINYBLOB"/>
+            <column name="warranty_start_date" type="TINYBLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-45">
+        <addPrimaryKey columnNames="buildings_id, companies_id" tableName="building_company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-46">
+        <addPrimaryKey columnNames="buildings_id, leases_id" tableName="building_lease"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-47">
+        <addPrimaryKey columnNames="buildings_id, owners_id" tableName="building_owner"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-48">
+        <addPrimaryKey columnNames="contracts_id, companies_id" tableName="contract_company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-49">
+        <addPrimaryKey columnNames="contracts_id, management_companies_id" tableName="contract_management_company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-50">
+        <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-51">
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-52">
+        <addPrimaryKey columnNames="properties_id, companies_id" tableName="property_company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-53">
+        <addPrimaryKey columnNames="properties_id, owners_id" tableName="property_owner"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-54">
+        <addPrimaryKey columnNames="property_units_id, leases_id" tableName="property_unit_lease"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-55">
+        <addPrimaryKey columnNames="property_units_id, owners_id" tableName="property_unit_owner"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-56">
+        <addPrimaryKey columnNames="name" constraintName="jhi_authorityPK" tableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-57">
+        <addUniqueConstraint columnNames="asset_type_id" constraintName="UC_BUILDINGASSET_TYPE_ID_COL" tableName="building"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-58">
+        <addUniqueConstraint columnNames="type_id" constraintName="UC_COMPANYTYPE_ID_COL" tableName="company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-59">
+        <addUniqueConstraint columnNames="type_id" constraintName="UC_EXPENSETYPE_ID_COL" tableName="expense"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-60">
+        <addUniqueConstraint columnNames="type_id" constraintName="UC_FEATURETYPE_ID_COL" tableName="feature"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-61">
+        <addUniqueConstraint columnNames="asset_level_type_id" constraintName="UC_INCOME_PROJECTIONASSET_LEVEL_TYPE_ID_COL" tableName="income_projection"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-62">
+        <addUniqueConstraint columnNames="email" constraintName="UC_JHI_USEREMAIL_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-63">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-64">
+        <addUniqueConstraint columnNames="type_id" constraintName="UC_LEASETYPE_ID_COL" tableName="lease"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-65">
+        <addUniqueConstraint columnNames="address_id" constraintName="UC_PROPERTYADDRESS_ID_COL" tableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-66">
+        <addUniqueConstraint columnNames="lease_id" constraintName="UC_PROPERTYLEASE_ID_COL" tableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-67">
+        <addUniqueConstraint columnNames="status_id" constraintName="UC_PROPERTYSTATUS_ID_COL" tableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-68">
+        <addUniqueConstraint columnNames="usage_type_id" constraintName="UC_PROPERTYUSAGE_TYPE_ID_COL" tableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-69">
+        <addUniqueConstraint columnNames="address_id" constraintName="UC_PROPERTY_UNITADDRESS_ID_COL" tableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-70">
+        <addUniqueConstraint columnNames="mortgage_id" constraintName="UC_PROPERTY_UNITMORTGAGE_ID_COL" tableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-71">
+        <addUniqueConstraint columnNames="rent_roll_id" constraintName="UC_PROPERTY_UNITRENT_ROLL_ID_COL" tableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-72">
+        <addUniqueConstraint columnNames="status_id" constraintName="UC_PROPERTY_UNITSTATUS_ID_COL" tableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-73">
+        <addUniqueConstraint columnNames="usage_type_id" constraintName="UC_PROPERTY_UNITUSAGE_TYPE_ID_COL" tableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-74">
+        <addUniqueConstraint columnNames="inflation_type_id" constraintName="UC_RENT_ROLLINFLATION_TYPE_ID_COL" tableName="rent_roll"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-75">
+        <addForeignKeyConstraint baseColumnNames="building_id" baseTableName="amenity" constraintName="FK1qd5tk1objcnc4rg2rlnqcwr7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="building"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-76">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-77">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-78">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="lease" constraintName="FK2hbg2bk7tyr61gle7un5utr6r" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-79">
+        <addForeignKeyConstraint baseColumnNames="buildings_id" baseTableName="building_company" constraintName="FK37kldvls4wrn6t34lfm00pioj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="building"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-80">
+        <addForeignKeyConstraint baseColumnNames="rent_roll_id" baseTableName="property_unit" constraintName="FK3dxeoqrf7htiuiag7hlsr67u1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="rent_roll"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-81">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="building" constraintName="FK3m7yu8fp6seyuracfq6i22i4g" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-82">
+        <addForeignKeyConstraint baseColumnNames="portfolio_id" baseTableName="property" constraintName="FK4exb4mihw9mpuexnuniou7kpr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="portfolio"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-83">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-84">
+        <addForeignKeyConstraint baseColumnNames="asset_type_id" baseTableName="building" constraintName="FK4t7dneavislbsbrgxh5gxxdlu" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-85">
+        <addForeignKeyConstraint baseColumnNames="contracts_id" baseTableName="contract_management_company" constraintName="FK569dqwackphwpchd3fobdqiw8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="contract"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-86">
+        <addForeignKeyConstraint baseColumnNames="leases_id" baseTableName="property_unit_lease" constraintName="FK5jblcdg6hb9d6dlby2ht99ab5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lease"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-87">
+        <addForeignKeyConstraint baseColumnNames="property_unit_id" baseTableName="appliance" constraintName="FK6pkvtfprpsfa29f1oc80d86yy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-88">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="property_unit" constraintName="FK71rhih5a0rh301b9lufqcxn0d" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-89">
+        <addForeignKeyConstraint baseColumnNames="company_id" baseTableName="address" constraintName="FK8263jp74f5k4gbslhc2crs1te" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-90">
+        <addForeignKeyConstraint baseColumnNames="company_id" baseTableName="company_capability" constraintName="FK8g29xvk9y0t4dnqtdvkfpuxmk" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-91">
+        <addForeignKeyConstraint baseColumnNames="management_companies_id" baseTableName="contract_management_company" constraintName="FK8une2rnc2x050tvjbg01xmd50" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-92">
+        <addForeignKeyConstraint baseColumnNames="building_id" baseTableName="rent_roll" constraintName="FK8vh6u6on3vrr6y3jmk07pnnap" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="building"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-93">
+        <addForeignKeyConstraint baseColumnNames="portfolio_id" baseTableName="income_projection" constraintName="FK9cp6e6x2frhw6gl7gbncregm2" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="portfolio"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-94">
+        <addForeignKeyConstraint baseColumnNames="companies_id" baseTableName="property_company" constraintName="FKag2m0986bx3smq4ojjd9mtexp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-95">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="income_projection" constraintName="FKb1uv94qfb3adr7k2gq00tt8g6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-96">
+        <addForeignKeyConstraint baseColumnNames="owners_id" baseTableName="property_owner" constraintName="FKbjmh9mn12rvo8sifoc92cn855" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="land_lord"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-97">
+        <addForeignKeyConstraint baseColumnNames="property_unit_id" baseTableName="rent_roll" constraintName="FKcmli1rt590puwwbkqp6i6do6q" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-98">
+        <addForeignKeyConstraint baseColumnNames="mortgage_id" baseTableName="property_unit" constraintName="FKddd3562av31nqis8gryrn0e7q" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="mortgage"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-99">
+        <addForeignKeyConstraint baseColumnNames="asset_level_type_id" baseTableName="income_projection" constraintName="FKdwhyv2ppghivimbpt9p8hqfe4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-100">
+        <addForeignKeyConstraint baseColumnNames="buildings_id" baseTableName="building_lease" constraintName="FKe1fh9qs5cqgtqlfmwbbx3n2ss" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="building"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-101">
+        <addForeignKeyConstraint baseColumnNames="owners_id" baseTableName="building_owner" constraintName="FKe4kd94cl4skysv4f800arcsyc" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="land_lord"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-102">
+        <addForeignKeyConstraint baseColumnNames="property_unit_id" baseTableName="income_projection" constraintName="FKf0cjcdt78aysrpj34r25twosp" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-103">
+        <addForeignKeyConstraint baseColumnNames="properties_id" baseTableName="property_company" constraintName="FKffk36uj1mr51wmnl210gft9cf" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-104">
+        <addForeignKeyConstraint baseColumnNames="building_id" baseTableName="expense" constraintName="FKfmbq9r3x6ofj1iys14j9qodqq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="building"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-105">
+        <addForeignKeyConstraint baseColumnNames="companies_id" baseTableName="building_company" constraintName="FKfn4jhur5wbv4plyhydyf3d81s" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-106">
+        <addForeignKeyConstraint baseColumnNames="properties_id" baseTableName="property_owner" constraintName="FKfq186mdb6v683337d0048gyb7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-107">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="property" constraintName="FKgcduyfiunk1ewg7920pw4l3o9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="address"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-108">
+        <addForeignKeyConstraint baseColumnNames="building_id" baseTableName="mortgage" constraintName="FKgx0gdxblcwlyf0p35eq5fktl8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="building"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-109">
+        <addForeignKeyConstraint baseColumnNames="property_units_id" baseTableName="property_unit_lease" constraintName="FKhjs6omj7q0jvoqcw3tgsypmeu" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-110">
+        <addForeignKeyConstraint baseColumnNames="usage_type_id" baseTableName="property" constraintName="FKiwn621dbqcn1rw3ikkojyvyd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-111">
+        <addForeignKeyConstraint baseColumnNames="buildings_id" baseTableName="building_owner" constraintName="FKjdtk2fqvpdtngrqrd0rgo8b9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="building"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-112">
+        <addForeignKeyConstraint baseColumnNames="property_unit_id" baseTableName="expense" constraintName="FKjf5pe6932cd549ykvk4j7yaoq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-113">
+        <addForeignKeyConstraint baseColumnNames="usage_type_id" baseTableName="property_unit" constraintName="FKjvcie23nhacdmgm1ol1lnct9p" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-114">
+        <addForeignKeyConstraint baseColumnNames="lease_id" baseTableName="property" constraintName="FKkpl6wo8dq4fi4ka836xejmcxj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lease"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-115">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="mortgage" constraintName="FKkq76j71alprn2os0cn5sm8sen" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-116">
+        <addForeignKeyConstraint baseColumnNames="contracts_id" baseTableName="contract_company" constraintName="FKla1814ivb3fghuuh2hdk1pqdt" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="contract"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-117">
+        <addForeignKeyConstraint baseColumnNames="companies_id" baseTableName="contract_company" constraintName="FKluwcb9fywwfo06b3qq8aqqh32" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-118">
+        <addForeignKeyConstraint baseColumnNames="owners_id" baseTableName="property_unit_owner" constraintName="FKlx7owma3vmaie69q81y565br9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="land_lord"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-119">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="feature" constraintName="FKmcjx0rhgol2exd9bs2y4pu87" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-120">
+        <addForeignKeyConstraint baseColumnNames="building_id" baseTableName="property_unit" constraintName="FKndqkl4s5rbv6mjs6nhtvbn72d" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="building"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-121">
+        <addForeignKeyConstraint baseColumnNames="property_unit_id" baseTableName="mortgage" constraintName="FKng0sjrwi6quq20d23t7rctt3q" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-122">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="rent_roll" constraintName="FKntpk587lsdw6ns1i2mm611ys6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-123">
+        <addForeignKeyConstraint baseColumnNames="building_id" baseTableName="income_projection" constraintName="FKnv4xquh2smtvsaww590687r1i" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="building"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-124">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="amenity" constraintName="FKoiyvtkfwlmgakphvh8tn7dv9s" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-125">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="company" constraintName="FKovxx71cjngk14t8yah0ku7yu4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-126">
+        <addForeignKeyConstraint baseColumnNames="company_id" baseTableName="contact" constraintName="FKpgbqt6dnai52x55o1qvsx1dfn" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="company"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-127">
+        <addForeignKeyConstraint baseColumnNames="property_units_id" baseTableName="property_unit_owner" constraintName="FKpvw9u6buvmt5ufil1696ypudm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-128">
+        <addForeignKeyConstraint baseColumnNames="property_id" baseTableName="expense" constraintName="FKq1yuegh16my0f143mub4u8frt" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-129">
+        <addForeignKeyConstraint baseColumnNames="leases_id" baseTableName="building_lease" constraintName="FKq9yll3oq2km9wdoqfae51gahy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lease"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-130">
+        <addForeignKeyConstraint baseColumnNames="property_unit_id" baseTableName="amenity" constraintName="FKqofi7f3x39276j97icbht9gye" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-131">
+        <addForeignKeyConstraint baseColumnNames="inflation_type_id" baseTableName="rent_roll" constraintName="FKqw5gxefhaiwmax25xmopdhjbh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-132">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="expense" constraintName="FKs3x8wh1iwfgh999r1dku4a5j1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-133">
+        <addForeignKeyConstraint baseColumnNames="property_unit_id" baseTableName="tenant" constraintName="FKs8tuopney2pmwq3gs3tc6i5gb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="property_unit"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-134">
+        <addForeignKeyConstraint baseColumnNames="contract_id" baseTableName="lookup" constraintName="FKt22khgcyy0pfhqvqa9jj9nbb6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="contract"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-135">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="property_unit" constraintName="FKtbhwkmibs5pop56rwwnqe3224" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="address"/>
+    </changeSet>
+    <changeSet author="sandeepde (generated)" id="1545427059511-136">
+        <addForeignKeyConstraint baseColumnNames="status_id" baseTableName="property" constraintName="FKtipi858yledeyuue6gdw14tgj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="lookup"/>
+    </changeSet>
+</databaseChangeLog>

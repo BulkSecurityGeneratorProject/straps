@@ -1,0 +1,84 @@
+{
+    "name": "Company",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "type",
+            "otherEntityName": "lookup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "company"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "addresses",
+            "otherEntityName": "address",
+            "otherEntityRelationshipName": "company"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "contacts",
+            "otherEntityName": "contact",
+            "otherEntityRelationshipName": "company"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "capabilities",
+            "otherEntityName": "companyCapability",
+            "otherEntityRelationshipName": "company"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "property",
+            "otherEntityName": "property",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "company"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "building",
+            "otherEntityName": "building",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "company"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "contracts",
+            "otherEntityName": "contract",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "company"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "managementCompany",
+            "otherEntityName": "contract",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "managementCompany"
+        }
+    ],
+    "changelogDate": "20181221193959",
+    "javadoc": "Company <-> Address (one to many)\nCompany <-> Contacts (one to many)",
+    "entityTableName": "company",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

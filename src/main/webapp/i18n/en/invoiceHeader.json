@@ -1,0 +1,46 @@
+{
+    "promalyV5App": {
+        "invoiceHeader": {
+            "home": {
+                "title": "Invoice Headers",
+                "createLabel": "Create a new Invoice Header",
+                "createOrEditLabel": "Create or edit a Invoice Header",
+                "search": "Search for Invoice Header"
+            },
+            "created": "A new Invoice Header is created with identifier {{ param }}",
+            "updated": "A Invoice Header is updated with identifier {{ param }}",
+            "deleted": "A Invoice Header is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Invoice Header {{ id }}?"
+            },
+            "detail": {
+                "title": "Invoice Header"
+            },
+            "planId": "Plan Id",
+            "serviceproviderId": "Serviceprovider Id",
+            "invoiceNum": "Invoice Num",
+            "invoiceDate": "Invoice Date",
+            "invoiceStatus": "Invoice Status",
+            "fromDate": "From Date",
+            "toDate": "To Date",
+            "amount": "Amount",
+            "fees": "Fees",
+            "currency": "Currency",
+            "paymentTerms": "Payment Terms",
+            "paymentStatus": "Payment Status",
+            "paymentMethod": "Payment Method",
+            "paymentDate": "Payment Date",
+            "paymentAmount": "Payment Amount",
+            "paymentRef": "Payment Ref",
+            "comments": "Comments",
+            "adhoc": "Adhoc",
+            "billToCompany": "Bill To Company",
+            "legacy": "Legacy",
+            "payor": "Payor",
+            "paymentComments": "Payment Comments",
+            "emailDate": "Email Date",
+            "emailAddress": "Email Address",
+            "keyHash": "Key Hash"
+        }
+    }
+}

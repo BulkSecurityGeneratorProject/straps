@@ -1,0 +1,40 @@
+{
+    "name": "DocumentStore",
+    "fields": [
+        {
+            "fieldName": "entityId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "entityName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "path",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "subCategory",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181221193957",
+    "entityTableName": "document_store",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

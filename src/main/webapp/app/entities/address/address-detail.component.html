@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="address">
+            <h2><span jhiTranslate="promalyV5App.address.detail.title">Address</span> {{address.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.address.locationId">Location Id</span></dt>
+                <dd>
+                    <span>{{address.locationId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.locationTypeId">Location Type Id</span></dt>
+                <dd>
+                    <span>{{address.locationTypeId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.addressTypeId">Address Type Id</span></dt>
+                <dd>
+                    <span>{{address.addressTypeId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.description">Description</span></dt>
+                <dd>
+                    <span>{{address.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.addressline1">Addressline 1</span></dt>
+                <dd>
+                    <span>{{address.addressline1}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.addressline2">Addressline 2</span></dt>
+                <dd>
+                    <span>{{address.addressline2}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.addressline3">Addressline 3</span></dt>
+                <dd>
+                    <span>{{address.addressline3}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.city">City</span></dt>
+                <dd>
+                    <span>{{address.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.state">State</span></dt>
+                <dd>
+                    <span>{{address.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.postalCode">Postal Code</span></dt>
+                <dd>
+                    <span>{{address.postalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.countryCode">Country Code</span></dt>
+                <dd>
+                    <span>{{address.countryCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.country">Country</span></dt>
+                <dd>
+                    <span>{{address.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{address.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.tollFreeNumber">Toll Free Number</span></dt>
+                <dd>
+                    <span>{{address.tollFreeNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.afterHoursNumber">After Hours Number</span></dt>
+                <dd>
+                    <span>{{address.afterHoursNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.faxNumber">Fax Number</span></dt>
+                <dd>
+                    <span>{{address.faxNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.emailAddress">Email Address</span></dt>
+                <dd>
+                    <span>{{address.emailAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.phonePrefix">Phone Prefix</span></dt>
+                <dd>
+                    <span>{{address.phonePrefix}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.geocode">Geocode</span></dt>
+                <dd>
+                    <span>{{address.geocode}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.version">Version</span></dt>
+                <dd>
+                    <span>{{address.version}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.address.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="address.companyId">
+                        <a [routerLink]="['/company', address.companyId, 'view']">{{address.companyId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/address', address.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

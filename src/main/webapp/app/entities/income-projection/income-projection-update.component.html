@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-income-projection-heading" jhiTranslate="promalyV5App.incomeProjection.home.createOrEditLabel">Create or edit a Income Projection</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!incomeProjection.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="incomeProjection.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.incomeProjection.period" for="field_period">Period</label>
+                    <input type="number" class="form-control" name="period" id="field_period"
+                        [(ngModel)]="incomeProjection.period" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.incomeProjection.projectedValue" for="field_projectedValue">Projected Value</label>
+                    <input type="number" class="form-control" name="projectedValue" id="field_projectedValue"
+                        [(ngModel)]="incomeProjection.projectedValue" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.incomeProjection.portfolio" for="field_portfolio">Portfolio</label>
+                    <select class="form-control" id="field_portfolio" name="portfolio" [(ngModel)]="incomeProjection.portfolioId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="portfolioOption.id" *ngFor="let portfolioOption of portfolios; trackBy: trackPortfolioById">{{portfolioOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.incomeProjection.property" for="field_property">Property</label>
+                    <select class="form-control" id="field_property" name="property" [(ngModel)]="incomeProjection.propertyId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="propertyOption.id" *ngFor="let propertyOption of properties; trackBy: trackPropertyById">{{propertyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.incomeProjection.building" for="field_building">Building</label>
+                    <select class="form-control" id="field_building" name="building" [(ngModel)]="incomeProjection.buildingId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="buildingOption.id" *ngFor="let buildingOption of buildings; trackBy: trackBuildingById">{{buildingOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.incomeProjection.propertyUnit" for="field_propertyUnit">Property Unit</label>
+                    <select class="form-control" id="field_propertyUnit" name="propertyUnit" [(ngModel)]="incomeProjection.propertyUnitId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="propertyUnitOption.id" *ngFor="let propertyUnitOption of propertyunits; trackBy: trackPropertyUnitById">{{propertyUnitOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.incomeProjection.assetLevelType" for="field_assetLevelType">Asset Level Type</label>
+                    <select class="form-control" id="field_assetLevelType" name="assetLevelType" [(ngModel)]="incomeProjection.assetLevelTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lookupOption.id" *ngFor="let lookupOption of assetleveltypes; trackBy: trackLookupById">{{lookupOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

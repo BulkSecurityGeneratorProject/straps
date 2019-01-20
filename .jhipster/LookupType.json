@@ -1,0 +1,48 @@
+{
+    "name": "LookupType",
+    "fields": [
+        {
+            "fieldName": "companyId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lookupTypeCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lookupTypeValue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flex1Descr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flex2Descr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flex3Descr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "flex4Descr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181221193948",
+    "entityTableName": "lookup_type",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

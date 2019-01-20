@@ -1,0 +1,30 @@
+{
+    "promalyV5App": {
+        "discountPlan": {
+            "home": {
+                "title": "Discount Plans",
+                "createLabel": "创建新 Discount Plan",
+                "createOrEditLabel": "创建或编辑 Discount Plan",
+                "search": "查找 Discount Plan"
+            },
+            "created": "Discount Plan {{ param }} 创建成功",
+            "updated": "Discount Plan {{ param }} 更新成功",
+            "deleted": "Discount Plan {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Discount Plan {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Discount Plan"
+            },
+            "planId": "Plan Id",
+            "planName": "Plan Name",
+            "appliedToPlan": "Applied To Plan",
+            "appliedWithPlan": "Applied With Plan",
+            "discountRate": "Discount Rate",
+            "discountUnit": "Discount Unit",
+            "maxDiscountAmt": "Max Discount Amt",
+            "description": "Description",
+            "conditional": "Conditional"
+        }
+    }
+}

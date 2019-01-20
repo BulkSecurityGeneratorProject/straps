@@ -1,0 +1,83 @@
+{
+    "name": "Mortgage",
+    "fields": [
+        {
+            "fieldName": "companyId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "propertyUnitsId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "borrower",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "lender",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "interestRate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "balloonPayment",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "refinanceOption",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "amortizationLengthYrs",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "property",
+            "otherEntityName": "property",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "building",
+            "otherEntityName": "building",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "propertyUnit",
+            "otherEntityName": "propertyUnit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181221193949",
+    "entityTableName": "mortgage",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

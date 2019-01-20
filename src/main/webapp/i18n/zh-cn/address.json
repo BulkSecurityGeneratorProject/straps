@@ -1,0 +1,42 @@
+{
+    "promalyV5App": {
+        "address": {
+            "home": {
+                "title": "Addresses",
+                "createLabel": "创建新 Address",
+                "createOrEditLabel": "创建或编辑 Address",
+                "search": "查找 Address"
+            },
+            "created": "Address {{ param }} 创建成功",
+            "updated": "Address {{ param }} 更新成功",
+            "deleted": "Address {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Address {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Address"
+            },
+            "locationId": "Location Id",
+            "locationTypeId": "Location Type Id",
+            "addressTypeId": "Address Type Id",
+            "description": "Description",
+            "addressline1": "Addressline 1",
+            "addressline2": "Addressline 2",
+            "addressline3": "Addressline 3",
+            "city": "City",
+            "state": "State",
+            "postalCode": "Postal Code",
+            "countryCode": "Country Code",
+            "country": "Country",
+            "phoneNumber": "Phone Number",
+            "tollFreeNumber": "Toll Free Number",
+            "afterHoursNumber": "After Hours Number",
+            "faxNumber": "Fax Number",
+            "emailAddress": "Email Address",
+            "phonePrefix": "Phone Prefix",
+            "geocode": "Geocode",
+            "version": "Version",
+            "company": "Company"
+        }
+    }
+}

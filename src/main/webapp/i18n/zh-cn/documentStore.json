@@ -1,0 +1,27 @@
+{
+    "promalyV5App": {
+        "documentStore": {
+            "home": {
+                "title": "Document Stores",
+                "createLabel": "创建新 Document Store",
+                "createOrEditLabel": "创建或编辑 Document Store",
+                "search": "查找 Document Store"
+            },
+            "created": "Document Store {{ param }} 创建成功",
+            "updated": "Document Store {{ param }} 更新成功",
+            "deleted": "Document Store {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Document Store {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Document Store"
+            },
+            "entityId": "Entity Id",
+            "entityName": "Entity Name",
+            "path": "Path",
+            "category": "Category",
+            "subCategory": "Sub Category",
+            "version": "Version"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "promalyV5App": {
+        "landLord": {
+            "home": {
+                "title": "Land Lords",
+                "createLabel": "Create a new Land Lord",
+                "createOrEditLabel": "Create or edit a Land Lord",
+                "search": "Search for Land Lord"
+            },
+            "created": "A new Land Lord is created with identifier {{ param }}",
+            "updated": "A Land Lord is updated with identifier {{ param }}",
+            "deleted": "A Land Lord is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Land Lord {{ id }}?"
+            },
+            "detail": {
+                "title": "Land Lord"
+            },
+            "contactId": "Contact Id",
+            "percentageOwnership": "Percentage Ownership",
+            "ownershipType": "Ownership Type",
+            "property": "Property",
+            "building": "Building",
+            "propertyUnit": "Property Unit"
+        }
+    }
+}

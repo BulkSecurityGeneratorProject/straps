@@ -1,0 +1,42 @@
+{
+    "promalyV5App": {
+        "address": {
+            "home": {
+                "title": "Addresses",
+                "createLabel": "Create a new Address",
+                "createOrEditLabel": "Create or edit a Address",
+                "search": "Search for Address"
+            },
+            "created": "A new Address is created with identifier {{ param }}",
+            "updated": "A Address is updated with identifier {{ param }}",
+            "deleted": "A Address is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Address {{ id }}?"
+            },
+            "detail": {
+                "title": "Address"
+            },
+            "locationId": "Location Id",
+            "locationTypeId": "Location Type Id",
+            "addressTypeId": "Address Type Id",
+            "description": "Description",
+            "addressline1": "Addressline 1",
+            "addressline2": "Addressline 2",
+            "addressline3": "Addressline 3",
+            "city": "City",
+            "state": "State",
+            "postalCode": "Postal Code",
+            "countryCode": "Country Code",
+            "country": "Country",
+            "phoneNumber": "Phone Number",
+            "tollFreeNumber": "Toll Free Number",
+            "afterHoursNumber": "After Hours Number",
+            "faxNumber": "Fax Number",
+            "emailAddress": "Email Address",
+            "phonePrefix": "Phone Prefix",
+            "geocode": "Geocode",
+            "version": "Version",
+            "company": "Company"
+        }
+    }
+}

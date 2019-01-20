@@ -1,0 +1,110 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="promalyV5App.incomeProjection.home.title">Income Projections</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-income-projection" [routerLink]="['/income-projection/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="promalyV5App.incomeProjection.home.createLabel">
+            Create new Income Projection
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'promalyV5App.incomeProjection.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="incomeProjections">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="period"><span jhiTranslate="promalyV5App.incomeProjection.period">Period</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="projectedValue"><span jhiTranslate="promalyV5App.incomeProjection.projectedValue">Projected Value</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="portfolioId"><span jhiTranslate="promalyV5App.incomeProjection.portfolio">Portfolio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyId"><span jhiTranslate="promalyV5App.incomeProjection.property">Property</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="buildingId"><span jhiTranslate="promalyV5App.incomeProjection.building">Building</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyUnitId"><span jhiTranslate="promalyV5App.incomeProjection.propertyUnit">Property Unit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="assetLevelTypeId"><span jhiTranslate="promalyV5App.incomeProjection.assetLevelType">Asset Level Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let incomeProjection of incomeProjections ;trackBy: trackId">
+                <td><a [routerLink]="['/income-projection', incomeProjection.id, 'view' ]">{{incomeProjection.id}}</a></td>
+                <td>{{incomeProjection.period}}</td>
+                <td>{{incomeProjection.projectedValue}}</td>
+                <td>
+                    <div *ngIf="incomeProjection.portfolioId">
+                        <a [routerLink]="['../portfolio', incomeProjection.portfolioId , 'view' ]" >{{incomeProjection.portfolioId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="incomeProjection.propertyId">
+                        <a [routerLink]="['../property', incomeProjection.propertyId , 'view' ]" >{{incomeProjection.propertyId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="incomeProjection.buildingId">
+                        <a [routerLink]="['../building', incomeProjection.buildingId , 'view' ]" >{{incomeProjection.buildingId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="incomeProjection.propertyUnitId">
+                        <a [routerLink]="['../property-unit', incomeProjection.propertyUnitId , 'view' ]" >{{incomeProjection.propertyUnitId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="incomeProjection.assetLevelTypeId">
+                        <a [routerLink]="['../lookup', incomeProjection.assetLevelTypeId , 'view' ]" >{{incomeProjection.assetLevelTypeId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/income-projection', incomeProjection.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/income-projection', incomeProjection.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'income-projection/'+ incomeProjection.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="incomeProjections && incomeProjections.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

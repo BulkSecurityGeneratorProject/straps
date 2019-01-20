@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-expense-heading" jhiTranslate="promalyV5App.expense.home.createOrEditLabel">Create or edit a Expense</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!expense.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="expense.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.expense.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                        [(ngModel)]="expense.amount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.expense.currency" for="field_currency">Currency</label>
+                    <input type="number" class="form-control" name="currency" id="field_currency"
+                        [(ngModel)]="expense.currency" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.expense.property" for="field_property">Property</label>
+                    <select class="form-control" id="field_property" name="property" [(ngModel)]="expense.propertyId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="propertyOption.id" *ngFor="let propertyOption of properties; trackBy: trackPropertyById">{{propertyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.expense.building" for="field_building">Building</label>
+                    <select class="form-control" id="field_building" name="building" [(ngModel)]="expense.buildingId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="buildingOption.id" *ngFor="let buildingOption of buildings; trackBy: trackBuildingById">{{buildingOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.expense.propertyUnit" for="field_propertyUnit">Property Unit</label>
+                    <select class="form-control" id="field_propertyUnit" name="propertyUnit" [(ngModel)]="expense.propertyUnitId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="propertyUnitOption.id" *ngFor="let propertyUnitOption of propertyunits; trackBy: trackPropertyUnitById">{{propertyUnitOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.expense.type" for="field_type">Type</label>
+                    <select class="form-control" id="field_type" name="type" [(ngModel)]="expense.typeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lookupOption.id" *ngFor="let lookupOption of types; trackBy: trackLookupById">{{lookupOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

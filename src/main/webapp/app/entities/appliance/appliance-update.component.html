@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-appliance-heading" jhiTranslate="promalyV5App.appliance.home.createOrEditLabel">Create or edit a Appliance</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!appliance.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="appliance.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.appliance.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="appliance.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.appliance.serialNum" for="field_serialNum">Serial Num</label>
+                    <input type="text" class="form-control" name="serialNum" id="field_serialNum"
+                        [(ngModel)]="appliance.serialNum" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.appliance.warrantyStartDate" for="field_warrantyStartDate">Warranty Start Date</label>
+                    <div class="input-group">
+                        <input id="field_warrantyStartDate" type="text" class="form-control" name="warrantyStartDate" ngbDatepicker  #warrantyStartDateDp="ngbDatepicker" [(ngModel)]="appliance.warrantyStartDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="warrantyStartDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.appliance.warrantyEndDate" for="field_warrantyEndDate">Warranty End Date</label>
+                    <div class="input-group">
+                        <input id="field_warrantyEndDate" type="text" class="form-control" name="warrantyEndDate" ngbDatepicker  #warrantyEndDateDp="ngbDatepicker" [(ngModel)]="appliance.warrantyEndDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="warrantyEndDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.appliance.propertyUnit" for="field_propertyUnit">Property Unit</label>
+                    <select class="form-control" id="field_propertyUnit" name="propertyUnit" [(ngModel)]="appliance.propertyUnitId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="propertyUnitOption.id" *ngFor="let propertyUnitOption of propertyunits; trackBy: trackPropertyUnitById">{{propertyUnitOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

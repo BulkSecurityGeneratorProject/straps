@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="serviceRequest">
+            <h2><span jhiTranslate="promalyV5App.serviceRequest.detail.title">Service Request</span> {{serviceRequest.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.companyId">Company Id</span></dt>
+                <dd>
+                    <span>{{serviceRequest.companyId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.propertyUnitsId">Property Units Id</span></dt>
+                <dd>
+                    <span>{{serviceRequest.propertyUnitsId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.propertiesId">Properties Id</span></dt>
+                <dd>
+                    <span>{{serviceRequest.propertiesId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.propertyVendorsId">Property Vendors Id</span></dt>
+                <dd>
+                    <span>{{serviceRequest.propertyVendorsId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.category">Category</span></dt>
+                <dd>
+                    <span>{{serviceRequest.category}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.subCategory">Sub Category</span></dt>
+                <dd>
+                    <span>{{serviceRequest.subCategory}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.urgency">Urgency</span></dt>
+                <dd>
+                    <span>{{serviceRequest.urgency}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.unitId">Unit Id</span></dt>
+                <dd>
+                    <span>{{serviceRequest.unitId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.propertyId">Property Id</span></dt>
+                <dd>
+                    <span>{{serviceRequest.propertyId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.requestDateTime">Request Date Time</span></dt>
+                <dd>
+                    <span>{{serviceRequest.requestDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.description">Description</span></dt>
+                <dd>
+                    <span>{{serviceRequest.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.assignmentStatus">Assignment Status</span></dt>
+                <dd>
+                    <span>{{serviceRequest.assignmentStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.serviceRequest.version">Version</span></dt>
+                <dd>
+                    <span>{{serviceRequest.version}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/service-request', serviceRequest.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

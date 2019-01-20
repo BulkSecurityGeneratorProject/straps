@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-invoice-line-heading" jhiTranslate="promalyV5App.invoiceLine.home.createOrEditLabel">Create or edit a Invoice Line</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!invoiceLine.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="invoiceLine.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceLine.lineNum" for="field_lineNum">Line Num</label>
+                    <input type="number" class="form-control" name="lineNum" id="field_lineNum"
+                        [(ngModel)]="invoiceLine.lineNum" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceLine.invoiceId" for="field_invoiceId">Invoice Id</label>
+                    <input type="number" class="form-control" name="invoiceId" id="field_invoiceId"
+                        [(ngModel)]="invoiceLine.invoiceId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceLine.planId" for="field_planId">Plan Id</label>
+                    <input type="number" class="form-control" name="planId" id="field_planId"
+                        [(ngModel)]="invoiceLine.planId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceLine.categoryId" for="field_categoryId">Category Id</label>
+                    <input type="number" class="form-control" name="categoryId" id="field_categoryId"
+                        [(ngModel)]="invoiceLine.categoryId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceLine.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="invoiceLine.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceLine.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                        [(ngModel)]="invoiceLine.amount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceLine.currency" for="field_currency">Currency</label>
+                    <input type="number" class="form-control" name="currency" id="field_currency"
+                        [(ngModel)]="invoiceLine.currency" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceLine.rate" for="field_rate">Rate</label>
+                    <input type="number" class="form-control" name="rate" id="field_rate"
+                        [(ngModel)]="invoiceLine.rate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceLine.quantity" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                        [(ngModel)]="invoiceLine.quantity" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

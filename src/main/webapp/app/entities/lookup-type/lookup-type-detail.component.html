@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="lookupType">
+            <h2><span jhiTranslate="promalyV5App.lookupType.detail.title">Lookup Type</span> {{lookupType.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.lookupType.companyId">Company Id</span></dt>
+                <dd>
+                    <span>{{lookupType.companyId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookupType.lookupTypeCode">Lookup Type Code</span></dt>
+                <dd>
+                    <span>{{lookupType.lookupTypeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookupType.lookupTypeValue">Lookup Type Value</span></dt>
+                <dd>
+                    <span>{{lookupType.lookupTypeValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookupType.flex1Descr">Flex 1 Descr</span></dt>
+                <dd>
+                    <span>{{lookupType.flex1Descr}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookupType.flex2Descr">Flex 2 Descr</span></dt>
+                <dd>
+                    <span>{{lookupType.flex2Descr}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookupType.flex3Descr">Flex 3 Descr</span></dt>
+                <dd>
+                    <span>{{lookupType.flex3Descr}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookupType.flex4Descr">Flex 4 Descr</span></dt>
+                <dd>
+                    <span>{{lookupType.flex4Descr}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookupType.version">Version</span></dt>
+                <dd>
+                    <span>{{lookupType.version}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/lookup-type', lookupType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

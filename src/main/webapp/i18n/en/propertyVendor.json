@@ -1,0 +1,26 @@
+{
+    "promalyV5App": {
+        "propertyVendor": {
+            "home": {
+                "title": "Property Vendors",
+                "createLabel": "Create a new Property Vendor",
+                "createOrEditLabel": "Create or edit a Property Vendor",
+                "search": "Search for Property Vendor"
+            },
+            "created": "A new Property Vendor is created with identifier {{ param }}",
+            "updated": "A Property Vendor is updated with identifier {{ param }}",
+            "deleted": "A Property Vendor is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Property Vendor {{ id }}?"
+            },
+            "detail": {
+                "title": "Property Vendor"
+            },
+            "companyId": "Company Id",
+            "ranking": "Ranking",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "version": "Version"
+        }
+    }
+}

@@ -1,0 +1,102 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="promalyV5App.serviceRequest.home.title">Service Requests</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-service-request" [routerLink]="['/service-request/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="promalyV5App.serviceRequest.home.createLabel">
+            Create new Service Request
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'promalyV5App.serviceRequest.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="serviceRequests">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="companyId"><span jhiTranslate="promalyV5App.serviceRequest.companyId">Company Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyUnitsId"><span jhiTranslate="promalyV5App.serviceRequest.propertyUnitsId">Property Units Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertiesId"><span jhiTranslate="promalyV5App.serviceRequest.propertiesId">Properties Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyVendorsId"><span jhiTranslate="promalyV5App.serviceRequest.propertyVendorsId">Property Vendors Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="category"><span jhiTranslate="promalyV5App.serviceRequest.category">Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="subCategory"><span jhiTranslate="promalyV5App.serviceRequest.subCategory">Sub Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="urgency"><span jhiTranslate="promalyV5App.serviceRequest.urgency">Urgency</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="unitId"><span jhiTranslate="promalyV5App.serviceRequest.unitId">Unit Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyId"><span jhiTranslate="promalyV5App.serviceRequest.propertyId">Property Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="requestDateTime"><span jhiTranslate="promalyV5App.serviceRequest.requestDateTime">Request Date Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span jhiTranslate="promalyV5App.serviceRequest.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="assignmentStatus"><span jhiTranslate="promalyV5App.serviceRequest.assignmentStatus">Assignment Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="version"><span jhiTranslate="promalyV5App.serviceRequest.version">Version</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let serviceRequest of serviceRequests ;trackBy: trackId">
+                <td><a [routerLink]="['/service-request', serviceRequest.id, 'view' ]">{{serviceRequest.id}}</a></td>
+                <td>{{serviceRequest.companyId}}</td>
+                <td>{{serviceRequest.propertyUnitsId}}</td>
+                <td>{{serviceRequest.propertiesId}}</td>
+                <td>{{serviceRequest.propertyVendorsId}}</td>
+                <td>{{serviceRequest.category}}</td>
+                <td>{{serviceRequest.subCategory}}</td>
+                <td>{{serviceRequest.urgency}}</td>
+                <td>{{serviceRequest.unitId}}</td>
+                <td>{{serviceRequest.propertyId}}</td>
+                <td>{{serviceRequest.requestDateTime | date:'medium'}}</td>
+                <td>{{serviceRequest.description}}</td>
+                <td>{{serviceRequest.assignmentStatus}}</td>
+                <td>{{serviceRequest.version}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/service-request', serviceRequest.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/service-request', serviceRequest.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'service-request/'+ serviceRequest.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="serviceRequests && serviceRequests.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

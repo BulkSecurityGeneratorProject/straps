@@ -1,0 +1,105 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="building">
+            <h2><span jhiTranslate="promalyV5App.building.detail.title">Building</span> {{building.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.building.name">Name</span></dt>
+                <dd>
+                    <span>{{building.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.yearBuilt">Year Built</span></dt>
+                <dd>
+                    <span>{{building.yearBuilt}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.noOfloors">No Ofloors</span></dt>
+                <dd>
+                    <span>{{building.noOfloors}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.buildingSize">Building Size</span></dt>
+                <dd>
+                    <span>{{building.buildingSize}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.coveredArea">Covered Area</span></dt>
+                <dd>
+                    <span>{{building.coveredArea}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.landArea">Land Area</span></dt>
+                <dd>
+                    <span>{{building.landArea}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.noOfRentalUnit">No Of Rental Unit</span></dt>
+                <dd>
+                    <span>{{building.noOfRentalUnit}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.parkingSpaces">Parking Spaces</span></dt>
+                <dd>
+                    <span>{{building.parkingSpaces}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.totalSpaceAvaliable">Total Space Avaliable</span></dt>
+                <dd>
+                    <span>{{building.totalSpaceAvaliable}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.totalUnitLevel">Total Unit Level</span></dt>
+                <dd>
+                    <span>{{building.totalUnitLevel}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.currentRentPerSqft">Current Rent Per Sqft</span></dt>
+                <dd>
+                    <span>{{building.currentRentPerSqft}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.description">Description</span></dt>
+                <dd>
+                    <span>{{building.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.version">Version</span></dt>
+                <dd>
+                    <span>{{building.version}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.property">Property</span></dt>
+                <dd>
+                    <div *ngIf="building.propertyId">
+                        <a [routerLink]="['/property', building.propertyId, 'view']">{{building.propertyId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.assetType">Asset Type</span></dt>
+                <dd>
+                    <div *ngIf="building.assetTypeId">
+                        <a [routerLink]="['/lookup', building.assetTypeId, 'view']">{{building.assetTypeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.owner">Owner</span></dt>
+                <dd>
+                    <span *ngFor="let owner of building.owners; let last = last">
+                        <a [routerLink]="['/land-lord', owner?.id, 'view' ]">{{owner.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.company">Company</span></dt>
+                <dd>
+                    <span *ngFor="let company of building.companies; let last = last">
+                        <a [routerLink]="['/company', company?.id, 'view' ]">{{company.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.building.lease">Lease</span></dt>
+                <dd>
+                    <span *ngFor="let lease of building.leases; let last = last">
+                        <a [routerLink]="['/lease', lease?.id, 'view' ]">{{lease.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/building', building.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

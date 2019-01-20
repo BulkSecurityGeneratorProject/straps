@@ -1,0 +1,106 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="promalyV5App.rentRoll.home.title">Rent Rolls</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rent-roll" [routerLink]="['/rent-roll/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="promalyV5App.rentRoll.home.createLabel">
+            Create new Rent Roll
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'promalyV5App.rentRoll.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="rentRolls">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="securityDeposit"><span jhiTranslate="promalyV5App.rentRoll.securityDeposit">Security Deposit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="bankGuarantee"><span jhiTranslate="promalyV5App.rentRoll.bankGuarantee">Bank Guarantee</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="leaseRecoveryTiming"><span jhiTranslate="promalyV5App.rentRoll.leaseRecoveryTiming">Lease Recovery Timing</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyId"><span jhiTranslate="promalyV5App.rentRoll.property">Property</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="buildingId"><span jhiTranslate="promalyV5App.rentRoll.building">Building</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyUnitId"><span jhiTranslate="promalyV5App.rentRoll.propertyUnit">Property Unit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="inflationTypeId"><span jhiTranslate="promalyV5App.rentRoll.inflationType">Inflation Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let rentRoll of rentRolls ;trackBy: trackId">
+                <td><a [routerLink]="['/rent-roll', rentRoll.id, 'view' ]">{{rentRoll.id}}</a></td>
+                <td>{{rentRoll.securityDeposit}}</td>
+                <td>{{rentRoll.bankGuarantee}}</td>
+                <td>{{rentRoll.leaseRecoveryTiming}}</td>
+                <td>
+                    <div *ngIf="rentRoll.propertyId">
+                        <a [routerLink]="['../property', rentRoll.propertyId , 'view' ]" >{{rentRoll.propertyId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="rentRoll.buildingId">
+                        <a [routerLink]="['../building', rentRoll.buildingId , 'view' ]" >{{rentRoll.buildingId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="rentRoll.propertyUnitId">
+                        <a [routerLink]="['../property-unit', rentRoll.propertyUnitId , 'view' ]" >{{rentRoll.propertyUnitId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="rentRoll.inflationTypeId">
+                        <a [routerLink]="['../lookup', rentRoll.inflationTypeId , 'view' ]" >{{rentRoll.inflationTypeId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/rent-roll', rentRoll.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/rent-roll', rentRoll.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'rent-roll/'+ rentRoll.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="rentRolls && rentRolls.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

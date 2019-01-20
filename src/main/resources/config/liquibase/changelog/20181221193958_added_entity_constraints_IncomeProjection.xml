@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity IncomeProjection.
+    -->
+    <changeSet id="20181221193958-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="portfolio_id"
+                                 baseTableName="income_projection"
+                                 constraintName="fk_income_projection_portfolio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="portfolio"/>
+
+        <addForeignKeyConstraint baseColumnNames="property_id"
+                                 baseTableName="income_projection"
+                                 constraintName="fk_income_projection_property_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="property"/>
+
+        <addForeignKeyConstraint baseColumnNames="building_id"
+                                 baseTableName="income_projection"
+                                 constraintName="fk_income_projection_building_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="building"/>
+
+        <addForeignKeyConstraint baseColumnNames="property_unit_id"
+                                 baseTableName="income_projection"
+                                 constraintName="fk_income_projection_property_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="property_unit"/>
+
+        <addForeignKeyConstraint baseColumnNames="asset_level_type_id"
+                                 baseTableName="income_projection"
+                                 constraintName="fk_income_projection_asset_level_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lookup"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-lookup-heading" jhiTranslate="promalyV5App.lookup.home.createOrEditLabel">Create or edit a Lookup</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!lookup.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="lookup.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookup.companyId" for="field_companyId">Company Id</label>
+                    <input type="number" class="form-control" name="companyId" id="field_companyId"
+                        [(ngModel)]="lookup.companyId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookup.lookupTypesId" for="field_lookupTypesId">Lookup Types Id</label>
+                    <input type="number" class="form-control" name="lookupTypesId" id="field_lookupTypesId"
+                        [(ngModel)]="lookup.lookupTypesId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookup.lookupCode" for="field_lookupCode">Lookup Code</label>
+                    <input type="text" class="form-control" name="lookupCode" id="field_lookupCode"
+                        [(ngModel)]="lookup.lookupCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookup.lookupValue" for="field_lookupValue">Lookup Value</label>
+                    <input type="text" class="form-control" name="lookupValue" id="field_lookupValue"
+                        [(ngModel)]="lookup.lookupValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookup.flex1" for="field_flex1">Flex 1</label>
+                    <input type="text" class="form-control" name="flex1" id="field_flex1"
+                        [(ngModel)]="lookup.flex1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookup.flex2" for="field_flex2">Flex 2</label>
+                    <input type="text" class="form-control" name="flex2" id="field_flex2"
+                        [(ngModel)]="lookup.flex2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookup.flex3" for="field_flex3">Flex 3</label>
+                    <input type="text" class="form-control" name="flex3" id="field_flex3"
+                        [(ngModel)]="lookup.flex3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookup.flex4" for="field_flex4">Flex 4</label>
+                    <input type="text" class="form-control" name="flex4" id="field_flex4"
+                        [(ngModel)]="lookup.flex4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookup.version" for="field_version">Version</label>
+                    <input type="text" class="form-control" name="version" id="field_version"
+                        [(ngModel)]="lookup.version" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookup.contract" for="field_contract">Contract</label>
+                    <select class="form-control" id="field_contract" name="contract" [(ngModel)]="lookup.contractId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contractOption.id" *ngFor="let contractOption of contracts; trackBy: trackContractById">{{contractOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

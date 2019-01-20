@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invoiceLine">
+            <h2><span jhiTranslate="promalyV5App.invoiceLine.detail.title">Invoice Line</span> {{invoiceLine.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.invoiceLine.lineNum">Line Num</span></dt>
+                <dd>
+                    <span>{{invoiceLine.lineNum}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceLine.invoiceId">Invoice Id</span></dt>
+                <dd>
+                    <span>{{invoiceLine.invoiceId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceLine.planId">Plan Id</span></dt>
+                <dd>
+                    <span>{{invoiceLine.planId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceLine.categoryId">Category Id</span></dt>
+                <dd>
+                    <span>{{invoiceLine.categoryId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceLine.description">Description</span></dt>
+                <dd>
+                    <span>{{invoiceLine.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceLine.amount">Amount</span></dt>
+                <dd>
+                    <span>{{invoiceLine.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceLine.currency">Currency</span></dt>
+                <dd>
+                    <span>{{invoiceLine.currency}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceLine.rate">Rate</span></dt>
+                <dd>
+                    <span>{{invoiceLine.rate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceLine.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{invoiceLine.quantity}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invoice-line', invoiceLine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

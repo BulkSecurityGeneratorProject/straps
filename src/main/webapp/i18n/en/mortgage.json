@@ -1,0 +1,36 @@
+{
+    "promalyV5App": {
+        "mortgage": {
+            "home": {
+                "title": "Mortgages",
+                "createLabel": "Create a new Mortgage",
+                "createOrEditLabel": "Create or edit a Mortgage",
+                "search": "Search for Mortgage"
+            },
+            "created": "A new Mortgage is created with identifier {{ param }}",
+            "updated": "A Mortgage is updated with identifier {{ param }}",
+            "deleted": "A Mortgage is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mortgage {{ id }}?"
+            },
+            "detail": {
+                "title": "Mortgage"
+            },
+            "companyId": "Company Id",
+            "propertyUnitsId": "Property Units Id",
+            "borrower": "Borrower",
+            "lender": "Lender",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "amount": "Amount",
+            "interestRate": "Interest Rate",
+            "balloonPayment": "Balloon Payment",
+            "refinanceOption": "Refinance Option",
+            "amortizationLengthYrs": "Amortization Length Yrs",
+            "version": "Version",
+            "property": "Property",
+            "building": "Building",
+            "propertyUnit": "Property Unit"
+        }
+    }
+}

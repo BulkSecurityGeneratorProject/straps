@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Property.
+    -->
+    <changeSet id="20181221193931-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="portfolio_id"
+                                 baseTableName="property"
+                                 constraintName="fk_property_portfolio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="portfolio"/>
+
+        <addForeignKeyConstraint baseColumnNames="address_id"
+                                 baseTableName="property"
+                                 constraintName="fk_property_address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"/>
+
+        <addForeignKeyConstraint baseColumnNames="usage_type_id"
+                                 baseTableName="property"
+                                 constraintName="fk_property_usage_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lookup"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="property"
+                                 constraintName="fk_property_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lookup"/>
+
+        <addForeignKeyConstraint baseColumnNames="lease_id"
+                                 baseTableName="property"
+                                 constraintName="fk_property_lease_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lease"/>
+
+        <addForeignKeyConstraint baseColumnNames="properties_id"
+                                 baseTableName="property_owner"
+                                 constraintName="fk_property_owner_properties_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="property"/>
+        <addForeignKeyConstraint baseColumnNames="owners_id"
+                                 baseTableName="property_owner"
+                                 constraintName="fk_property_owner_owners_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="land_lord"/>
+        
+        <addForeignKeyConstraint baseColumnNames="properties_id"
+                                 baseTableName="property_company"
+                                 constraintName="fk_property_company_properties_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="property"/>
+        <addForeignKeyConstraint baseColumnNames="companies_id"
+                                 baseTableName="property_company"
+                                 constraintName="fk_property_company_companies_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="company"/>
+        
+    </changeSet>
+</databaseChangeLog>

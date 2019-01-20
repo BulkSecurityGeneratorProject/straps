@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="incomeProjection">
+            <h2><span jhiTranslate="promalyV5App.incomeProjection.detail.title">Income Projection</span> {{incomeProjection.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.incomeProjection.period">Period</span></dt>
+                <dd>
+                    <span>{{incomeProjection.period}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.incomeProjection.projectedValue">Projected Value</span></dt>
+                <dd>
+                    <span>{{incomeProjection.projectedValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.incomeProjection.portfolio">Portfolio</span></dt>
+                <dd>
+                    <div *ngIf="incomeProjection.portfolioId">
+                        <a [routerLink]="['/portfolio', incomeProjection.portfolioId, 'view']">{{incomeProjection.portfolioId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.incomeProjection.property">Property</span></dt>
+                <dd>
+                    <div *ngIf="incomeProjection.propertyId">
+                        <a [routerLink]="['/property', incomeProjection.propertyId, 'view']">{{incomeProjection.propertyId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.incomeProjection.building">Building</span></dt>
+                <dd>
+                    <div *ngIf="incomeProjection.buildingId">
+                        <a [routerLink]="['/building', incomeProjection.buildingId, 'view']">{{incomeProjection.buildingId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.incomeProjection.propertyUnit">Property Unit</span></dt>
+                <dd>
+                    <div *ngIf="incomeProjection.propertyUnitId">
+                        <a [routerLink]="['/property-unit', incomeProjection.propertyUnitId, 'view']">{{incomeProjection.propertyUnitId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.incomeProjection.assetLevelType">Asset Level Type</span></dt>
+                <dd>
+                    <div *ngIf="incomeProjection.assetLevelTypeId">
+                        <a [routerLink]="['/lookup', incomeProjection.assetLevelTypeId, 'view']">{{incomeProjection.assetLevelTypeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/income-projection', incomeProjection.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

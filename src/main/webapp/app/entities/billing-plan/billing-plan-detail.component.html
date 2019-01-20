@@ -1,0 +1,95 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="billingPlan">
+            <h2><span jhiTranslate="promalyV5App.billingPlan.detail.title">Billing Plan</span> {{billingPlan.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.billingPlan.planName">Plan Name</span></dt>
+                <dd>
+                    <span>{{billingPlan.planName}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.category">Category</span></dt>
+                <dd>
+                    <span>{{billingPlan.category}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.memberType">Member Type</span></dt>
+                <dd>
+                    <span>{{billingPlan.memberType}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.description">Description</span></dt>
+                <dd>
+                    <span>{{billingPlan.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.prorationDesc">Proration Desc</span></dt>
+                <dd>
+                    <span>{{billingPlan.prorationDesc}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.effectiveDate">Effective Date</span></dt>
+                <dd>
+                    <span>{{billingPlan.effectiveDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.effectiveStatus">Effective Status</span></dt>
+                <dd>
+                    <span>{{billingPlan.effectiveStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.association">Association</span></dt>
+                <dd>
+                    <span>{{billingPlan.association}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.orderType">Order Type</span></dt>
+                <dd>
+                    <span>{{billingPlan.orderType}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.accountingBook">Accounting Book</span></dt>
+                <dd>
+                    <span>{{billingPlan.accountingBook}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.rates">Rates</span></dt>
+                <dd>
+                    <span>{{billingPlan.rates}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.currency">Currency</span></dt>
+                <dd>
+                    <span>{{billingPlan.currency}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.basis">Basis</span></dt>
+                <dd>
+                    <span>{{billingPlan.basis}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.initiationFees">Initiation Fees</span></dt>
+                <dd>
+                    <span>{{billingPlan.initiationFees}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.coupons">Coupons</span></dt>
+                <dd>
+                    <span>{{billingPlan.coupons}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.prorated">Prorated</span></dt>
+                <dd>
+                    <span>{{billingPlan.prorated}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.glcode">Glcode</span></dt>
+                <dd>
+                    <span>{{billingPlan.glcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.billingPlan.active">Active</span></dt>
+                <dd>
+                    <span>{{billingPlan.active}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/billing-plan', billingPlan.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+    "promalyV5App": {
+        "tenant": {
+            "home": {
+                "title": "Tenants",
+                "createLabel": "Create a new Tenant",
+                "createOrEditLabel": "Create or edit a Tenant",
+                "search": "Search for Tenant"
+            },
+            "created": "A new Tenant is created with identifier {{ param }}",
+            "updated": "A Tenant is updated with identifier {{ param }}",
+            "deleted": "A Tenant is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tenant {{ id }}?"
+            },
+            "detail": {
+                "title": "Tenant"
+            },
+            "leaseId": "Lease Id",
+            "contact": "Contact",
+            "propertyUnit": "Property Unit"
+        }
+    }
+}

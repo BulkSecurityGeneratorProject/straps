@@ -1,0 +1,32 @@
+{
+    "name": "Warranty",
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serialNum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "warrantyStartDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "warrantyEndDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181221193936",
+    "entityTableName": "warranty",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

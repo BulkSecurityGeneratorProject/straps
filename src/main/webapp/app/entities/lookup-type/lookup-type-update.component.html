@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-lookup-type-heading" jhiTranslate="promalyV5App.lookupType.home.createOrEditLabel">Create or edit a Lookup Type</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!lookupType.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="lookupType.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookupType.companyId" for="field_companyId">Company Id</label>
+                    <input type="number" class="form-control" name="companyId" id="field_companyId"
+                        [(ngModel)]="lookupType.companyId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookupType.lookupTypeCode" for="field_lookupTypeCode">Lookup Type Code</label>
+                    <input type="text" class="form-control" name="lookupTypeCode" id="field_lookupTypeCode"
+                        [(ngModel)]="lookupType.lookupTypeCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookupType.lookupTypeValue" for="field_lookupTypeValue">Lookup Type Value</label>
+                    <input type="text" class="form-control" name="lookupTypeValue" id="field_lookupTypeValue"
+                        [(ngModel)]="lookupType.lookupTypeValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookupType.flex1Descr" for="field_flex1Descr">Flex 1 Descr</label>
+                    <input type="text" class="form-control" name="flex1Descr" id="field_flex1Descr"
+                        [(ngModel)]="lookupType.flex1Descr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookupType.flex2Descr" for="field_flex2Descr">Flex 2 Descr</label>
+                    <input type="text" class="form-control" name="flex2Descr" id="field_flex2Descr"
+                        [(ngModel)]="lookupType.flex2Descr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookupType.flex3Descr" for="field_flex3Descr">Flex 3 Descr</label>
+                    <input type="text" class="form-control" name="flex3Descr" id="field_flex3Descr"
+                        [(ngModel)]="lookupType.flex3Descr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookupType.flex4Descr" for="field_flex4Descr">Flex 4 Descr</label>
+                    <input type="text" class="form-control" name="flex4Descr" id="field_flex4Descr"
+                        [(ngModel)]="lookupType.flex4Descr" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.lookupType.version" for="field_version">Version</label>
+                    <input type="text" class="form-control" name="version" id="field_version"
+                        [(ngModel)]="lookupType.version" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

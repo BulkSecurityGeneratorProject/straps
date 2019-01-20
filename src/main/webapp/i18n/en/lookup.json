@@ -1,0 +1,31 @@
+{
+    "promalyV5App": {
+        "lookup": {
+            "home": {
+                "title": "Lookups",
+                "createLabel": "Create a new Lookup",
+                "createOrEditLabel": "Create or edit a Lookup",
+                "search": "Search for Lookup"
+            },
+            "created": "A new Lookup is created with identifier {{ param }}",
+            "updated": "A Lookup is updated with identifier {{ param }}",
+            "deleted": "A Lookup is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Lookup {{ id }}?"
+            },
+            "detail": {
+                "title": "Lookup"
+            },
+            "companyId": "Company Id",
+            "lookupTypesId": "Lookup Types Id",
+            "lookupCode": "Lookup Code",
+            "lookupValue": "Lookup Value",
+            "flex1": "Flex 1",
+            "flex2": "Flex 2",
+            "flex3": "Flex 3",
+            "flex4": "Flex 4",
+            "version": "Version",
+            "contract": "Contract"
+        }
+    }
+}

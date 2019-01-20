@@ -1,0 +1,169 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-invoice-header-heading" jhiTranslate="promalyV5App.invoiceHeader.home.createOrEditLabel">Create or edit a Invoice Header</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!invoiceHeader.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="invoiceHeader.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.planId" for="field_planId">Plan Id</label>
+                    <input type="number" class="form-control" name="planId" id="field_planId"
+                        [(ngModel)]="invoiceHeader.planId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.serviceproviderId" for="field_serviceproviderId">Serviceprovider Id</label>
+                    <input type="number" class="form-control" name="serviceproviderId" id="field_serviceproviderId"
+                        [(ngModel)]="invoiceHeader.serviceproviderId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.invoiceNum" for="field_invoiceNum">Invoice Num</label>
+                    <input type="number" class="form-control" name="invoiceNum" id="field_invoiceNum"
+                        [(ngModel)]="invoiceHeader.invoiceNum" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.invoiceDate" for="field_invoiceDate">Invoice Date</label>
+                    <div class="input-group">
+                        <input id="field_invoiceDate" type="text" class="form-control" name="invoiceDate" ngbDatepicker  #invoiceDateDp="ngbDatepicker" [(ngModel)]="invoiceHeader.invoiceDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="invoiceDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.invoiceStatus" for="field_invoiceStatus">Invoice Status</label>
+                    <input type="number" class="form-control" name="invoiceStatus" id="field_invoiceStatus"
+                        [(ngModel)]="invoiceHeader.invoiceStatus" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.fromDate" for="field_fromDate">From Date</label>
+                    <div class="input-group">
+                        <input id="field_fromDate" type="text" class="form-control" name="fromDate" ngbDatepicker  #fromDateDp="ngbDatepicker" [(ngModel)]="invoiceHeader.fromDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fromDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.toDate" for="field_toDate">To Date</label>
+                    <div class="input-group">
+                        <input id="field_toDate" type="text" class="form-control" name="toDate" ngbDatepicker  #toDateDp="ngbDatepicker" [(ngModel)]="invoiceHeader.toDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="toDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                        [(ngModel)]="invoiceHeader.amount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.fees" for="field_fees">Fees</label>
+                    <input type="number" class="form-control" name="fees" id="field_fees"
+                        [(ngModel)]="invoiceHeader.fees" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.currency" for="field_currency">Currency</label>
+                    <input type="number" class="form-control" name="currency" id="field_currency"
+                        [(ngModel)]="invoiceHeader.currency" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.paymentTerms" for="field_paymentTerms">Payment Terms</label>
+                    <input type="number" class="form-control" name="paymentTerms" id="field_paymentTerms"
+                        [(ngModel)]="invoiceHeader.paymentTerms" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.paymentStatus" for="field_paymentStatus">Payment Status</label>
+                    <input type="number" class="form-control" name="paymentStatus" id="field_paymentStatus"
+                        [(ngModel)]="invoiceHeader.paymentStatus" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.paymentMethod" for="field_paymentMethod">Payment Method</label>
+                    <input type="number" class="form-control" name="paymentMethod" id="field_paymentMethod"
+                        [(ngModel)]="invoiceHeader.paymentMethod" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.paymentDate" for="field_paymentDate">Payment Date</label>
+                    <div class="input-group">
+                        <input id="field_paymentDate" type="text" class="form-control" name="paymentDate" ngbDatepicker  #paymentDateDp="ngbDatepicker" [(ngModel)]="invoiceHeader.paymentDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="paymentDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.paymentAmount" for="field_paymentAmount">Payment Amount</label>
+                    <input type="number" class="form-control" name="paymentAmount" id="field_paymentAmount"
+                        [(ngModel)]="invoiceHeader.paymentAmount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.paymentRef" for="field_paymentRef">Payment Ref</label>
+                    <input type="text" class="form-control" name="paymentRef" id="field_paymentRef"
+                        [(ngModel)]="invoiceHeader.paymentRef" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                        [(ngModel)]="invoiceHeader.comments" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.adhoc" for="field_adhoc">Adhoc</label>
+                    <input type="checkbox" class="form-control" name="adhoc" id="field_adhoc"
+                        [(ngModel)]="invoiceHeader.adhoc" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.billToCompany" for="field_billToCompany">Bill To Company</label>
+                    <input type="number" class="form-control" name="billToCompany" id="field_billToCompany"
+                        [(ngModel)]="invoiceHeader.billToCompany" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.legacy" for="field_legacy">Legacy</label>
+                    <input type="checkbox" class="form-control" name="legacy" id="field_legacy"
+                        [(ngModel)]="invoiceHeader.legacy" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.payor" for="field_payor">Payor</label>
+                    <input type="text" class="form-control" name="payor" id="field_payor"
+                        [(ngModel)]="invoiceHeader.payor" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.paymentComments" for="field_paymentComments">Payment Comments</label>
+                    <input type="text" class="form-control" name="paymentComments" id="field_paymentComments"
+                        [(ngModel)]="invoiceHeader.paymentComments" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.emailDate" for="field_emailDate">Email Date</label>
+                    <input type="text" class="form-control" name="emailDate" id="field_emailDate"
+                        [(ngModel)]="invoiceHeader.emailDate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.emailAddress" for="field_emailAddress">Email Address</label>
+                    <input type="text" class="form-control" name="emailAddress" id="field_emailAddress"
+                        [(ngModel)]="invoiceHeader.emailAddress" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.invoiceHeader.keyHash" for="field_keyHash">Key Hash</label>
+                    <input type="text" class="form-control" name="keyHash" id="field_keyHash"
+                        [(ngModel)]="invoiceHeader.keyHash" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

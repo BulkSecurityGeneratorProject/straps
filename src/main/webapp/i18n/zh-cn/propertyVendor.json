@@ -1,0 +1,26 @@
+{
+    "promalyV5App": {
+        "propertyVendor": {
+            "home": {
+                "title": "Property Vendors",
+                "createLabel": "创建新 Property Vendor",
+                "createOrEditLabel": "创建或编辑 Property Vendor",
+                "search": "查找 Property Vendor"
+            },
+            "created": "Property Vendor {{ param }} 创建成功",
+            "updated": "Property Vendor {{ param }} 更新成功",
+            "deleted": "Property Vendor {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Property Vendor {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Property Vendor"
+            },
+            "companyId": "Company Id",
+            "ranking": "Ranking",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "version": "Version"
+        }
+    }
+}

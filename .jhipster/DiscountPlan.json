@@ -1,0 +1,52 @@
+{
+    "name": "DiscountPlan",
+    "fields": [
+        {
+            "fieldName": "planId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "planName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "appliedToPlan",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "appliedWithPlan",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "discountRate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "discountUnit",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "maxDiscountAmt",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "conditional",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181221193944",
+    "entityTableName": "discount_plan",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

@@ -1,0 +1,527 @@
+
+/**
+*  Relationships:
+*  property <-> landlord (many to many)
+*  property <-> address (one to one)
+*  property <-> property unit (one to many)
+*  property <-> usage_type (one to one)
+*  property <-> status (one to one)
+*  property <-> tenants (one to many)
+*  property <-> amenities (one to many)
+*  property <-> lease (one to one)
+*  property <-> mortgage (one to one)
+*  property <-> company (many to many)
+**/
+
+entity Portfolio {
+	id Long,
+    description String
+}
+
+// modify company to owner info
+entity Property {
+  id Long,
+  description String,
+  grossArea Double,
+  netArea Double,
+}
+
+entity Building {
+  id Long,
+  name String,
+  yearBuilt LocalDate,
+  noOfloors  Long,
+  buildingSize Double,
+  coveredArea Double,
+  landArea Double,
+  noOfRentalUnit  Long,
+  parkingSpaces  Long,
+  totalSpaceAvaliable Double,
+  totalUnitLevel Long,
+  currentRentPerSqft Double,
+  description String,
+  version String
+}
+
+/**
+*  Relationships:
+*  propertyUnit <-> landlord (many to many)
+*  propertyUnit <-> address (one to one)
+*  propertyUnit <-> property unit (many to many)
+*  propertyUnit <-> usage_type (one to one)
+*  propertyUnit <-> status (one to one)
+*  propertyUnit <-> tenants (one to many)
+*  propertyUnit <-> amenities (one to many)
+*  propertyUnit <-> lease (one to one)
+*  propertyUnit <-> mortgage (one to many)
+**/
+entity PropertyUnit {
+  id Long,
+  unitNo String,
+  description String,
+  floors Long,
+  netArea Double,
+  grossArea Double,
+  residential Boolean,
+  totalRooms Integer,
+  noOfBrs Integer,
+  noOfFb Integer,
+  noOfHb Integer,
+  propertyMailboxNum String,
+  propertyParkingLotNum String,
+  gasHeating Boolean,
+  whoPaysHeating Long,
+  electric Boolean,
+  whoPaysElectric Long,
+  water Boolean,
+  whoPaysWater  Long,
+  lastRenovated LocalDate,
+  currentRentPerSqft Double,
+  version Long
+ }
+
+ entity Address {
+  id Long,
+  locationId Long,
+  locationTypeId Long,
+  addressTypeId Long,
+  description String,
+  addressline1  String,
+  addressline2 String,
+  addressline3 String,
+  city String,
+  state String,
+  postalCode String,
+  countryCode String,
+  country String,
+  phoneNumber String,
+  tollFreeNumber String,
+  afterHoursNumber String,
+  faxNumber String,
+  emailAddress String,
+  phonePrefix String,
+  geocode  String,
+  version String
+}
+
+entity Appliance {
+	id Long,
+    description String,
+    serialNum String,
+    warrantyStartDate LocalDate,
+    warrantyEndDate LocalDate
+}
+
+entity Warranty {
+    id Long,
+    description String,
+    serialNum String,
+    warrantyStartDate LocalDate,
+    warrantyEndDate LocalDate
+}
+
+entity Contract {
+  id Long,
+  description String,
+  startDate LocalDate,
+  endDate LocalDate
+}
+
+entity Feature {
+	id Long,
+    description String
+}
+
+/**
+*
+*
+**/
+entity Contact {
+  id Long,
+  firstName String,
+  lastName String,
+  email String,
+  phonePrimary String,
+  phoneSecondary String,
+  contactType Long,
+  version String
+}
+
+/**
+*
+*
+**/
+entity Expense {
+  id Long,
+  amount Double,
+  currency Long
+}
+
+/**
+*
+*
+**/
+entity InvoiceHeader {
+  id Long,
+  planId Long,
+  serviceproviderId Long,
+  invoiceNum Long,
+  invoiceDate LocalDate,
+  invoiceStatus Long,
+  fromDate LocalDate,
+  toDate LocalDate,
+  amount Double,
+  fees Double,
+  currency Long,
+  paymentTerms Long,
+  paymentStatus Long,
+  paymentMethod Long,
+  paymentDate LocalDate,
+  paymentAmount Double,
+  paymentRef String,
+  comments String,
+  adhoc Boolean,
+  billToCompany Long,
+  legacy Boolean,
+  payor String,
+  paymentComments String,
+  emailDate String,
+  emailAddress String,
+  keyHash String
+}
+
+/**
+*
+*
+**/
+entity InvoiceLine {
+  id Long,
+  lineNum Long,
+  invoiceId Long,
+  planId Long,
+  categoryId Long,
+  description String
+  amount Double,
+  currency Long,
+  rate Double,
+  quantity Double
+}
+
+/**
+*
+*
+**/
+entity BillingPlan {
+  id Long,
+  planName String,
+  category Long,
+  memberType Long,
+  description String,
+  prorationDesc String,
+  effectiveDate LocalDate,
+  effectiveStatus  Long,
+  association String,
+  orderType Long,
+  accountingBook Long,
+  rates Double,
+  currency Long,
+  basis  Long,
+  initiationFees Double,
+  coupons String,
+  prorated Boolean,
+  glcode String,
+  active Boolean
+}
+
+/**
+*
+*
+**/
+entity DiscountPlan {
+  id Long,
+  planId Long,
+  planName String,
+  appliedToPlan Long,
+  appliedWithPlan Long,
+  discountRate Double,
+  discountUnit Long,
+  maxDiscountAmt Double,
+  description String,
+  conditional Boolean
+}
+
+/**
+* landlord <-> contact (one to one)
+* landlord <-> company (one to one)
+* landlord <-> ownershipType (one to one)
+**/
+entity LandLord {
+  id Long,
+  contactId Long,
+  percentageOwnership Double,
+  ownershipType Long
+}
+
+/**
+*
+*
+**/
+entity Lease {
+  id Long,
+  leaseSignedDate LocalDate,
+  landlordsId Long,
+  landlordAgent Long,
+  tenantsId Long,
+  addressId Long,
+  numOccupants  Long,
+  leaseTerm  Long,
+  leaseStartDate LocalDate,
+  leaseEndDate LocalDate,
+  rentAmount Double,
+  rentPeriod Long
+  totalTermRent Double,
+  rentEscalationPerc Double,
+  proRataStartDate Double,
+  proRataRentAmount Double,
+  proRataEndDate LocalDate,
+  additionalCharges Double,
+  securityDeposit  Double,
+  petsAllowed Boolean,
+  petType Long,
+  petDescription String,
+  water Boolean,
+  gas Boolean,
+  electric Boolean,
+  otherUtilities String,
+  terminationNoticePeriod Long,
+  agencyCompany Long,
+  managementCompany Long,
+  propertyId Long,
+  additionalNotes String
+}
+
+/**
+*
+*
+**/
+entity Lookup {
+  id Long,
+  companyId Long,
+  lookupTypesId Long,
+  lookupCode String,
+  lookupValue String,
+  flex1 String,
+  flex2 String,
+  flex3 String,
+  flex4 String,
+  version String
+}
+
+/**
+*
+*
+**/
+entity LookupType {
+  id Long,
+  companyId Long,
+  lookupTypeCode String,
+  lookupTypeValue String,
+  flex1Descr String,
+  flex2Descr String,
+  flex3Descr String,
+  flex4Descr String,
+  version String
+}
+
+/**
+*
+*
+**/
+entity Mortgage {
+  id Long,
+  companyId Long,
+  propertyUnitsId Long,
+  borrower Long,
+  lender Long,
+  startDate LocalDate,
+  endDate LocalDate,
+  amount Double,
+  interestRate Double,
+  balloonPayment Double,
+  refinanceOption Boolean,
+  amortizationLengthYrs Integer,
+  version String
+}
+
+/**
+*
+*
+**/
+entity PropertyVendor {
+  id Long,
+  companyId Long,
+  ranking Long,
+  startDate LocalDate,
+  endDate LocalDate,
+  version String
+}
+
+/**
+*
+*
+**/
+entity ServiceRequest {
+  id Long,
+  companyId Long,
+  propertyUnitsId Long,
+  propertiesId Long,
+  propertyVendorsId Long
+  category Long,
+  subCategory Long,
+  urgency Long,
+  unitId Long,
+  propertyId Long,
+  requestDateTime Instant,
+  description String,
+  assignmentStatus Long,
+  version String
+}
+
+/**
+*
+*
+**/
+entity Tenant {
+  id Long,
+  leaseId Long,
+  contact Long
+}
+
+/**
+*
+*
+**/
+entity CompanyCapability {
+	id Long,
+    capabilityId Long,
+    license Long,
+	certfication Long
+}
+
+entity RentRoll {
+  id Long,
+  securityDeposit Double,
+  bankGuarantee Double,
+  leaseRecoveryTiming Double
+
+}
+
+entity Notes {
+  id Long,
+  note String
+}
+
+entity Amenity {
+  id Long,
+  description String
+}
+
+entity DocumentStore {
+  id Long,
+  entityId Long,
+  entityName String,
+  path String,
+  category Long,
+  subCategory Long,
+  version String
+}
+
+entity IncomeProjection {
+  id Long,
+  period Integer,
+  projectedValue Double
+}
+
+/**
+*  Company <-> Address (one to many)
+*  Company <-> Contacts (one to many)
+**/
+entity Company {
+  id Long,
+  name String,
+  description String,
+  version String
+}
+
+relationship OneToMany {
+	Company{addresses} to Address,
+    Company{contacts} to Contact,
+    Company{capabilities} to CompanyCapability,
+    Portfolio{projectedIncomes} to IncomeProjection,
+    Property{projectedIncomes} to IncomeProjection,
+    Building{projectedIncomes} to IncomeProjection,
+    PropertyUnit{projectedIncomes} to IncomeProjection,
+    Portfolio{properties} to Property,
+    Building{propertyUnits} to PropertyUnit,
+    Property{amenities} to Amenity,
+    Building{amenities} to Amenity,
+    PropertyUnit{tenants} to Tenant,
+    PropertyUnit{amenities} to Amenity,
+    PropertyUnit{expenses} to Expense,
+    PropertyUnit{mortgages} to Mortgage,
+    PropertyUnit{appliances} to Appliance,
+    Property{expenses} to Expense,
+    Building{expenses} to Expense,
+    Building{mortgages} to Mortgage,
+    Contract{type} to Lookup,
+    Property{buildings} to Building,
+    Property{mortgages} to Mortgage,
+    Building{rentRoll} to RentRoll,
+    Property{rentRoll} to RentRoll,
+    PropertyUnit{rentRoll} to RentRoll
+}
+
+relationship ManyToMany {
+	Property{owner(id)} to LandLord{property},
+    Property{company(id)} to Company{property},
+    Building{owner(id)} to LandLord{building},
+    Building{company(id)} to Company{building}
+    PropertyUnit{lease(id)} to Lease{propertyUnit},
+    Building{lease(id)} to Lease{building},
+    PropertyUnit{owner(id)} to LandLord{propertyUnit},
+    Contract{company(id)} to Company{contracts},
+    Contract{managementCompany(id)} to Company{managementCompany}
+
+}
+
+relationship OneToOne {
+	Property{address} to Address,
+    Property{usageType} to Lookup,
+    Property{status} to Lookup,
+    Property{lease} to Lease,
+    IncomeProjection{assetLevelType} to Lookup,
+    Lease{type} to Lookup,
+    PropertyUnit{address} to Address,
+    PropertyUnit{usageType} to Lookup,
+    PropertyUnit{status} to Lookup,
+    PropertyUnit{mortgage} to Mortgage,
+    Building{assetType} to Lookup,
+    Feature{type} to Lookup,
+    Company{type} to Lookup,
+    Expense{type} to Lookup,
+    RentRoll{inflationType} to Lookup,
+    PropertyUnit{rentRoll} to RentRoll
+}
+
+dto * with mapstruct
+service * with serviceClass
+paginate * with pager
+search * with elasticsearch
+
+
+
+
+
+
+
+

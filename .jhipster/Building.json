@@ -1,0 +1,143 @@
+{
+    "name": "Building",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "yearBuilt",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "noOfloors",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "buildingSize",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "coveredArea",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "landArea",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "noOfRentalUnit",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "parkingSpaces",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "totalSpaceAvaliable",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "totalUnitLevel",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "currentRentPerSqft",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "property",
+            "otherEntityName": "property",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "assetType",
+            "otherEntityName": "lookup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "building"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "projectedIncomes",
+            "otherEntityName": "incomeProjection",
+            "otherEntityRelationshipName": "building"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "propertyUnits",
+            "otherEntityName": "propertyUnit",
+            "otherEntityRelationshipName": "building"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "amenities",
+            "otherEntityName": "amenity",
+            "otherEntityRelationshipName": "building"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "expenses",
+            "otherEntityName": "expense",
+            "otherEntityRelationshipName": "building"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mortgages",
+            "otherEntityName": "mortgage",
+            "otherEntityRelationshipName": "building"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "rentRoll",
+            "otherEntityName": "rentRoll",
+            "otherEntityRelationshipName": "building"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "building",
+            "relationshipName": "owner",
+            "otherEntityName": "landLord",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "building",
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "building",
+            "relationshipName": "lease",
+            "otherEntityName": "lease",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20181221193932",
+    "entityTableName": "building",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

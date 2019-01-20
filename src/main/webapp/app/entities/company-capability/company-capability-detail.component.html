@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="companyCapability">
+            <h2><span jhiTranslate="promalyV5App.companyCapability.detail.title">Company Capability</span> {{companyCapability.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.companyCapability.capabilityId">Capability Id</span></dt>
+                <dd>
+                    <span>{{companyCapability.capabilityId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.companyCapability.license">License</span></dt>
+                <dd>
+                    <span>{{companyCapability.license}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.companyCapability.certfication">Certfication</span></dt>
+                <dd>
+                    <span>{{companyCapability.certfication}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.companyCapability.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="companyCapability.companyId">
+                        <a [routerLink]="['/company', companyCapability.companyId, 'view']">{{companyCapability.companyId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company-capability', companyCapability.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

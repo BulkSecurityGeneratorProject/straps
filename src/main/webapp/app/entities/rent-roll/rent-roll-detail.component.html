@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="rentRoll">
+            <h2><span jhiTranslate="promalyV5App.rentRoll.detail.title">Rent Roll</span> {{rentRoll.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.rentRoll.securityDeposit">Security Deposit</span></dt>
+                <dd>
+                    <span>{{rentRoll.securityDeposit}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.rentRoll.bankGuarantee">Bank Guarantee</span></dt>
+                <dd>
+                    <span>{{rentRoll.bankGuarantee}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.rentRoll.leaseRecoveryTiming">Lease Recovery Timing</span></dt>
+                <dd>
+                    <span>{{rentRoll.leaseRecoveryTiming}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.rentRoll.property">Property</span></dt>
+                <dd>
+                    <div *ngIf="rentRoll.propertyId">
+                        <a [routerLink]="['/property', rentRoll.propertyId, 'view']">{{rentRoll.propertyId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.rentRoll.building">Building</span></dt>
+                <dd>
+                    <div *ngIf="rentRoll.buildingId">
+                        <a [routerLink]="['/building', rentRoll.buildingId, 'view']">{{rentRoll.buildingId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.rentRoll.propertyUnit">Property Unit</span></dt>
+                <dd>
+                    <div *ngIf="rentRoll.propertyUnitId">
+                        <a [routerLink]="['/property-unit', rentRoll.propertyUnitId, 'view']">{{rentRoll.propertyUnitId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.rentRoll.inflationType">Inflation Type</span></dt>
+                <dd>
+                    <div *ngIf="rentRoll.inflationTypeId">
+                        <a [routerLink]="['/lookup', rentRoll.inflationTypeId, 'view']">{{rentRoll.inflationTypeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/rent-roll', rentRoll.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

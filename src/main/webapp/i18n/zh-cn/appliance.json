@@ -1,0 +1,26 @@
+{
+    "promalyV5App": {
+        "appliance": {
+            "home": {
+                "title": "Appliances",
+                "createLabel": "创建新 Appliance",
+                "createOrEditLabel": "创建或编辑 Appliance",
+                "search": "查找 Appliance"
+            },
+            "created": "Appliance {{ param }} 创建成功",
+            "updated": "Appliance {{ param }} 更新成功",
+            "deleted": "Appliance {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Appliance {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Appliance"
+            },
+            "description": "Description",
+            "serialNum": "Serial Num",
+            "warrantyStartDate": "Warranty Start Date",
+            "warrantyEndDate": "Warranty End Date",
+            "propertyUnit": "Property Unit"
+        }
+    }
+}

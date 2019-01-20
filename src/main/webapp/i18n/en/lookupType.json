@@ -1,0 +1,29 @@
+{
+    "promalyV5App": {
+        "lookupType": {
+            "home": {
+                "title": "Lookup Types",
+                "createLabel": "Create a new Lookup Type",
+                "createOrEditLabel": "Create or edit a Lookup Type",
+                "search": "Search for Lookup Type"
+            },
+            "created": "A new Lookup Type is created with identifier {{ param }}",
+            "updated": "A Lookup Type is updated with identifier {{ param }}",
+            "deleted": "A Lookup Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Lookup Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Lookup Type"
+            },
+            "companyId": "Company Id",
+            "lookupTypeCode": "Lookup Type Code",
+            "lookupTypeValue": "Lookup Type Value",
+            "flex1Descr": "Flex 1 Descr",
+            "flex2Descr": "Flex 2 Descr",
+            "flex3Descr": "Flex 3 Descr",
+            "flex4Descr": "Flex 4 Descr",
+            "version": "Version"
+        }
+    }
+}

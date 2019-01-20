@@ -1,0 +1,39 @@
+{
+    "name": "Appliance",
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serialNum",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "warrantyStartDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "warrantyEndDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "propertyUnit",
+            "otherEntityName": "propertyUnit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181221193935",
+    "entityTableName": "appliance",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-service-request-heading" jhiTranslate="promalyV5App.serviceRequest.home.createOrEditLabel">Create or edit a Service Request</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!serviceRequest.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="serviceRequest.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.companyId" for="field_companyId">Company Id</label>
+                    <input type="number" class="form-control" name="companyId" id="field_companyId"
+                        [(ngModel)]="serviceRequest.companyId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.propertyUnitsId" for="field_propertyUnitsId">Property Units Id</label>
+                    <input type="number" class="form-control" name="propertyUnitsId" id="field_propertyUnitsId"
+                        [(ngModel)]="serviceRequest.propertyUnitsId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.propertiesId" for="field_propertiesId">Properties Id</label>
+                    <input type="number" class="form-control" name="propertiesId" id="field_propertiesId"
+                        [(ngModel)]="serviceRequest.propertiesId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.propertyVendorsId" for="field_propertyVendorsId">Property Vendors Id</label>
+                    <input type="number" class="form-control" name="propertyVendorsId" id="field_propertyVendorsId"
+                        [(ngModel)]="serviceRequest.propertyVendorsId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.category" for="field_category">Category</label>
+                    <input type="number" class="form-control" name="category" id="field_category"
+                        [(ngModel)]="serviceRequest.category" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.subCategory" for="field_subCategory">Sub Category</label>
+                    <input type="number" class="form-control" name="subCategory" id="field_subCategory"
+                        [(ngModel)]="serviceRequest.subCategory" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.urgency" for="field_urgency">Urgency</label>
+                    <input type="number" class="form-control" name="urgency" id="field_urgency"
+                        [(ngModel)]="serviceRequest.urgency" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.unitId" for="field_unitId">Unit Id</label>
+                    <input type="number" class="form-control" name="unitId" id="field_unitId"
+                        [(ngModel)]="serviceRequest.unitId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.propertyId" for="field_propertyId">Property Id</label>
+                    <input type="number" class="form-control" name="propertyId" id="field_propertyId"
+                        [(ngModel)]="serviceRequest.propertyId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.requestDateTime" for="field_requestDateTime">Request Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_requestDateTime" type="datetime-local" class="form-control" name="requestDateTime" [(ngModel)]="requestDateTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="serviceRequest.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.assignmentStatus" for="field_assignmentStatus">Assignment Status</label>
+                    <input type="number" class="form-control" name="assignmentStatus" id="field_assignmentStatus"
+                        [(ngModel)]="serviceRequest.assignmentStatus" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.serviceRequest.version" for="field_version">Version</label>
+                    <input type="text" class="form-control" name="version" id="field_version"
+                        [(ngModel)]="serviceRequest.version" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

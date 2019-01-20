@@ -1,0 +1,30 @@
+{
+    "promalyV5App": {
+        "invoiceLine": {
+            "home": {
+                "title": "Invoice Lines",
+                "createLabel": "Create a new Invoice Line",
+                "createOrEditLabel": "Create or edit a Invoice Line",
+                "search": "Search for Invoice Line"
+            },
+            "created": "A new Invoice Line is created with identifier {{ param }}",
+            "updated": "A Invoice Line is updated with identifier {{ param }}",
+            "deleted": "A Invoice Line is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Invoice Line {{ id }}?"
+            },
+            "detail": {
+                "title": "Invoice Line"
+            },
+            "lineNum": "Line Num",
+            "invoiceId": "Invoice Id",
+            "planId": "Plan Id",
+            "categoryId": "Category Id",
+            "description": "Description",
+            "amount": "Amount",
+            "currency": "Currency",
+            "rate": "Rate",
+            "quantity": "Quantity"
+        }
+    }
+}

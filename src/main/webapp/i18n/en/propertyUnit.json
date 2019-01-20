@@ -1,0 +1,57 @@
+{
+    "promalyV5App": {
+        "propertyUnit": {
+            "home": {
+                "title": "Property Units",
+                "createLabel": "Create a new Property Unit",
+                "createOrEditLabel": "Create or edit a Property Unit",
+                "search": "Search for Property Unit"
+            },
+            "created": "A new Property Unit is created with identifier {{ param }}",
+            "updated": "A Property Unit is updated with identifier {{ param }}",
+            "deleted": "A Property Unit is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Property Unit {{ id }}?"
+            },
+            "detail": {
+                "title": "Property Unit"
+            },
+            "unitNo": "Unit No",
+            "description": "Description",
+            "floors": "Floors",
+            "netArea": "Net Area",
+            "grossArea": "Gross Area",
+            "residential": "Residential",
+            "totalRooms": "Total Rooms",
+            "noOfBrs": "No Of Brs",
+            "noOfFb": "No Of Fb",
+            "noOfHb": "No Of Hb",
+            "propertyMailboxNum": "Property Mailbox Num",
+            "propertyParkingLotNum": "Property Parking Lot Num",
+            "gasHeating": "Gas Heating",
+            "whoPaysHeating": "Who Pays Heating",
+            "electric": "Electric",
+            "whoPaysElectric": "Who Pays Electric",
+            "water": "Water",
+            "whoPaysWater": "Who Pays Water",
+            "lastRenovated": "Last Renovated",
+            "currentRentPerSqft": "Current Rent Per Sqft",
+            "version": "Version",
+            "building": "Building",
+            "address": "Address",
+            "usageType": "Usage Type",
+            "status": "Status",
+            "mortgage": "Mortgage",
+            "rentRoll": "Rent Roll",
+            "projectedIncomes": "Projected Incomes",
+            "tenants": "Tenants",
+            "amenities": "Amenities",
+            "expenses": "Expenses",
+            "mortgages": "Mortgages",
+            "appliances": "Appliances",
+            "rentRoll": "Rent Roll",
+            "lease": "Lease",
+            "owner": "Owner"
+        }
+    }
+}

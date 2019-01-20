@@ -1,0 +1,30 @@
+{
+    "promalyV5App": {
+        "invoiceLine": {
+            "home": {
+                "title": "Invoice Lines",
+                "createLabel": "创建新 Invoice Line",
+                "createOrEditLabel": "创建或编辑 Invoice Line",
+                "search": "查找 Invoice Line"
+            },
+            "created": "Invoice Line {{ param }} 创建成功",
+            "updated": "Invoice Line {{ param }} 更新成功",
+            "deleted": "Invoice Line {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Invoice Line {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Invoice Line"
+            },
+            "lineNum": "Line Num",
+            "invoiceId": "Invoice Id",
+            "planId": "Plan Id",
+            "categoryId": "Category Id",
+            "description": "Description",
+            "amount": "Amount",
+            "currency": "Currency",
+            "rate": "Rate",
+            "quantity": "Quantity"
+        }
+    }
+}

@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="feature">
+            <h2><span jhiTranslate="promalyV5App.feature.detail.title">Feature</span> {{feature.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.feature.description">Description</span></dt>
+                <dd>
+                    <span>{{feature.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.feature.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="feature.typeId">
+                        <a [routerLink]="['/lookup', feature.typeId, 'view']">{{feature.typeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/feature', feature.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

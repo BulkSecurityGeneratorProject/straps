@@ -1,0 +1,34 @@
+{
+    "name": "Portfolio",
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "projectedIncomes",
+            "otherEntityName": "incomeProjection",
+            "otherEntityRelationshipName": "portfolio"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "properties",
+            "otherEntityName": "property",
+            "otherEntityRelationshipName": "portfolio"
+        }
+    ],
+    "changelogDate": "20181221193930",
+    "javadoc": "Relationships:\nproperty <-> landlord (many to many)\nproperty <-> address (one to one)\nproperty <-> property unit (one to many)\nproperty <-> usage_type (one to one)\nproperty <-> status (one to one)\nproperty <-> tenants (one to many)\nproperty <-> amenities (one to many)\nproperty <-> lease (one to one)\nproperty <-> mortgage (one to one)\nproperty <-> company (many to many)",
+    "entityTableName": "portfolio",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

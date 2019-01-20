@@ -1,0 +1,35 @@
+{
+    "name": "CompanyCapability",
+    "fields": [
+        {
+            "fieldName": "capabilityId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "license",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "certfication",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181221193953",
+    "entityTableName": "company_capability",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

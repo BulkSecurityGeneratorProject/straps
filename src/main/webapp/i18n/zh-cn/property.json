@@ -1,0 +1,37 @@
+{
+    "promalyV5App": {
+        "property": {
+            "home": {
+                "title": "Properties",
+                "createLabel": "创建新 Property",
+                "createOrEditLabel": "创建或编辑 Property",
+                "search": "查找 Property"
+            },
+            "created": "Property {{ param }} 创建成功",
+            "updated": "Property {{ param }} 更新成功",
+            "deleted": "Property {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Property {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Property"
+            },
+            "description": "Description",
+            "grossArea": "Gross Area",
+            "netArea": "Net Area",
+            "portfolio": "Portfolio",
+            "address": "Address",
+            "usageType": "Usage Type",
+            "status": "Status",
+            "lease": "Lease",
+            "projectedIncomes": "Projected Incomes",
+            "amenities": "Amenities",
+            "expenses": "Expenses",
+            "buildings": "Buildings",
+            "mortgages": "Mortgages",
+            "rentRoll": "Rent Roll",
+            "owner": "Owner",
+            "company": "Company"
+        }
+    }
+}

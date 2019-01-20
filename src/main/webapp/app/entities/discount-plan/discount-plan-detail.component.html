@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="discountPlan">
+            <h2><span jhiTranslate="promalyV5App.discountPlan.detail.title">Discount Plan</span> {{discountPlan.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.discountPlan.planId">Plan Id</span></dt>
+                <dd>
+                    <span>{{discountPlan.planId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.discountPlan.planName">Plan Name</span></dt>
+                <dd>
+                    <span>{{discountPlan.planName}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.discountPlan.appliedToPlan">Applied To Plan</span></dt>
+                <dd>
+                    <span>{{discountPlan.appliedToPlan}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.discountPlan.appliedWithPlan">Applied With Plan</span></dt>
+                <dd>
+                    <span>{{discountPlan.appliedWithPlan}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.discountPlan.discountRate">Discount Rate</span></dt>
+                <dd>
+                    <span>{{discountPlan.discountRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.discountPlan.discountUnit">Discount Unit</span></dt>
+                <dd>
+                    <span>{{discountPlan.discountUnit}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.discountPlan.maxDiscountAmt">Max Discount Amt</span></dt>
+                <dd>
+                    <span>{{discountPlan.maxDiscountAmt}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.discountPlan.description">Description</span></dt>
+                <dd>
+                    <span>{{discountPlan.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.discountPlan.conditional">Conditional</span></dt>
+                <dd>
+                    <span>{{discountPlan.conditional}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/discount-plan', discountPlan.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

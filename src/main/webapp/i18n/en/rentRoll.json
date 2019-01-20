@@ -1,0 +1,28 @@
+{
+    "promalyV5App": {
+        "rentRoll": {
+            "home": {
+                "title": "Rent Rolls",
+                "createLabel": "Create a new Rent Roll",
+                "createOrEditLabel": "Create or edit a Rent Roll",
+                "search": "Search for Rent Roll"
+            },
+            "created": "A new Rent Roll is created with identifier {{ param }}",
+            "updated": "A Rent Roll is updated with identifier {{ param }}",
+            "deleted": "A Rent Roll is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Rent Roll {{ id }}?"
+            },
+            "detail": {
+                "title": "Rent Roll"
+            },
+            "securityDeposit": "Security Deposit",
+            "bankGuarantee": "Bank Guarantee",
+            "leaseRecoveryTiming": "Lease Recovery Timing",
+            "property": "Property",
+            "building": "Building",
+            "propertyUnit": "Property Unit",
+            "inflationType": "Inflation Type"
+        }
+    }
+}

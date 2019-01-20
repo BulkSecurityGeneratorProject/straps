@@ -1,0 +1,126 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-building-heading" jhiTranslate="promalyV5App.building.home.createOrEditLabel">Create or edit a Building</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!building.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="building.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="building.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.yearBuilt" for="field_yearBuilt">Year Built</label>
+                    <div class="input-group">
+                        <input id="field_yearBuilt" type="text" class="form-control" name="yearBuilt" ngbDatepicker  #yearBuiltDp="ngbDatepicker" [(ngModel)]="building.yearBuilt"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="yearBuiltDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.noOfloors" for="field_noOfloors">No Ofloors</label>
+                    <input type="number" class="form-control" name="noOfloors" id="field_noOfloors"
+                        [(ngModel)]="building.noOfloors" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.buildingSize" for="field_buildingSize">Building Size</label>
+                    <input type="number" class="form-control" name="buildingSize" id="field_buildingSize"
+                        [(ngModel)]="building.buildingSize" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.coveredArea" for="field_coveredArea">Covered Area</label>
+                    <input type="number" class="form-control" name="coveredArea" id="field_coveredArea"
+                        [(ngModel)]="building.coveredArea" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.landArea" for="field_landArea">Land Area</label>
+                    <input type="number" class="form-control" name="landArea" id="field_landArea"
+                        [(ngModel)]="building.landArea" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.noOfRentalUnit" for="field_noOfRentalUnit">No Of Rental Unit</label>
+                    <input type="number" class="form-control" name="noOfRentalUnit" id="field_noOfRentalUnit"
+                        [(ngModel)]="building.noOfRentalUnit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.parkingSpaces" for="field_parkingSpaces">Parking Spaces</label>
+                    <input type="number" class="form-control" name="parkingSpaces" id="field_parkingSpaces"
+                        [(ngModel)]="building.parkingSpaces" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.totalSpaceAvaliable" for="field_totalSpaceAvaliable">Total Space Avaliable</label>
+                    <input type="number" class="form-control" name="totalSpaceAvaliable" id="field_totalSpaceAvaliable"
+                        [(ngModel)]="building.totalSpaceAvaliable" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.totalUnitLevel" for="field_totalUnitLevel">Total Unit Level</label>
+                    <input type="number" class="form-control" name="totalUnitLevel" id="field_totalUnitLevel"
+                        [(ngModel)]="building.totalUnitLevel" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.currentRentPerSqft" for="field_currentRentPerSqft">Current Rent Per Sqft</label>
+                    <input type="number" class="form-control" name="currentRentPerSqft" id="field_currentRentPerSqft"
+                        [(ngModel)]="building.currentRentPerSqft" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="building.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.version" for="field_version">Version</label>
+                    <input type="text" class="form-control" name="version" id="field_version"
+                        [(ngModel)]="building.version" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.property" for="field_property">Property</label>
+                    <select class="form-control" id="field_property" name="property" [(ngModel)]="building.propertyId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="propertyOption.id" *ngFor="let propertyOption of properties; trackBy: trackPropertyById">{{propertyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.building.assetType" for="field_assetType">Asset Type</label>
+                    <select class="form-control" id="field_assetType" name="assetType" [(ngModel)]="building.assetTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lookupOption.id" *ngFor="let lookupOption of assettypes; trackBy: trackLookupById">{{lookupOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="promalyV5App.building.owner" for="field_owner">Owner</label>
+                    <select class="form-control" id="field_owner" multiple name="owner" [(ngModel)]="building.owners">
+                        <option [ngValue]="getSelected(building.owners, landLordOption)" *ngFor="let landLordOption of landlords; trackBy: trackLandLordById">{{landLordOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="promalyV5App.building.company" for="field_company">Company</label>
+                    <select class="form-control" id="field_company" multiple name="company" [(ngModel)]="building.companies">
+                        <option [ngValue]="getSelected(building.companies, companyOption)" *ngFor="let companyOption of companies; trackBy: trackCompanyById">{{companyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="promalyV5App.building.lease" for="field_lease">Lease</label>
+                    <select class="form-control" id="field_lease" multiple name="lease" [(ngModel)]="building.leases">
+                        <option [ngValue]="getSelected(building.leases, leaseOption)" *ngFor="let leaseOption of leases; trackBy: trackLeaseById">{{leaseOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

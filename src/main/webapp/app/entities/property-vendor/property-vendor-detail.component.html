@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="propertyVendor">
+            <h2><span jhiTranslate="promalyV5App.propertyVendor.detail.title">Property Vendor</span> {{propertyVendor.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.propertyVendor.companyId">Company Id</span></dt>
+                <dd>
+                    <span>{{propertyVendor.companyId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyVendor.ranking">Ranking</span></dt>
+                <dd>
+                    <span>{{propertyVendor.ranking}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyVendor.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{propertyVendor.startDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyVendor.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{propertyVendor.endDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyVendor.version">Version</span></dt>
+                <dd>
+                    <span>{{propertyVendor.version}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/property-vendor', propertyVendor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

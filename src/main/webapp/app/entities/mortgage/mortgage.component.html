@@ -1,0 +1,118 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="promalyV5App.mortgage.home.title">Mortgages</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-mortgage" [routerLink]="['/mortgage/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="promalyV5App.mortgage.home.createLabel">
+            Create new Mortgage
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'promalyV5App.mortgage.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="mortgages">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="companyId"><span jhiTranslate="promalyV5App.mortgage.companyId">Company Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyUnitsId"><span jhiTranslate="promalyV5App.mortgage.propertyUnitsId">Property Units Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="borrower"><span jhiTranslate="promalyV5App.mortgage.borrower">Borrower</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lender"><span jhiTranslate="promalyV5App.mortgage.lender">Lender</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="startDate"><span jhiTranslate="promalyV5App.mortgage.startDate">Start Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="endDate"><span jhiTranslate="promalyV5App.mortgage.endDate">End Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="amount"><span jhiTranslate="promalyV5App.mortgage.amount">Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="interestRate"><span jhiTranslate="promalyV5App.mortgage.interestRate">Interest Rate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="balloonPayment"><span jhiTranslate="promalyV5App.mortgage.balloonPayment">Balloon Payment</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="refinanceOption"><span jhiTranslate="promalyV5App.mortgage.refinanceOption">Refinance Option</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="amortizationLengthYrs"><span jhiTranslate="promalyV5App.mortgage.amortizationLengthYrs">Amortization Length Yrs</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="version"><span jhiTranslate="promalyV5App.mortgage.version">Version</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyId"><span jhiTranslate="promalyV5App.mortgage.property">Property</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="buildingId"><span jhiTranslate="promalyV5App.mortgage.building">Building</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyUnitId"><span jhiTranslate="promalyV5App.mortgage.propertyUnit">Property Unit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mortgage of mortgages ;trackBy: trackId">
+                <td><a [routerLink]="['/mortgage', mortgage.id, 'view' ]">{{mortgage.id}}</a></td>
+                <td>{{mortgage.companyId}}</td>
+                <td>{{mortgage.propertyUnitsId}}</td>
+                <td>{{mortgage.borrower}}</td>
+                <td>{{mortgage.lender}}</td>
+                <td>{{mortgage.startDate | date:'mediumDate'}}</td>
+                <td>{{mortgage.endDate | date:'mediumDate'}}</td>
+                <td>{{mortgage.amount}}</td>
+                <td>{{mortgage.interestRate}}</td>
+                <td>{{mortgage.balloonPayment}}</td>
+                <td>{{mortgage.refinanceOption}}</td>
+                <td>{{mortgage.amortizationLengthYrs}}</td>
+                <td>{{mortgage.version}}</td>
+                <td>
+                    <div *ngIf="mortgage.propertyId">
+                        <a [routerLink]="['../property', mortgage.propertyId , 'view' ]" >{{mortgage.propertyId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="mortgage.buildingId">
+                        <a [routerLink]="['../building', mortgage.buildingId , 'view' ]" >{{mortgage.buildingId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="mortgage.propertyUnitId">
+                        <a [routerLink]="['../property-unit', mortgage.propertyUnitId , 'view' ]" >{{mortgage.propertyUnitId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/mortgage', mortgage.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/mortgage', mortgage.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mortgage/'+ mortgage.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="mortgages && mortgages.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

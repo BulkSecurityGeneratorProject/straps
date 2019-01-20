@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="appliance">
+            <h2><span jhiTranslate="promalyV5App.appliance.detail.title">Appliance</span> {{appliance.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.appliance.description">Description</span></dt>
+                <dd>
+                    <span>{{appliance.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.appliance.serialNum">Serial Num</span></dt>
+                <dd>
+                    <span>{{appliance.serialNum}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.appliance.warrantyStartDate">Warranty Start Date</span></dt>
+                <dd>
+                    <span>{{appliance.warrantyStartDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.appliance.warrantyEndDate">Warranty End Date</span></dt>
+                <dd>
+                    <span>{{appliance.warrantyEndDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.appliance.propertyUnit">Property Unit</span></dt>
+                <dd>
+                    <div *ngIf="appliance.propertyUnitId">
+                        <a [routerLink]="['/property-unit', appliance.propertyUnitId, 'view']">{{appliance.propertyUnitId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/appliance', appliance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

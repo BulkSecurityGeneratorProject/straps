@@ -1,0 +1,39 @@
+{
+    "promalyV5App": {
+        "billingPlan": {
+            "home": {
+                "title": "Billing Plans",
+                "createLabel": "Create a new Billing Plan",
+                "createOrEditLabel": "Create or edit a Billing Plan",
+                "search": "Search for Billing Plan"
+            },
+            "created": "A new Billing Plan is created with identifier {{ param }}",
+            "updated": "A Billing Plan is updated with identifier {{ param }}",
+            "deleted": "A Billing Plan is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Billing Plan {{ id }}?"
+            },
+            "detail": {
+                "title": "Billing Plan"
+            },
+            "planName": "Plan Name",
+            "category": "Category",
+            "memberType": "Member Type",
+            "description": "Description",
+            "prorationDesc": "Proration Desc",
+            "effectiveDate": "Effective Date",
+            "effectiveStatus": "Effective Status",
+            "association": "Association",
+            "orderType": "Order Type",
+            "accountingBook": "Accounting Book",
+            "rates": "Rates",
+            "currency": "Currency",
+            "basis": "Basis",
+            "initiationFees": "Initiation Fees",
+            "coupons": "Coupons",
+            "prorated": "Prorated",
+            "glcode": "Glcode",
+            "active": "Active"
+        }
+    }
+}

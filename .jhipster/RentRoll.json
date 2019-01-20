@@ -1,0 +1,55 @@
+{
+    "name": "RentRoll",
+    "fields": [
+        {
+            "fieldName": "securityDeposit",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "bankGuarantee",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "leaseRecoveryTiming",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "property",
+            "otherEntityName": "property",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "building",
+            "otherEntityName": "building",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "propertyUnit",
+            "otherEntityName": "propertyUnit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "inflationType",
+            "otherEntityName": "lookup",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "rentRoll"
+        }
+    ],
+    "changelogDate": "20181221193954",
+    "entityTableName": "rent_roll",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

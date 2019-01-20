@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-document-store-heading" jhiTranslate="promalyV5App.documentStore.home.createOrEditLabel">Create or edit a Document Store</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!documentStore.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="documentStore.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.documentStore.entityId" for="field_entityId">Entity Id</label>
+                    <input type="number" class="form-control" name="entityId" id="field_entityId"
+                        [(ngModel)]="documentStore.entityId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.documentStore.entityName" for="field_entityName">Entity Name</label>
+                    <input type="text" class="form-control" name="entityName" id="field_entityName"
+                        [(ngModel)]="documentStore.entityName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.documentStore.path" for="field_path">Path</label>
+                    <input type="text" class="form-control" name="path" id="field_path"
+                        [(ngModel)]="documentStore.path" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.documentStore.category" for="field_category">Category</label>
+                    <input type="number" class="form-control" name="category" id="field_category"
+                        [(ngModel)]="documentStore.category" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.documentStore.subCategory" for="field_subCategory">Sub Category</label>
+                    <input type="number" class="form-control" name="subCategory" id="field_subCategory"
+                        [(ngModel)]="documentStore.subCategory" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.documentStore.version" for="field_version">Version</label>
+                    <input type="text" class="form-control" name="version" id="field_version"
+                        [(ngModel)]="documentStore.version" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

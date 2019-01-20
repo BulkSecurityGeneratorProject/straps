@@ -1,0 +1,45 @@
+{
+    "promalyV5App": {
+        "building": {
+            "home": {
+                "title": "Buildings",
+                "createLabel": "Create a new Building",
+                "createOrEditLabel": "Create or edit a Building",
+                "search": "Search for Building"
+            },
+            "created": "A new Building is created with identifier {{ param }}",
+            "updated": "A Building is updated with identifier {{ param }}",
+            "deleted": "A Building is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Building {{ id }}?"
+            },
+            "detail": {
+                "title": "Building"
+            },
+            "name": "Name",
+            "yearBuilt": "Year Built",
+            "noOfloors": "No Ofloors",
+            "buildingSize": "Building Size",
+            "coveredArea": "Covered Area",
+            "landArea": "Land Area",
+            "noOfRentalUnit": "No Of Rental Unit",
+            "parkingSpaces": "Parking Spaces",
+            "totalSpaceAvaliable": "Total Space Avaliable",
+            "totalUnitLevel": "Total Unit Level",
+            "currentRentPerSqft": "Current Rent Per Sqft",
+            "description": "Description",
+            "version": "Version",
+            "property": "Property",
+            "assetType": "Asset Type",
+            "projectedIncomes": "Projected Incomes",
+            "propertyUnits": "Property Units",
+            "amenities": "Amenities",
+            "expenses": "Expenses",
+            "mortgages": "Mortgages",
+            "rentRoll": "Rent Roll",
+            "owner": "Owner",
+            "company": "Company",
+            "lease": "Lease"
+        }
+    }
+}

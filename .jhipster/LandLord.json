@@ -1,0 +1,51 @@
+{
+    "name": "LandLord",
+    "fields": [
+        {
+            "fieldName": "contactId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "percentageOwnership",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "ownershipType",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "property",
+            "otherEntityName": "property",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "owner"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "building",
+            "otherEntityName": "building",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "owner"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "propertyUnit",
+            "otherEntityName": "propertyUnit",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "owner"
+        }
+    ],
+    "changelogDate": "20181221193945",
+    "javadoc": "landlord <-> contact (one to one)\nlandlord <-> company (one to one)\nlandlord <-> ownershipType (one to one)",
+    "entityTableName": "land_lord",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

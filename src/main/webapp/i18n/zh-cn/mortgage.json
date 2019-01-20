@@ -1,0 +1,36 @@
+{
+    "promalyV5App": {
+        "mortgage": {
+            "home": {
+                "title": "Mortgages",
+                "createLabel": "创建新 Mortgage",
+                "createOrEditLabel": "创建或编辑 Mortgage",
+                "search": "查找 Mortgage"
+            },
+            "created": "Mortgage {{ param }} 创建成功",
+            "updated": "Mortgage {{ param }} 更新成功",
+            "deleted": "Mortgage {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Mortgage {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Mortgage"
+            },
+            "companyId": "Company Id",
+            "propertyUnitsId": "Property Units Id",
+            "borrower": "Borrower",
+            "lender": "Lender",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "amount": "Amount",
+            "interestRate": "Interest Rate",
+            "balloonPayment": "Balloon Payment",
+            "refinanceOption": "Refinance Option",
+            "amortizationLengthYrs": "Amortization Length Yrs",
+            "version": "Version",
+            "property": "Property",
+            "building": "Building",
+            "propertyUnit": "Property Unit"
+        }
+    }
+}

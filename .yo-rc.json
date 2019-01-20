@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.neowave.promaly",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "monolith",
+    "baseName": "promaly_v5",
+    "packageName": "com.neowave.promaly",
+    "packageFolder": "com/neowave/promaly",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "OGY2M2U4NjNjOGUyNWFjNTFjNzgyOWVlZGVkMDRhY2Y4OTllZTIxY2M3Zjc3ZGUzNDAxMzk1YTBhNGExYjAxOTBlMGQ1MmQzNTkxOTNiMDIzYmM5NThiNzVmOGQ2MmZjN2IyMmY0YjljNGJkYjNhZmU0ODMyNjdlODkyNTc1NDI=",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling",
+      "cucumber",
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "zh-cn"
+    ],
+    "messageBroker": false,
+    "enableHibernateCache": false
+  }
+}

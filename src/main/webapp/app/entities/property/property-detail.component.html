@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="property">
+            <h2><span jhiTranslate="promalyV5App.property.detail.title">Property</span> {{property.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.property.description">Description</span></dt>
+                <dd>
+                    <span>{{property.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.property.grossArea">Gross Area</span></dt>
+                <dd>
+                    <span>{{property.grossArea}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.property.netArea">Net Area</span></dt>
+                <dd>
+                    <span>{{property.netArea}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.property.portfolio">Portfolio</span></dt>
+                <dd>
+                    <div *ngIf="property.portfolioId">
+                        <a [routerLink]="['/portfolio', property.portfolioId, 'view']">{{property.portfolioId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.property.address">Address</span></dt>
+                <dd>
+                    <div *ngIf="property.addressId">
+                        <a [routerLink]="['/address', property.addressId, 'view']">{{property.addressId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.property.usageType">Usage Type</span></dt>
+                <dd>
+                    <div *ngIf="property.usageTypeId">
+                        <a [routerLink]="['/lookup', property.usageTypeId, 'view']">{{property.usageTypeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.property.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="property.statusId">
+                        <a [routerLink]="['/lookup', property.statusId, 'view']">{{property.statusId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.property.lease">Lease</span></dt>
+                <dd>
+                    <div *ngIf="property.leaseId">
+                        <a [routerLink]="['/lease', property.leaseId, 'view']">{{property.leaseId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.property.owner">Owner</span></dt>
+                <dd>
+                    <span *ngFor="let owner of property.owners; let last = last">
+                        <a [routerLink]="['/land-lord', owner?.id, 'view' ]">{{owner.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.property.company">Company</span></dt>
+                <dd>
+                    <span *ngFor="let company of property.companies; let last = last">
+                        <a [routerLink]="['/company', company?.id, 'view' ]">{{company.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/property', property.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

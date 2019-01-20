@@ -1,0 +1,155 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="propertyUnit">
+            <h2><span jhiTranslate="promalyV5App.propertyUnit.detail.title">Property Unit</span> {{propertyUnit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.unitNo">Unit No</span></dt>
+                <dd>
+                    <span>{{propertyUnit.unitNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.description">Description</span></dt>
+                <dd>
+                    <span>{{propertyUnit.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.floors">Floors</span></dt>
+                <dd>
+                    <span>{{propertyUnit.floors}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.netArea">Net Area</span></dt>
+                <dd>
+                    <span>{{propertyUnit.netArea}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.grossArea">Gross Area</span></dt>
+                <dd>
+                    <span>{{propertyUnit.grossArea}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.residential">Residential</span></dt>
+                <dd>
+                    <span>{{propertyUnit.residential}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.totalRooms">Total Rooms</span></dt>
+                <dd>
+                    <span>{{propertyUnit.totalRooms}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.noOfBrs">No Of Brs</span></dt>
+                <dd>
+                    <span>{{propertyUnit.noOfBrs}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.noOfFb">No Of Fb</span></dt>
+                <dd>
+                    <span>{{propertyUnit.noOfFb}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.noOfHb">No Of Hb</span></dt>
+                <dd>
+                    <span>{{propertyUnit.noOfHb}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.propertyMailboxNum">Property Mailbox Num</span></dt>
+                <dd>
+                    <span>{{propertyUnit.propertyMailboxNum}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.propertyParkingLotNum">Property Parking Lot Num</span></dt>
+                <dd>
+                    <span>{{propertyUnit.propertyParkingLotNum}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.gasHeating">Gas Heating</span></dt>
+                <dd>
+                    <span>{{propertyUnit.gasHeating}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.whoPaysHeating">Who Pays Heating</span></dt>
+                <dd>
+                    <span>{{propertyUnit.whoPaysHeating}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.electric">Electric</span></dt>
+                <dd>
+                    <span>{{propertyUnit.electric}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.whoPaysElectric">Who Pays Electric</span></dt>
+                <dd>
+                    <span>{{propertyUnit.whoPaysElectric}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.water">Water</span></dt>
+                <dd>
+                    <span>{{propertyUnit.water}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.whoPaysWater">Who Pays Water</span></dt>
+                <dd>
+                    <span>{{propertyUnit.whoPaysWater}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.lastRenovated">Last Renovated</span></dt>
+                <dd>
+                    <span>{{propertyUnit.lastRenovated}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.currentRentPerSqft">Current Rent Per Sqft</span></dt>
+                <dd>
+                    <span>{{propertyUnit.currentRentPerSqft}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.version">Version</span></dt>
+                <dd>
+                    <span>{{propertyUnit.version}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.building">Building</span></dt>
+                <dd>
+                    <div *ngIf="propertyUnit.buildingId">
+                        <a [routerLink]="['/building', propertyUnit.buildingId, 'view']">{{propertyUnit.buildingId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.address">Address</span></dt>
+                <dd>
+                    <div *ngIf="propertyUnit.addressId">
+                        <a [routerLink]="['/address', propertyUnit.addressId, 'view']">{{propertyUnit.addressId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.usageType">Usage Type</span></dt>
+                <dd>
+                    <div *ngIf="propertyUnit.usageTypeId">
+                        <a [routerLink]="['/lookup', propertyUnit.usageTypeId, 'view']">{{propertyUnit.usageTypeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="propertyUnit.statusId">
+                        <a [routerLink]="['/lookup', propertyUnit.statusId, 'view']">{{propertyUnit.statusId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.mortgage">Mortgage</span></dt>
+                <dd>
+                    <div *ngIf="propertyUnit.mortgageId">
+                        <a [routerLink]="['/mortgage', propertyUnit.mortgageId, 'view']">{{propertyUnit.mortgageId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.rentRoll">Rent Roll</span></dt>
+                <dd>
+                    <div *ngIf="propertyUnit.rentRollId">
+                        <a [routerLink]="['/rent-roll', propertyUnit.rentRollId, 'view']">{{propertyUnit.rentRollId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.lease">Lease</span></dt>
+                <dd>
+                    <span *ngFor="let lease of propertyUnit.leases; let last = last">
+                        <a [routerLink]="['/lease', lease?.id, 'view' ]">{{lease.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.propertyUnit.owner">Owner</span></dt>
+                <dd>
+                    <span *ngFor="let owner of propertyUnit.owners; let last = last">
+                        <a [routerLink]="['/land-lord', owner?.id, 'view' ]">{{owner.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/property-unit', propertyUnit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

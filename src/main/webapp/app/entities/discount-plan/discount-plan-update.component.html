@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-discount-plan-heading" jhiTranslate="promalyV5App.discountPlan.home.createOrEditLabel">Create or edit a Discount Plan</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!discountPlan.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="discountPlan.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.discountPlan.planId" for="field_planId">Plan Id</label>
+                    <input type="number" class="form-control" name="planId" id="field_planId"
+                        [(ngModel)]="discountPlan.planId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.discountPlan.planName" for="field_planName">Plan Name</label>
+                    <input type="text" class="form-control" name="planName" id="field_planName"
+                        [(ngModel)]="discountPlan.planName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.discountPlan.appliedToPlan" for="field_appliedToPlan">Applied To Plan</label>
+                    <input type="number" class="form-control" name="appliedToPlan" id="field_appliedToPlan"
+                        [(ngModel)]="discountPlan.appliedToPlan" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.discountPlan.appliedWithPlan" for="field_appliedWithPlan">Applied With Plan</label>
+                    <input type="number" class="form-control" name="appliedWithPlan" id="field_appliedWithPlan"
+                        [(ngModel)]="discountPlan.appliedWithPlan" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.discountPlan.discountRate" for="field_discountRate">Discount Rate</label>
+                    <input type="number" class="form-control" name="discountRate" id="field_discountRate"
+                        [(ngModel)]="discountPlan.discountRate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.discountPlan.discountUnit" for="field_discountUnit">Discount Unit</label>
+                    <input type="number" class="form-control" name="discountUnit" id="field_discountUnit"
+                        [(ngModel)]="discountPlan.discountUnit" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.discountPlan.maxDiscountAmt" for="field_maxDiscountAmt">Max Discount Amt</label>
+                    <input type="number" class="form-control" name="maxDiscountAmt" id="field_maxDiscountAmt"
+                        [(ngModel)]="discountPlan.maxDiscountAmt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.discountPlan.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="discountPlan.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.discountPlan.conditional" for="field_conditional">Conditional</label>
+                    <input type="checkbox" class="form-control" name="conditional" id="field_conditional"
+                        [(ngModel)]="discountPlan.conditional" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

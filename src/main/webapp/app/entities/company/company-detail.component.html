@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="company">
+            <h2><span jhiTranslate="promalyV5App.company.detail.title">Company</span> {{company.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.company.name">Name</span></dt>
+                <dd>
+                    <span>{{company.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.company.description">Description</span></dt>
+                <dd>
+                    <span>{{company.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.company.version">Version</span></dt>
+                <dd>
+                    <span>{{company.version}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.company.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="company.typeId">
+                        <a [routerLink]="['/lookup', company.typeId, 'view']">{{company.typeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company', company.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity PropertyUnit.
+    -->
+    <changeSet id="20181221193933-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="building_id"
+                                 baseTableName="property_unit"
+                                 constraintName="fk_property_unit_building_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="building"/>
+
+        <addForeignKeyConstraint baseColumnNames="address_id"
+                                 baseTableName="property_unit"
+                                 constraintName="fk_property_unit_address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"/>
+
+        <addForeignKeyConstraint baseColumnNames="usage_type_id"
+                                 baseTableName="property_unit"
+                                 constraintName="fk_property_unit_usage_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lookup"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="property_unit"
+                                 constraintName="fk_property_unit_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lookup"/>
+
+        <addForeignKeyConstraint baseColumnNames="mortgage_id"
+                                 baseTableName="property_unit"
+                                 constraintName="fk_property_unit_mortgage_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mortgage"/>
+
+        <addForeignKeyConstraint baseColumnNames="rent_roll_id"
+                                 baseTableName="property_unit"
+                                 constraintName="fk_property_unit_rent_roll_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rent_roll"/>
+
+        <addForeignKeyConstraint baseColumnNames="property_units_id"
+                                 baseTableName="property_unit_lease"
+                                 constraintName="fk_property_unit_lease_property_units_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="property_unit"/>
+        <addForeignKeyConstraint baseColumnNames="leases_id"
+                                 baseTableName="property_unit_lease"
+                                 constraintName="fk_property_unit_lease_leases_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lease"/>
+        
+        <addForeignKeyConstraint baseColumnNames="property_units_id"
+                                 baseTableName="property_unit_owner"
+                                 constraintName="fk_property_unit_owner_property_units_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="property_unit"/>
+        <addForeignKeyConstraint baseColumnNames="owners_id"
+                                 baseTableName="property_unit_owner"
+                                 constraintName="fk_property_unit_owner_owners_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="land_lord"/>
+        
+    </changeSet>
+</databaseChangeLog>

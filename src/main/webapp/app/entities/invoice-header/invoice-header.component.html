@@ -1,0 +1,126 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="promalyV5App.invoiceHeader.home.title">Invoice Headers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-invoice-header" [routerLink]="['/invoice-header/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="promalyV5App.invoiceHeader.home.createLabel">
+            Create new Invoice Header
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'promalyV5App.invoiceHeader.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="invoiceHeaders">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="planId"><span jhiTranslate="promalyV5App.invoiceHeader.planId">Plan Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="serviceproviderId"><span jhiTranslate="promalyV5App.invoiceHeader.serviceproviderId">Serviceprovider Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="invoiceNum"><span jhiTranslate="promalyV5App.invoiceHeader.invoiceNum">Invoice Num</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="invoiceDate"><span jhiTranslate="promalyV5App.invoiceHeader.invoiceDate">Invoice Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="invoiceStatus"><span jhiTranslate="promalyV5App.invoiceHeader.invoiceStatus">Invoice Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fromDate"><span jhiTranslate="promalyV5App.invoiceHeader.fromDate">From Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="toDate"><span jhiTranslate="promalyV5App.invoiceHeader.toDate">To Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="amount"><span jhiTranslate="promalyV5App.invoiceHeader.amount">Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fees"><span jhiTranslate="promalyV5App.invoiceHeader.fees">Fees</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="currency"><span jhiTranslate="promalyV5App.invoiceHeader.currency">Currency</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentTerms"><span jhiTranslate="promalyV5App.invoiceHeader.paymentTerms">Payment Terms</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentStatus"><span jhiTranslate="promalyV5App.invoiceHeader.paymentStatus">Payment Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentMethod"><span jhiTranslate="promalyV5App.invoiceHeader.paymentMethod">Payment Method</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentDate"><span jhiTranslate="promalyV5App.invoiceHeader.paymentDate">Payment Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentAmount"><span jhiTranslate="promalyV5App.invoiceHeader.paymentAmount">Payment Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentRef"><span jhiTranslate="promalyV5App.invoiceHeader.paymentRef">Payment Ref</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="comments"><span jhiTranslate="promalyV5App.invoiceHeader.comments">Comments</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="adhoc"><span jhiTranslate="promalyV5App.invoiceHeader.adhoc">Adhoc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="billToCompany"><span jhiTranslate="promalyV5App.invoiceHeader.billToCompany">Bill To Company</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="legacy"><span jhiTranslate="promalyV5App.invoiceHeader.legacy">Legacy</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="payor"><span jhiTranslate="promalyV5App.invoiceHeader.payor">Payor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paymentComments"><span jhiTranslate="promalyV5App.invoiceHeader.paymentComments">Payment Comments</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="emailDate"><span jhiTranslate="promalyV5App.invoiceHeader.emailDate">Email Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="emailAddress"><span jhiTranslate="promalyV5App.invoiceHeader.emailAddress">Email Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="keyHash"><span jhiTranslate="promalyV5App.invoiceHeader.keyHash">Key Hash</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let invoiceHeader of invoiceHeaders ;trackBy: trackId">
+                <td><a [routerLink]="['/invoice-header', invoiceHeader.id, 'view' ]">{{invoiceHeader.id}}</a></td>
+                <td>{{invoiceHeader.planId}}</td>
+                <td>{{invoiceHeader.serviceproviderId}}</td>
+                <td>{{invoiceHeader.invoiceNum}}</td>
+                <td>{{invoiceHeader.invoiceDate | date:'mediumDate'}}</td>
+                <td>{{invoiceHeader.invoiceStatus}}</td>
+                <td>{{invoiceHeader.fromDate | date:'mediumDate'}}</td>
+                <td>{{invoiceHeader.toDate | date:'mediumDate'}}</td>
+                <td>{{invoiceHeader.amount}}</td>
+                <td>{{invoiceHeader.fees}}</td>
+                <td>{{invoiceHeader.currency}}</td>
+                <td>{{invoiceHeader.paymentTerms}}</td>
+                <td>{{invoiceHeader.paymentStatus}}</td>
+                <td>{{invoiceHeader.paymentMethod}}</td>
+                <td>{{invoiceHeader.paymentDate | date:'mediumDate'}}</td>
+                <td>{{invoiceHeader.paymentAmount}}</td>
+                <td>{{invoiceHeader.paymentRef}}</td>
+                <td>{{invoiceHeader.comments}}</td>
+                <td>{{invoiceHeader.adhoc}}</td>
+                <td>{{invoiceHeader.billToCompany}}</td>
+                <td>{{invoiceHeader.legacy}}</td>
+                <td>{{invoiceHeader.payor}}</td>
+                <td>{{invoiceHeader.paymentComments}}</td>
+                <td>{{invoiceHeader.emailDate}}</td>
+                <td>{{invoiceHeader.emailAddress}}</td>
+                <td>{{invoiceHeader.keyHash}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/invoice-header', invoiceHeader.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/invoice-header', invoiceHeader.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'invoice-header/'+ invoiceHeader.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="invoiceHeaders && invoiceHeaders.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

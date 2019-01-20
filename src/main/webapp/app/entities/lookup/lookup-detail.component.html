@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="lookup">
+            <h2><span jhiTranslate="promalyV5App.lookup.detail.title">Lookup</span> {{lookup.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.lookup.companyId">Company Id</span></dt>
+                <dd>
+                    <span>{{lookup.companyId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookup.lookupTypesId">Lookup Types Id</span></dt>
+                <dd>
+                    <span>{{lookup.lookupTypesId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookup.lookupCode">Lookup Code</span></dt>
+                <dd>
+                    <span>{{lookup.lookupCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookup.lookupValue">Lookup Value</span></dt>
+                <dd>
+                    <span>{{lookup.lookupValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookup.flex1">Flex 1</span></dt>
+                <dd>
+                    <span>{{lookup.flex1}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookup.flex2">Flex 2</span></dt>
+                <dd>
+                    <span>{{lookup.flex2}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookup.flex3">Flex 3</span></dt>
+                <dd>
+                    <span>{{lookup.flex3}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookup.flex4">Flex 4</span></dt>
+                <dd>
+                    <span>{{lookup.flex4}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookup.version">Version</span></dt>
+                <dd>
+                    <span>{{lookup.version}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lookup.contract">Contract</span></dt>
+                <dd>
+                    <div *ngIf="lookup.contractId">
+                        <a [routerLink]="['/contract', lookup.contractId, 'view']">{{lookup.contractId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/lookup', lookup.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

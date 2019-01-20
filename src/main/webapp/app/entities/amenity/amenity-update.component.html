@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-amenity-heading" jhiTranslate="promalyV5App.amenity.home.createOrEditLabel">Create or edit a Amenity</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!amenity.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="amenity.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.amenity.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="amenity.description" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.amenity.property" for="field_property">Property</label>
+                    <select class="form-control" id="field_property" name="property" [(ngModel)]="amenity.propertyId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="propertyOption.id" *ngFor="let propertyOption of properties; trackBy: trackPropertyById">{{propertyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.amenity.building" for="field_building">Building</label>
+                    <select class="form-control" id="field_building" name="building" [(ngModel)]="amenity.buildingId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="buildingOption.id" *ngFor="let buildingOption of buildings; trackBy: trackBuildingById">{{buildingOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.amenity.propertyUnit" for="field_propertyUnit">Property Unit</label>
+                    <select class="form-control" id="field_propertyUnit" name="propertyUnit" [(ngModel)]="amenity.propertyUnitId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="propertyUnitOption.id" *ngFor="let propertyUnitOption of propertyunits; trackBy: trackPropertyUnitById">{{propertyUnitOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

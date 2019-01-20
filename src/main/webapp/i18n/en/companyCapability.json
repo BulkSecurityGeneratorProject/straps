@@ -1,0 +1,25 @@
+{
+    "promalyV5App": {
+        "companyCapability": {
+            "home": {
+                "title": "Company Capabilities",
+                "createLabel": "Create a new Company Capability",
+                "createOrEditLabel": "Create or edit a Company Capability",
+                "search": "Search for Company Capability"
+            },
+            "created": "A new Company Capability is created with identifier {{ param }}",
+            "updated": "A Company Capability is updated with identifier {{ param }}",
+            "deleted": "A Company Capability is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Company Capability {{ id }}?"
+            },
+            "detail": {
+                "title": "Company Capability"
+            },
+            "capabilityId": "Capability Id",
+            "license": "License",
+            "certfication": "Certfication",
+            "company": "Company"
+        }
+    }
+}

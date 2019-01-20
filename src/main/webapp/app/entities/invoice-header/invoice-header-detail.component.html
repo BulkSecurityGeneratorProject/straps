@@ -1,0 +1,123 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invoiceHeader">
+            <h2><span jhiTranslate="promalyV5App.invoiceHeader.detail.title">Invoice Header</span> {{invoiceHeader.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.planId">Plan Id</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.planId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.serviceproviderId">Serviceprovider Id</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.serviceproviderId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.invoiceNum">Invoice Num</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.invoiceNum}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.invoiceDate">Invoice Date</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.invoiceDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.invoiceStatus">Invoice Status</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.invoiceStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.fromDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.toDate">To Date</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.toDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.amount">Amount</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.fees">Fees</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.fees}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.currency">Currency</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.currency}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.paymentTerms">Payment Terms</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.paymentTerms}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.paymentStatus">Payment Status</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.paymentStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.paymentMethod">Payment Method</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.paymentMethod}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.paymentDate">Payment Date</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.paymentDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.paymentAmount">Payment Amount</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.paymentAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.paymentRef">Payment Ref</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.paymentRef}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.comments">Comments</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.comments}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.adhoc">Adhoc</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.adhoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.billToCompany">Bill To Company</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.billToCompany}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.legacy">Legacy</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.legacy}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.payor">Payor</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.payor}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.paymentComments">Payment Comments</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.paymentComments}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.emailDate">Email Date</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.emailDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.emailAddress">Email Address</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.emailAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.invoiceHeader.keyHash">Key Hash</span></dt>
+                <dd>
+                    <span>{{invoiceHeader.keyHash}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invoice-header', invoiceHeader.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

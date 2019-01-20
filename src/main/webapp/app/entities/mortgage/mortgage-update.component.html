@@ -1,0 +1,115 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-mortgage-heading" jhiTranslate="promalyV5App.mortgage.home.createOrEditLabel">Create or edit a Mortgage</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!mortgage.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="mortgage.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.companyId" for="field_companyId">Company Id</label>
+                    <input type="number" class="form-control" name="companyId" id="field_companyId"
+                        [(ngModel)]="mortgage.companyId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.propertyUnitsId" for="field_propertyUnitsId">Property Units Id</label>
+                    <input type="number" class="form-control" name="propertyUnitsId" id="field_propertyUnitsId"
+                        [(ngModel)]="mortgage.propertyUnitsId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.borrower" for="field_borrower">Borrower</label>
+                    <input type="number" class="form-control" name="borrower" id="field_borrower"
+                        [(ngModel)]="mortgage.borrower" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.lender" for="field_lender">Lender</label>
+                    <input type="number" class="form-control" name="lender" id="field_lender"
+                        [(ngModel)]="mortgage.lender" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.startDate" for="field_startDate">Start Date</label>
+                    <div class="input-group">
+                        <input id="field_startDate" type="text" class="form-control" name="startDate" ngbDatepicker  #startDateDp="ngbDatepicker" [(ngModel)]="mortgage.startDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.endDate" for="field_endDate">End Date</label>
+                    <div class="input-group">
+                        <input id="field_endDate" type="text" class="form-control" name="endDate" ngbDatepicker  #endDateDp="ngbDatepicker" [(ngModel)]="mortgage.endDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                        [(ngModel)]="mortgage.amount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.interestRate" for="field_interestRate">Interest Rate</label>
+                    <input type="number" class="form-control" name="interestRate" id="field_interestRate"
+                        [(ngModel)]="mortgage.interestRate" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.balloonPayment" for="field_balloonPayment">Balloon Payment</label>
+                    <input type="number" class="form-control" name="balloonPayment" id="field_balloonPayment"
+                        [(ngModel)]="mortgage.balloonPayment" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.refinanceOption" for="field_refinanceOption">Refinance Option</label>
+                    <input type="checkbox" class="form-control" name="refinanceOption" id="field_refinanceOption"
+                        [(ngModel)]="mortgage.refinanceOption" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.amortizationLengthYrs" for="field_amortizationLengthYrs">Amortization Length Yrs</label>
+                    <input type="number" class="form-control" name="amortizationLengthYrs" id="field_amortizationLengthYrs"
+                        [(ngModel)]="mortgage.amortizationLengthYrs" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.version" for="field_version">Version</label>
+                    <input type="text" class="form-control" name="version" id="field_version"
+                        [(ngModel)]="mortgage.version" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.property" for="field_property">Property</label>
+                    <select class="form-control" id="field_property" name="property" [(ngModel)]="mortgage.propertyId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="propertyOption.id" *ngFor="let propertyOption of properties; trackBy: trackPropertyById">{{propertyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.building" for="field_building">Building</label>
+                    <select class="form-control" id="field_building" name="building" [(ngModel)]="mortgage.buildingId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="buildingOption.id" *ngFor="let buildingOption of buildings; trackBy: trackBuildingById">{{buildingOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.mortgage.propertyUnit" for="field_propertyUnit">Property Unit</label>
+                    <select class="form-control" id="field_propertyUnit" name="propertyUnit" [(ngModel)]="mortgage.propertyUnitId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="propertyUnitOption.id" *ngFor="let propertyUnitOption of propertyunits; trackBy: trackPropertyUnitById">{{propertyUnitOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

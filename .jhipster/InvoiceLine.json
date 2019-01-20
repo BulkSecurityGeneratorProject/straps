@@ -1,0 +1,52 @@
+{
+    "name": "InvoiceLine",
+    "fields": [
+        {
+            "fieldName": "lineNum",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "invoiceId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "planId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "categoryId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "rate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181221193942",
+    "entityTableName": "invoice_line",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch"
+}

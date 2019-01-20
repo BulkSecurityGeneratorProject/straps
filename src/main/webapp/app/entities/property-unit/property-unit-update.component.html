@@ -1,0 +1,188 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-property-unit-heading" jhiTranslate="promalyV5App.propertyUnit.home.createOrEditLabel">Create or edit a Property Unit</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!propertyUnit.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="propertyUnit.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.unitNo" for="field_unitNo">Unit No</label>
+                    <input type="text" class="form-control" name="unitNo" id="field_unitNo"
+                        [(ngModel)]="propertyUnit.unitNo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="propertyUnit.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.floors" for="field_floors">Floors</label>
+                    <input type="number" class="form-control" name="floors" id="field_floors"
+                        [(ngModel)]="propertyUnit.floors" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.netArea" for="field_netArea">Net Area</label>
+                    <input type="number" class="form-control" name="netArea" id="field_netArea"
+                        [(ngModel)]="propertyUnit.netArea" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.grossArea" for="field_grossArea">Gross Area</label>
+                    <input type="number" class="form-control" name="grossArea" id="field_grossArea"
+                        [(ngModel)]="propertyUnit.grossArea" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.residential" for="field_residential">Residential</label>
+                    <input type="checkbox" class="form-control" name="residential" id="field_residential"
+                        [(ngModel)]="propertyUnit.residential" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.totalRooms" for="field_totalRooms">Total Rooms</label>
+                    <input type="number" class="form-control" name="totalRooms" id="field_totalRooms"
+                        [(ngModel)]="propertyUnit.totalRooms" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.noOfBrs" for="field_noOfBrs">No Of Brs</label>
+                    <input type="number" class="form-control" name="noOfBrs" id="field_noOfBrs"
+                        [(ngModel)]="propertyUnit.noOfBrs" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.noOfFb" for="field_noOfFb">No Of Fb</label>
+                    <input type="number" class="form-control" name="noOfFb" id="field_noOfFb"
+                        [(ngModel)]="propertyUnit.noOfFb" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.noOfHb" for="field_noOfHb">No Of Hb</label>
+                    <input type="number" class="form-control" name="noOfHb" id="field_noOfHb"
+                        [(ngModel)]="propertyUnit.noOfHb" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.propertyMailboxNum" for="field_propertyMailboxNum">Property Mailbox Num</label>
+                    <input type="text" class="form-control" name="propertyMailboxNum" id="field_propertyMailboxNum"
+                        [(ngModel)]="propertyUnit.propertyMailboxNum" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.propertyParkingLotNum" for="field_propertyParkingLotNum">Property Parking Lot Num</label>
+                    <input type="text" class="form-control" name="propertyParkingLotNum" id="field_propertyParkingLotNum"
+                        [(ngModel)]="propertyUnit.propertyParkingLotNum" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.gasHeating" for="field_gasHeating">Gas Heating</label>
+                    <input type="checkbox" class="form-control" name="gasHeating" id="field_gasHeating"
+                        [(ngModel)]="propertyUnit.gasHeating" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.whoPaysHeating" for="field_whoPaysHeating">Who Pays Heating</label>
+                    <input type="number" class="form-control" name="whoPaysHeating" id="field_whoPaysHeating"
+                        [(ngModel)]="propertyUnit.whoPaysHeating" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.electric" for="field_electric">Electric</label>
+                    <input type="checkbox" class="form-control" name="electric" id="field_electric"
+                        [(ngModel)]="propertyUnit.electric" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.whoPaysElectric" for="field_whoPaysElectric">Who Pays Electric</label>
+                    <input type="number" class="form-control" name="whoPaysElectric" id="field_whoPaysElectric"
+                        [(ngModel)]="propertyUnit.whoPaysElectric" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.water" for="field_water">Water</label>
+                    <input type="checkbox" class="form-control" name="water" id="field_water"
+                        [(ngModel)]="propertyUnit.water" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.whoPaysWater" for="field_whoPaysWater">Who Pays Water</label>
+                    <input type="number" class="form-control" name="whoPaysWater" id="field_whoPaysWater"
+                        [(ngModel)]="propertyUnit.whoPaysWater" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.lastRenovated" for="field_lastRenovated">Last Renovated</label>
+                    <div class="input-group">
+                        <input id="field_lastRenovated" type="text" class="form-control" name="lastRenovated" ngbDatepicker  #lastRenovatedDp="ngbDatepicker" [(ngModel)]="propertyUnit.lastRenovated"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="lastRenovatedDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.currentRentPerSqft" for="field_currentRentPerSqft">Current Rent Per Sqft</label>
+                    <input type="number" class="form-control" name="currentRentPerSqft" id="field_currentRentPerSqft"
+                        [(ngModel)]="propertyUnit.currentRentPerSqft" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.version" for="field_version">Version</label>
+                    <input type="number" class="form-control" name="version" id="field_version"
+                        [(ngModel)]="propertyUnit.version" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.building" for="field_building">Building</label>
+                    <select class="form-control" id="field_building" name="building" [(ngModel)]="propertyUnit.buildingId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="buildingOption.id" *ngFor="let buildingOption of buildings; trackBy: trackBuildingById">{{buildingOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.address" for="field_address">Address</label>
+                    <select class="form-control" id="field_address" name="address" [(ngModel)]="propertyUnit.addressId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="addressOption.id" *ngFor="let addressOption of addresses; trackBy: trackAddressById">{{addressOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.usageType" for="field_usageType">Usage Type</label>
+                    <select class="form-control" id="field_usageType" name="usageType" [(ngModel)]="propertyUnit.usageTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lookupOption.id" *ngFor="let lookupOption of usagetypes; trackBy: trackLookupById">{{lookupOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" [(ngModel)]="propertyUnit.statusId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lookupOption.id" *ngFor="let lookupOption of statuses; trackBy: trackLookupById">{{lookupOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.mortgage" for="field_mortgage">Mortgage</label>
+                    <select class="form-control" id="field_mortgage" name="mortgage" [(ngModel)]="propertyUnit.mortgageId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="mortgageOption.id" *ngFor="let mortgageOption of mortgages; trackBy: trackMortgageById">{{mortgageOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="promalyV5App.propertyUnit.rentRoll" for="field_rentRoll">Rent Roll</label>
+                    <select class="form-control" id="field_rentRoll" name="rentRoll" [(ngModel)]="propertyUnit.rentRollId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="rentRollOption.id" *ngFor="let rentRollOption of rentrolls; trackBy: trackRentRollById">{{rentRollOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="promalyV5App.propertyUnit.lease" for="field_lease">Lease</label>
+                    <select class="form-control" id="field_lease" multiple name="lease" [(ngModel)]="propertyUnit.leases">
+                        <option [ngValue]="getSelected(propertyUnit.leases, leaseOption)" *ngFor="let leaseOption of leases; trackBy: trackLeaseById">{{leaseOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="promalyV5App.propertyUnit.owner" for="field_owner">Owner</label>
+                    <select class="form-control" id="field_owner" multiple name="owner" [(ngModel)]="propertyUnit.owners">
+                        <option [ngValue]="getSelected(propertyUnit.owners, landLordOption)" *ngFor="let landLordOption of landlords; trackBy: trackLandLordById">{{landLordOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

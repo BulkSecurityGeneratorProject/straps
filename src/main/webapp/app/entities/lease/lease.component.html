@@ -1,0 +1,142 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="promalyV5App.lease.home.title">Leases</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-lease" [routerLink]="['/lease/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="promalyV5App.lease.home.createLabel">
+            Create new Lease
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'promalyV5App.lease.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="leases">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="leaseSignedDate"><span jhiTranslate="promalyV5App.lease.leaseSignedDate">Lease Signed Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="landlordsId"><span jhiTranslate="promalyV5App.lease.landlordsId">Landlords Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="landlordAgent"><span jhiTranslate="promalyV5App.lease.landlordAgent">Landlord Agent</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tenantsId"><span jhiTranslate="promalyV5App.lease.tenantsId">Tenants Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="addressId"><span jhiTranslate="promalyV5App.lease.addressId">Address Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numOccupants"><span jhiTranslate="promalyV5App.lease.numOccupants">Num Occupants</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="leaseTerm"><span jhiTranslate="promalyV5App.lease.leaseTerm">Lease Term</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="leaseStartDate"><span jhiTranslate="promalyV5App.lease.leaseStartDate">Lease Start Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="leaseEndDate"><span jhiTranslate="promalyV5App.lease.leaseEndDate">Lease End Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rentAmount"><span jhiTranslate="promalyV5App.lease.rentAmount">Rent Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rentPeriod"><span jhiTranslate="promalyV5App.lease.rentPeriod">Rent Period</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalTermRent"><span jhiTranslate="promalyV5App.lease.totalTermRent">Total Term Rent</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rentEscalationPerc"><span jhiTranslate="promalyV5App.lease.rentEscalationPerc">Rent Escalation Perc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="proRataStartDate"><span jhiTranslate="promalyV5App.lease.proRataStartDate">Pro Rata Start Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="proRataRentAmount"><span jhiTranslate="promalyV5App.lease.proRataRentAmount">Pro Rata Rent Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="proRataEndDate"><span jhiTranslate="promalyV5App.lease.proRataEndDate">Pro Rata End Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="additionalCharges"><span jhiTranslate="promalyV5App.lease.additionalCharges">Additional Charges</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="securityDeposit"><span jhiTranslate="promalyV5App.lease.securityDeposit">Security Deposit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="petsAllowed"><span jhiTranslate="promalyV5App.lease.petsAllowed">Pets Allowed</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="petType"><span jhiTranslate="promalyV5App.lease.petType">Pet Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="petDescription"><span jhiTranslate="promalyV5App.lease.petDescription">Pet Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="water"><span jhiTranslate="promalyV5App.lease.water">Water</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gas"><span jhiTranslate="promalyV5App.lease.gas">Gas</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="electric"><span jhiTranslate="promalyV5App.lease.electric">Electric</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="otherUtilities"><span jhiTranslate="promalyV5App.lease.otherUtilities">Other Utilities</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="terminationNoticePeriod"><span jhiTranslate="promalyV5App.lease.terminationNoticePeriod">Termination Notice Period</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="agencyCompany"><span jhiTranslate="promalyV5App.lease.agencyCompany">Agency Company</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="managementCompany"><span jhiTranslate="promalyV5App.lease.managementCompany">Management Company</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propertyId"><span jhiTranslate="promalyV5App.lease.propertyId">Property Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="additionalNotes"><span jhiTranslate="promalyV5App.lease.additionalNotes">Additional Notes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeId"><span jhiTranslate="promalyV5App.lease.type">Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let lease of leases ;trackBy: trackId">
+                <td><a [routerLink]="['/lease', lease.id, 'view' ]">{{lease.id}}</a></td>
+                <td>{{lease.leaseSignedDate | date:'mediumDate'}}</td>
+                <td>{{lease.landlordsId}}</td>
+                <td>{{lease.landlordAgent}}</td>
+                <td>{{lease.tenantsId}}</td>
+                <td>{{lease.addressId}}</td>
+                <td>{{lease.numOccupants}}</td>
+                <td>{{lease.leaseTerm}}</td>
+                <td>{{lease.leaseStartDate | date:'mediumDate'}}</td>
+                <td>{{lease.leaseEndDate | date:'mediumDate'}}</td>
+                <td>{{lease.rentAmount}}</td>
+                <td>{{lease.rentPeriod}}</td>
+                <td>{{lease.totalTermRent}}</td>
+                <td>{{lease.rentEscalationPerc}}</td>
+                <td>{{lease.proRataStartDate}}</td>
+                <td>{{lease.proRataRentAmount}}</td>
+                <td>{{lease.proRataEndDate | date:'mediumDate'}}</td>
+                <td>{{lease.additionalCharges}}</td>
+                <td>{{lease.securityDeposit}}</td>
+                <td>{{lease.petsAllowed}}</td>
+                <td>{{lease.petType}}</td>
+                <td>{{lease.petDescription}}</td>
+                <td>{{lease.water}}</td>
+                <td>{{lease.gas}}</td>
+                <td>{{lease.electric}}</td>
+                <td>{{lease.otherUtilities}}</td>
+                <td>{{lease.terminationNoticePeriod}}</td>
+                <td>{{lease.agencyCompany}}</td>
+                <td>{{lease.managementCompany}}</td>
+                <td>{{lease.propertyId}}</td>
+                <td>{{lease.additionalNotes}}</td>
+                <td>
+                    <div *ngIf="lease.typeId">
+                        <a [routerLink]="['../lookup', lease.typeId , 'view' ]" >{{lease.typeId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/lease', lease.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/lease', lease.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'lease/'+ lease.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="leases && leases.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

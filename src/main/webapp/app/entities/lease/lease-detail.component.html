@@ -1,0 +1,149 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="lease">
+            <h2><span jhiTranslate="promalyV5App.lease.detail.title">Lease</span> {{lease.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="promalyV5App.lease.leaseSignedDate">Lease Signed Date</span></dt>
+                <dd>
+                    <span>{{lease.leaseSignedDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.landlordsId">Landlords Id</span></dt>
+                <dd>
+                    <span>{{lease.landlordsId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.landlordAgent">Landlord Agent</span></dt>
+                <dd>
+                    <span>{{lease.landlordAgent}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.tenantsId">Tenants Id</span></dt>
+                <dd>
+                    <span>{{lease.tenantsId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.addressId">Address Id</span></dt>
+                <dd>
+                    <span>{{lease.addressId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.numOccupants">Num Occupants</span></dt>
+                <dd>
+                    <span>{{lease.numOccupants}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.leaseTerm">Lease Term</span></dt>
+                <dd>
+                    <span>{{lease.leaseTerm}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.leaseStartDate">Lease Start Date</span></dt>
+                <dd>
+                    <span>{{lease.leaseStartDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.leaseEndDate">Lease End Date</span></dt>
+                <dd>
+                    <span>{{lease.leaseEndDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.rentAmount">Rent Amount</span></dt>
+                <dd>
+                    <span>{{lease.rentAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.rentPeriod">Rent Period</span></dt>
+                <dd>
+                    <span>{{lease.rentPeriod}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.totalTermRent">Total Term Rent</span></dt>
+                <dd>
+                    <span>{{lease.totalTermRent}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.rentEscalationPerc">Rent Escalation Perc</span></dt>
+                <dd>
+                    <span>{{lease.rentEscalationPerc}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.proRataStartDate">Pro Rata Start Date</span></dt>
+                <dd>
+                    <span>{{lease.proRataStartDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.proRataRentAmount">Pro Rata Rent Amount</span></dt>
+                <dd>
+                    <span>{{lease.proRataRentAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.proRataEndDate">Pro Rata End Date</span></dt>
+                <dd>
+                    <span>{{lease.proRataEndDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.additionalCharges">Additional Charges</span></dt>
+                <dd>
+                    <span>{{lease.additionalCharges}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.securityDeposit">Security Deposit</span></dt>
+                <dd>
+                    <span>{{lease.securityDeposit}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.petsAllowed">Pets Allowed</span></dt>
+                <dd>
+                    <span>{{lease.petsAllowed}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.petType">Pet Type</span></dt>
+                <dd>
+                    <span>{{lease.petType}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.petDescription">Pet Description</span></dt>
+                <dd>
+                    <span>{{lease.petDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.water">Water</span></dt>
+                <dd>
+                    <span>{{lease.water}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.gas">Gas</span></dt>
+                <dd>
+                    <span>{{lease.gas}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.electric">Electric</span></dt>
+                <dd>
+                    <span>{{lease.electric}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.otherUtilities">Other Utilities</span></dt>
+                <dd>
+                    <span>{{lease.otherUtilities}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.terminationNoticePeriod">Termination Notice Period</span></dt>
+                <dd>
+                    <span>{{lease.terminationNoticePeriod}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.agencyCompany">Agency Company</span></dt>
+                <dd>
+                    <span>{{lease.agencyCompany}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.managementCompany">Management Company</span></dt>
+                <dd>
+                    <span>{{lease.managementCompany}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.propertyId">Property Id</span></dt>
+                <dd>
+                    <span>{{lease.propertyId}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.additionalNotes">Additional Notes</span></dt>
+                <dd>
+                    <span>{{lease.additionalNotes}}</span>
+                </dd>
+                <dt><span jhiTranslate="promalyV5App.lease.type">Type</span></dt>
+                <dd>
+                    <div *ngIf="lease.typeId">
+                        <a [routerLink]="['/lookup', lease.typeId, 'view']">{{lease.typeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/lease', lease.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

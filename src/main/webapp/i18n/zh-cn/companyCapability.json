@@ -1,0 +1,25 @@
+{
+    "promalyV5App": {
+        "companyCapability": {
+            "home": {
+                "title": "Company Capabilities",
+                "createLabel": "创建新 Company Capability",
+                "createOrEditLabel": "创建或编辑 Company Capability",
+                "search": "查找 Company Capability"
+            },
+            "created": "Company Capability {{ param }} 创建成功",
+            "updated": "Company Capability {{ param }} 更新成功",
+            "deleted": "Company Capability {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Company Capability {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Company Capability"
+            },
+            "capabilityId": "Capability Id",
+            "license": "License",
+            "certfication": "Certfication",
+            "company": "Company"
+        }
+    }
+}

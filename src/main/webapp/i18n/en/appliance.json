@@ -1,0 +1,26 @@
+{
+    "promalyV5App": {
+        "appliance": {
+            "home": {
+                "title": "Appliances",
+                "createLabel": "Create a new Appliance",
+                "createOrEditLabel": "Create or edit a Appliance",
+                "search": "Search for Appliance"
+            },
+            "created": "A new Appliance is created with identifier {{ param }}",
+            "updated": "A Appliance is updated with identifier {{ param }}",
+            "deleted": "A Appliance is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Appliance {{ id }}?"
+            },
+            "detail": {
+                "title": "Appliance"
+            },
+            "description": "Description",
+            "serialNum": "Serial Num",
+            "warrantyStartDate": "Warranty Start Date",
+            "warrantyEndDate": "Warranty End Date",
+            "propertyUnit": "Property Unit"
+        }
+    }
+}

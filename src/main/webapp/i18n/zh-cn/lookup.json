@@ -1,0 +1,31 @@
+{
+    "promalyV5App": {
+        "lookup": {
+            "home": {
+                "title": "Lookups",
+                "createLabel": "创建新 Lookup",
+                "createOrEditLabel": "创建或编辑 Lookup",
+                "search": "查找 Lookup"
+            },
+            "created": "Lookup {{ param }} 创建成功",
+            "updated": "Lookup {{ param }} 更新成功",
+            "deleted": "Lookup {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Lookup {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Lookup"
+            },
+            "companyId": "Company Id",
+            "lookupTypesId": "Lookup Types Id",
+            "lookupCode": "Lookup Code",
+            "lookupValue": "Lookup Value",
+            "flex1": "Flex 1",
+            "flex2": "Flex 2",
+            "flex3": "Flex 3",
+            "flex4": "Flex 4",
+            "version": "Version",
+            "contract": "Contract"
+        }
+    }
+}
